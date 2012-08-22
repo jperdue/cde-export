@@ -15,7 +15,7 @@ namespace cde_export
 		{
 			Setup();
 
-			GetDistricts().OrderBy(d => d.id).ForEach(d => WriteFile(d));
+			Merge(GetDistricts()).OrderBy(d => d.id).ForEach(d => WriteFile(d));
 			Console.ReadKey();
 		}
 
@@ -30,19 +30,23 @@ namespace cde_export
 
 		static void WriteFile(District district)
 		{
-			var file = output + "/" + district.id + ".txt";
-			if (File.Exists(file))
+			if (district.rows.Count > 0)
 			{
-				File.AppendAllLines(file, district.rows);
-			}
-			else
-			{
+				var file = output + "/" + district.id + ".txt";
 				using (var writer = new StreamWriter(file))
 				{
 					Console.WriteLine(district.ToString());
 					writer.WriteLine(district.header);
 					district.rows.ForEach(r => writer.WriteLine(r));
 				}
+			}
+		}
+
+		static IEnumerable<District> Merge(IEnumerable<District> source) {
+			foreach(var group in source.GroupBy(d => d.id)) {
+				var district = group.First();
+				group.Skip(1).ForEach(d => district.rows.AddRange(d.rows));
+				yield return district;
 			}
 		}
 
