@@ -11,12 +11,18 @@ namespace cde.district.validation
 	{
 		public IEnumerable<Result> CompareFiles(string filename1, string filename2)
 		{
-			return Extension.GetRows(filename1).EnumerateWith(Extension.GetRows(filename2), (r1, r2) => DiffRows(r1, r2)).Where(r => r != null);
+			return DiffRows(Extension.GetRows(filename1), Extension.GetRows(filename2));
 		}
 
 		public IEnumerable<Result> CompareFiles(Stream stream1, Stream stream2)
 		{
-			return Extension.GetRows(stream1).EnumerateWith(Extension.GetRows(stream2), (r1, r2) => DiffRows(r1, r2)).Where(r => r != null);
+			return DiffRows(Extension.GetRows(stream1), Extension.GetRows(stream2));
+		}
+
+		IEnumerable<Result> DiffRows(IEnumerable<Row> rows1, IEnumerable<Row> rows2)
+		{
+			var rows = rows1.Join(rows2, r => r.Name, r => r.Name, (r1, r2) => new Tuple<Row, Row>(r1, r2));
+			return rows.Select(t => DiffRows(t.Item1, t.Item2)).Where(r => r != null);			
 		}
 
 		Result DiffRows(Row row1, Row row2)
