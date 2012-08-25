@@ -9,7 +9,6 @@ namespace cde_web.Filters
 	public sealed class InitializeSimpleMembershipAttribute : ActionFilterAttribute
 	{
 		private static object _initializerLock = new object();
-		private static bool _isInitialized;
 
 		public override void OnActionExecuting(ActionExecutingContext filterContext)
 		{
