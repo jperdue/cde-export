@@ -55,7 +55,7 @@ namespace cde.export
 			Worksheet worksheet = new Worksheet(district.id);
 			foreach (var parts in district.GetRows().Select(r => r.Split('\t')))
 			{
-				Row row = new Row();
+				ExcelGenerator.SpreadSheet.Row row = new ExcelGenerator.SpreadSheet.Row();
 				parts.ForEach(p => row.Cells.Add(new Cell(p)));
 				worksheet.Rows.Add(row);
 			}
