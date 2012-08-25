@@ -33,6 +33,31 @@ namespace cde_web.Controllers
 			return RedirectToAction("Index");
 		}
 
+		[HttpPost]
+		public ActionResult Diff(IEnumerable<HttpPostedFileBase> files)
+		{
+			ViewBag.Message = "Results";
+
+			var fileList = files.ToList();
+			if (fileList.Count == 2)
+			{
+				var file1 = files.ToList()[0];
+				var file2 = files.ToList()[1];
+
+				if (file1.ContentLength > 0 && file2.ContentLength > 0)
+				{
+					return View(Diff(file1.InputStream, file2.InputStream));
+				}
+			}
+
+			return RedirectToAction("Index");
+		}
+
+		List<Result> Diff(Stream stream1, Stream stream2)
+		{
+			return new Differ().CompareFiles(stream1, stream2).ToList();
+		}
+
 		List<Result> Test(Stream stream)
 		{
 			var results = new List<Result>();

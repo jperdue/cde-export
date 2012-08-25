@@ -5,9 +5,7 @@ using System.Web;
 
 namespace cde_web.Models
 {
-	public class Result
+	public class Holder
 	{
-		public string Title;
-		public List<string> Errors;
 	}
 }

@@ -77,14 +77,14 @@ namespace cde.utils
 			}
 		}
 
-		public static void EnumerateWith<T>(this IEnumerable<T> left, IEnumerable<T> right, Action<T, T> action)
+		public static IEnumerable<R> EnumerateWith<T, R>(this IEnumerable<T> left, IEnumerable<T> right, Func<T, T, R> selector)
 		{
 			using (IEnumerator<T> l = left.GetEnumerator(),
 					r = right.GetEnumerator())
 			{
 				while (l.MoveNext() && r.MoveNext())
 				{
-					action(l.Current, r.Current);
+					yield return selector(l.Current, r.Current);
 				}
 			}
 		}

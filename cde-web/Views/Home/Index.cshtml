@@ -13,9 +13,24 @@
             </p>
 
 			<form action="home/test" method="post" enctype="multipart/form-data">
+				<h1>Validation</h1>
 				<p>
   					<label for="file">Filename:</label>
 					<input type="file" name="file" id="file" />
+					<input type="submit" />
+				</p>
+			</form>
+
+			<form action="home/diff" method="post" enctype="multipart/form-data">
+				<h1>File Differences</h1>
+				<p>
+  					<label for="file">Filename 1:</label>
+					<input type="file" name="files" id="file1" />
+					<br />
+
+					<label for="file">Filename 2:</label>
+					<input type="file" name="files" id="file2" />
+
 					<input type="submit" />
 				</p>
 			</form>
