@@ -38,19 +38,17 @@ namespace cde.district.validation.tests
 			Columns.ForEach(t => CheckRating(row, t.Item1, t.Item2, errors));
 		}
 
-		void CheckRating(Row row, string ratingColumn, string percentOfPointsRating, List<string> errors)
+		void CheckRating(Row row, string ratingColumn, string percentOfPointsRatingColumn, List<string> errors)
 		{
-			var rating = row[ratingColumn];
-			var percentText = row[percentOfPointsRating];
-
-			if (AssertThat(!String.IsNullOrEmpty(rating), row, "Rating undefined for " + ratingColumn, errors) &&
-				AssertThat(!String.IsNullOrEmpty(percentText), row, "Percent undefined for " + percentOfPointsRating, errors))
+			if (AssertUndefined(row, ratingColumn, errors) &&
+				AssertUndefined(row, percentOfPointsRatingColumn, errors))
 			{
-				var percent = double.Parse(percentText);
+				var rating = row[ratingColumn];
+				var percent = double.Parse(row[percentOfPointsRatingColumn]);
 				var expectedRating = Rating(percent);
 
-				var message = rating + " != " + expectedRating + " (" + percent + "%) for " + ratingColumn + ", " + percentOfPointsRating;
-				AssertThat(rating == expectedRating, row, message, errors);
+				var message = rating + " != " + expectedRating + " (" + percent + "%) for " + ratingColumn + ", " + percentOfPointsRatingColumn;
+				AssertThat(row, rating == expectedRating, message, errors);
 			}
 		}
 
@@ -61,7 +59,5 @@ namespace cde.district.validation.tests
 			if (percent < 87.5) return Meets;
 			return Exceeds;
 		}
-
-
 	}
 }

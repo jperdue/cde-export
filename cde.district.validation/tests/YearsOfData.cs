@@ -13,9 +13,9 @@ namespace cde.district.validation.tests
 			var oneYear = row["RDPF_1_3_RATING_YEAR_USED"] == "1 Year" && row["RDPF_1_3_YEARS_OF_DATA"] == "2011-12";
 			var threeYear = row["RDPF_1_3_RATING_YEAR_USED"] == "3 Year" && row["RDPF_1_3_YEARS_OF_DATA"] == "2009-10,2010-11,2011-12";
 
-			AssertThat(oneYear || threeYear, row, "RDPF_1_3_RATING_YEAR_USED", errors);
-			AssertThat(row["RDPF_1YR_YEARS_OF_DATA"] == "2011-12", row, "RDPF_1YR_YEARS_OF_DATA", errors);
-			AssertThat(row["RDPF_3YR_YEARS_OF_DATA"] == "2009-10,2010-11,2011-12", row, "RDPF_3YR_YEARS_OF_DATA", errors);
+			AssertThat(row, oneYear || threeYear, "RDPF_1_3_RATING_YEAR_USED", errors);
+			AssertThat(row, row["RDPF_1YR_YEARS_OF_DATA"] == "2011-12", "RDPF_1YR_YEARS_OF_DATA", errors);
+			AssertThat(row, row["RDPF_3YR_YEARS_OF_DATA"] == "2009-10,2010-11,2011-12", "RDPF_3YR_YEARS_OF_DATA", errors);
 		}
 	}
 }

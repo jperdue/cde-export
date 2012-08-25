@@ -11,13 +11,22 @@ namespace cde.district.validation.tests
 	{
 		public abstract void Test(Row row, List<string> errors);
 
-		protected bool AssertThat(bool result, Row row, string message, List<string> errors)
+		protected bool AssertThat(Row row, bool result, string message, List<string> errors)
 		{
 			if (!result)
 			{
 				errors.Add(GetType().Name + " - " + message);
 			}
 			return result;
+		}
+
+		protected bool AssertUndefined(Row row, string column, List<string> errors)
+		{
+			if (AssertThat(row, row.ContainsKey(column), "Column undefined: " + column, errors))
+			{
+				return AssertThat(row, !String.IsNullOrEmpty(row[column]), "Value undefined for " + column, errors);
+			}
+			return false;
 		}
 	}
 }

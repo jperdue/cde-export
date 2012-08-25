@@ -47,7 +47,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="tests\BaseTest.cs" />
     <Compile Include="tests\IndicatorRating.cs" />
-    <Compile Include="tests\TestRunner.cs" />
+    <Compile Include="TestRunner.cs" />
+    <Compile Include="tests\PercentOfPoints.cs" />
     <Compile Include="tests\YearsOfData.cs" />
   </ItemGroup>
   <ItemGroup>
