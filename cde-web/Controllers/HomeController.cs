@@ -26,11 +26,7 @@ namespace cde_web.Controllers
 
 			if (file.ContentLength > 0)
 			{
-				var fileName = Path.GetFileName(file.FileName);
-				var path = Path.Combine(Server.MapPath("~/App_Data/uploads"), fileName);
-				//file.SaveAs(path);
-				var errors = new List<Error> { new Error { Message = "barf" }, new Error { Message = "fart" } };
-				return View(errors);
+				return View(Test(file.InputStream));
 			}
 
 			return RedirectToAction("Index");
@@ -43,21 +39,19 @@ namespace cde_web.Controllers
 			return View();
 		}
 
-		List<Error> Test(Stream stream)
+		List<Result> Test(Stream stream)
 		{
+			var results = new List<Result>();
 			var runner = new TestRunner();
-				foreach (var row in Extension.GetRows(stream))
+			foreach (var row in Extension.GetRows(stream))
+			{
+				var errors = runner.Run(row);
+				if (errors.Count > 0)
 				{
-					var errors = runner.Run(row);
-					if (errors.Count > 0)
-					{
-						writer.WriteLine("---------- " + row + " ----------");
-
-						errors.ForEach(e => writer.WriteLine(e.Message));
-
-						writer.WriteLine();
-					}
+					results.Add(new Result { Title = row.ToString(), Errors = errors });
 				}
+			}
+			return results;
 		}
 	}
 }

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<cde.district.validation.tests.Error>
+﻿@model IEnumerable<cde_web.Controllers.Result>
 
 @{
     ViewBag.Title = "Test";
@@ -6,8 +6,11 @@
 
 <h2>Validation Results</h2>
 
-<p>
 @foreach (var item in Model) {
-	@item.Message <br />
-}
+<p>
+	<h1>@item.Title</h1><br />
+	@foreach(var error in item.Errors) {
+		@error <br />
+	}
 </p>
+}
