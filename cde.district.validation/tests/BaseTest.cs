@@ -9,7 +9,14 @@ namespace cde.district.validation.tests
 {
 	public abstract class BaseTest
 	{
+		protected const string DoesNotMeet = "Does Not Meet";
+		protected const string Approaching = "Approaching";
+		protected const string Meets = "Meets";
+		protected const string Exceeds = "Exceeds";
+		protected const string Unknown = "Unknown Rating";
+
 		public abstract void Test(Row row, List<string> errors);
+
 
 		protected bool AssertTrue(Row row, bool result, string message, List<string> errors)
 		{
@@ -62,17 +69,26 @@ namespace cde.district.validation.tests
 			return AssertTrue(row, result.ToString() == divide.ToString(), message, errors);
 		}
 
-		protected void AssertRating(Row row, string ratingColumn, string percentOfPointsRatingColumn, Func<double, String> ratingLookup, List<string> errors)
+		protected bool AssertRating(Row row, string ratingColumn, string percentOfPointsRatingColumn, Func<double, String> ratingLookup, List<string> errors)
 		{
-			if (AssertDefined(row, new [] { ratingColumn, percentOfPointsRatingColumn }, errors))
+			if (AssertDefined(row, new[] { ratingColumn, percentOfPointsRatingColumn }, errors))
 			{
 				var rating = row[ratingColumn];
-				var percent = double.Parse(row[percentOfPointsRatingColumn]);
-				var expectedRating = ratingLookup(percent);
+				double percent;
+				var percentValue = row[percentOfPointsRatingColumn];
+				if (double.TryParse(percentValue, out percent))
+				{
+					var expectedRating = ratingLookup(percent);
 
-				var message = "'" + rating + "' != '" + expectedRating + "' (" + percent + "%) for " + ratingColumn + ", " + percentOfPointsRatingColumn;
-				AssertTrue(row, rating == expectedRating, message, errors);
+					var message = "'" + rating + "' != '" + expectedRating + "' (" + percent + "%) for " + ratingColumn + ", " + percentOfPointsRatingColumn;
+					return AssertTrue(row, rating == expectedRating, message, errors);
+				}
+				else
+				{
+					errors.Add("Value in '" + percentOfPointsRatingColumn + "' cannot be converted to a number (" + percentValue + ")");
+				}
 			}
+			return false;
 		}
 	}
 }

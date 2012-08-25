@@ -90,20 +90,20 @@ namespace cde.district.validation.tests
 		{
 			switch((int)value)
 			{
-				case 4: return "Exceeds";
-				case 3: return "Meets";
-				case 2: return "Approaching";
-				default: return "Does Not Meet";
+				case 4: return Exceeds;
+				case 3: return Meets;
+				case 2: return Approaching;
+				default: return DoesNotMeet;
 			}
 		}
 
 		string GetPointRating(double value)
 		{
-			if (value == 1.0) return "Exceeds";
-			if (value == 0.75) return "Meets";
-			if (value == 0.5) return "Approaching";
-			if (value == 0.25) return "Does Not Meet";
-			return "Unknown Rating";
+			if (value == 1.0) return Exceeds;
+			if (value == 0.75) return Meets;
+			if (value == 0.5) return Approaching;
+			if (value == 0.25) return DoesNotMeet;
+			return Unknown;
 		}
 	}
 }
