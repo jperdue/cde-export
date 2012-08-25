@@ -9,11 +9,6 @@ namespace cde.district.validation.tests
 {
 	public class IndicatorRating : BaseTest
 	{
-		const string DoesNotMeet = "Does Not Meet";
-		const string Approaching = "Approaching";
-		const string Meets = "Meets";
-		const string Exceeds = "Exceeds";
-
 		IEnumerable<Tuple<string, string>> Columns
 		{
 			get
@@ -51,29 +46,15 @@ namespace cde.district.validation.tests
 
 		public override void Test(Row row, List<string> errors)
 		{
-			Columns.ForEach(t => CheckRating(row, t.Item1, t.Item2, errors));
-		}
-
-		void CheckRating(Row row, string ratingColumn, string percentOfPointsRatingColumn, List<string> errors)
-		{
-			if (AssertDefined(row, ratingColumn, errors) &&
-				AssertDefined(row, percentOfPointsRatingColumn, errors))
-			{
-				var rating = row[ratingColumn];
-				var percent = double.Parse(row[percentOfPointsRatingColumn]);
-				var expectedRating = Rating(percent);
-
-				var message = rating + " != " + expectedRating + " (" + percent + "%) for " + ratingColumn + ", " + percentOfPointsRatingColumn;
-				AssertTrue(row, rating == expectedRating, message, errors);
-			}
+			Columns.ForEach(t => AssertRating(row, t.Item1, t.Item2, Rating, errors));
 		}
 
 		string Rating(double percent)
 		{
-			if (percent < 37.5) return DoesNotMeet;
-			if (percent < 62.5) return Approaching;
-			if (percent < 87.5) return Meets;
-			return Exceeds;
+			if (percent < 37.5) return "Does Not Meet";
+			if (percent < 62.5) return "Approaching";
+			if (percent < 87.5) return "Meets";
+			return "Exceeds";
 		}
 	}
 }

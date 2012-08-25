@@ -61,5 +61,18 @@ namespace cde.district.validation.tests
 			var message = resultColumn + "(" + result + ") != " + numeratorColumn + "/" + denominatorColumn + "(" + divide + ")";
 			return AssertTrue(row, result.ToString() == divide.ToString(), message, errors);
 		}
+
+		protected void AssertRating(Row row, string ratingColumn, string percentOfPointsRatingColumn, Func<double, String> ratingLookup, List<string> errors)
+		{
+			if (AssertDefined(row, new [] { ratingColumn, percentOfPointsRatingColumn }, errors))
+			{
+				var rating = row[ratingColumn];
+				var percent = double.Parse(row[percentOfPointsRatingColumn]);
+				var expectedRating = ratingLookup(percent);
+
+				var message = "'" + rating + "' != '" + expectedRating + "' (" + percent + "%) for " + ratingColumn + ", " + percentOfPointsRatingColumn;
+				AssertTrue(row, rating == expectedRating, message, errors);
+			}
+		}
 	}
 }
