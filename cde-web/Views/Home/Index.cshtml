@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+            <p>
+                Welcome to the new super fantastic district data validator.  Upload a file and get results ... Have fun!
+            </p>
+
+			<form action="home/test" method="post" enctype="multipart/form-data">
+				<p>
+  					<label for="file">Filename:</label>
+					<input type="file" name="file" id="file" />
+					<input type="submit" />
+				</p>
+			</form>
+        </div>
+    </section>
+}

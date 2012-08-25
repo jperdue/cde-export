@@ -17,6 +17,18 @@ namespace cde.utils
 			}
 		}
 
+		public static IEnumerable<string> GetLines(Stream stream)
+		{
+			using (var file = new StreamReader(stream))
+			{
+				var line = (String)null;
+				while ((line = file.ReadLine()) != null)
+				{
+					yield return line;
+				}
+			}
+		}
+
 		public static IEnumerable<string> GetLines(string filename)
 		{
 			using (var file = new StreamReader(filename))
@@ -31,10 +43,20 @@ namespace cde.utils
 
 		public static IEnumerable<Row> GetRows(string filename)
 		{
+			return GetRows(GetLines(filename));
+		}
+
+		public static IEnumerable<Row> GetRows(Stream stream)
+		{
+			return GetRows(GetLines(stream));
+		}
+
+		public static IEnumerable<Row> GetRows(IEnumerable<string> lines)
+		{
 			string[] header = null;
 			var first = true;
 			int counter = 2;
-			foreach(var line in GetLines(filename))
+			foreach(var line in lines)
 			{
 				var parts = line.Split('\t');
 				if(first)

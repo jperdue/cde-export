@@ -1,13 +1,13 @@
-﻿using System;
+﻿using cde.district.validation;
+using cde.utils;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using cde.utils;
-using System.IO;
-using cde.district.validation.tests;
 
-namespace cde.district.validation
+namespace cde.runner
 {
 	class Program
 	{
@@ -33,24 +33,24 @@ namespace cde.district.validation
 		static void DiffRows(Row row1, Row row2, StreamWriter writer)
 		{
 			var errors = new List<string>();
-			if(row1.Count != row2.Count)
+			if (row1.Count != row2.Count)
 			{
 				errors.Add("Different column counts");
 			}
 			var smaller = row1.Count < row2.Count ? row1 : row2;
 			var bigger = row1.Count >= row2.Count ? row1 : row2;
-			foreach(var pair in smaller)
+			foreach (var pair in smaller)
 			{
-				if(!bigger.ContainsKey(pair.Key))
+				if (!bigger.ContainsKey(pair.Key))
 				{
 					errors.Add("Missing column: " + pair.Key);
 				}
-				else if(bigger[pair.Key] != pair.Value)
+				else if (bigger[pair.Key] != pair.Value)
 				{
 					errors.Add("Mismatched value on column: " + pair.Key + "(" + pair.Value + "," + bigger[pair.Key] + ")");
 				}
 			}
-			if(errors.Count > 0)
+			if (errors.Count > 0)
 			{
 				writer.WriteLine("Errors on line " + row1.LineNumber + " (" + row1.Name + ")");
 				errors.ForEach(e => writer.WriteLine("    " + e));
@@ -68,6 +68,7 @@ namespace cde.district.validation
 
 		static void ValidateFile(string filename)
 		{
+			var output = "output";
 			var runner = new TestRunner();
 			var outputFile = output + "\\" + new FileInfo(filename).Name;
 			using (var writer = new StreamWriter(outputFile))
