@@ -33,13 +33,6 @@ namespace cde_web.Controllers
 			return RedirectToAction("Index");
 		}
 
-		public ActionResult Contact()
-		{
-			ViewBag.Message = "Your contact page.";
-
-			return View();
-		}
-
 		List<Result> Test(Stream stream)
 		{
 			var results = new List<Result>();
