@@ -18,5 +18,10 @@ namespace cde.utils
 		{
 			get { return this[District] + "-" + this[SchoolLevel]; }
 		}
+
+		public override string ToString()
+		{
+			return Name + " (" + LineNumber + ")";
+		}
 	}
 }

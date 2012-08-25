@@ -11,12 +11,13 @@ namespace cde.district.validation.tests
 	{
 		public abstract void Test(Row row, List<string> errors);
 
-		protected void AssertThat(bool result, Row row, string message, List<string> errors)
+		protected bool AssertThat(bool result, Row row, string message, List<string> errors)
 		{
 			if (!result)
 			{
 				errors.Add(GetType().Name + " - " + message);
 			}
+			return result;
 		}
 	}
 }

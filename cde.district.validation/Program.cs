@@ -77,7 +77,7 @@ namespace cde.district.validation
 					var errors = runner.Run(row);
 					if (errors.Count > 0)
 					{
-						writer.WriteLine("---------- " + row.Name + " ----------");
+						writer.WriteLine("---------- " + row + " ----------");
 
 						errors.ForEach(e => writer.WriteLine(e));
 
