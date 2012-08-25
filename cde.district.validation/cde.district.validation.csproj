@@ -49,6 +49,7 @@
     <Compile Include="tests\BaseTest.cs" />
     <Compile Include="tests\IndicatorRating.cs" />
     <Compile Include="TestRunner.cs" />
+    <Compile Include="tests\IndicatorRollupPoints.cs" />
     <Compile Include="tests\PercentOfPoints.cs" />
     <Compile Include="tests\YearsOfData.cs" />
   </ItemGroup>
