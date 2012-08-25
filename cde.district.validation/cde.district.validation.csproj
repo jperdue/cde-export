@@ -50,8 +50,9 @@
     <Compile Include="tests\IndicatorRating.cs" />
     <Compile Include="TestRunner.cs" />
     <Compile Include="tests\IndicatorRollupPoints.cs" />
-    <Compile Include="tests\OverallRatingsTest.cs" />
+    <Compile Include="tests\OverallRatings.cs" />
     <Compile Include="tests\PercentOfPoints.cs" />
+    <Compile Include="tests\SubIndicatorRating.cs" />
     <Compile Include="tests\YearsOfData.cs" />
   </ItemGroup>
   <ItemGroup>

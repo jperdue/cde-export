@@ -6,7 +6,7 @@ using System.Text;
 
 namespace cde.district.validation.tests
 {
-	public class OverallRatingsTest : BaseTest
+	public class OverallRatings : BaseTest
 	{
 		IEnumerable<Tuple<string, string>> TotalColumns
 		{
