@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace cde_export
+namespace cde.export
 {
 	public class District
 	{

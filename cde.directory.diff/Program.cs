@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace directory_diff
+namespace cde.directory.diff
 {
 	class Program
 	{

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace directory_diff
+namespace cde.directory.diff
 {
 	public class School
 	{
