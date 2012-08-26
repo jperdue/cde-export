@@ -56,6 +56,7 @@
     <Compile Include="tests\AcademicGrowthAndGrowthGapsRating.cs" />
     <Compile Include="tests\AchievementPointsEarnedEqualsPercentOfAchievementPoints.cs" />
     <Compile Include="tests\BaseTest.cs" />
+    <Compile Include="tests\DisaggregatedGraduationRateRollupPoints.cs" />
     <Compile Include="tests\GrowthGapsPointsRollup.cs" />
     <Compile Include="tests\GrowthPointsEarnedEqualsPercentOfGrowthPoints.cs" />
     <Compile Include="tests\GrowthPointsRollup.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="tests\IndicatorRollupPoints.cs" />
     <Compile Include="tests\OverallRatings.cs" />
     <Compile Include="tests\PercentOfPoints.cs" />
+    <Compile Include="tests\PostSecondaryGraduationRatingsAndDisaggregatedGraduationRateRatings.cs" />
     <Compile Include="tests\SubIndicatorRating.cs" />
     <Compile Include="tests\YearsOfData.cs" />
   </ItemGroup>
