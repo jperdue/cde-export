@@ -33,9 +33,7 @@ namespace cde.district.validation.tests
 
 		void CheckPointsEarned(Row row, string percentPointsColumn, string pointsEligibleColumn, string pointsEarnedColumn, List<string> errors)
 		{
-			if (AssertDefined(row, percentPointsColumn, errors) &&
-				AssertDefined(row, pointsEligibleColumn, errors) &&
-				AssertDefined(row, pointsEarnedColumn, errors))
+			if (AssertDefined(row, new[] { percentPointsColumn, pointsEligibleColumn, pointsEarnedColumn }, errors))
 			{
 				var percentPoints = double.Parse(row[percentPointsColumn]);
 				var pointsEligible = double.Parse(row[pointsEligibleColumn]);

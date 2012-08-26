@@ -43,19 +43,32 @@ namespace cde.district.validation.tests
 
 		public override void Test(Row row, List<string> errors)
 		{
-			AssertRating(row, "RDPF_1_3_PARTIC_RATING", "RDPF_1_3_PARTIC_DNM_COUNT", Rating, errors);
-			AssertRating(row, "RDPF_1YR_PARTIC_RATING", "RDPF_1YR_PARTIC_DNM_COUNT", Rating, errors);
-			AssertRating(row, "RDPF_3YR_PARTIC_RATING", "RDPF_3YR_PARTIC_DNM_COUNT", Rating, errors);
+			AssertRating(row, "RDPF_1YR_PARTIC_DNM_COUNT", "_1YR_", errors);
+			AssertRating(row, "RDPF_3YR_PARTIC_DNM_COUNT", "_3YR_", errors);
 
 			ParticipationColumns.ForEach(t => AssertDivide(row, t.Item1, t.Item2, t.Item3, errors));
 
 			ParticipationRateColumns.ForEach(t => AssertRating(row, t.Item2, t.Item1, RatingParticipation, errors));
 		}
 
-		string Rating(double value)
+		bool AssertRating(Row row, string countColumn, string matcher, List<string> errors)
 		{
-			if (value <= 2.0) return "Meets 95% Participation Rate";
-			return "Does Not Meet 95% Participation Rate";
+			var valueColumns = ParticipationRateColumns.Select(t => t.Item2).Where(c => c.Contains(matcher));
+			if(AssertDefined(row, countColumn, errors))
+			{
+				var message = "Sum of Participation columns does not match the value in '" + countColumn + "'";
+				return AssertTrue(row, row[countColumn] == GetParticipationCount(row, valueColumns, errors).ToString(), message, errors);
+			}
+			return false;
+		}
+
+		int GetParticipationCount(Row row, IEnumerable<string> columns, List<string> errors)
+		{
+			if(AssertDefined(row, columns, errors))
+			{
+				return (int)Sum(row, columns.Where(c => row[c] == DoesNotMeet));
+			}
+			return -1;
 		}
 
 		string RatingParticipation(double value)

@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using cde.district.validation;
 
 namespace cde.district.validation.tests
 {
@@ -59,10 +60,15 @@ namespace cde.district.validation.tests
 				return false;
 			}
 			var total = double.Parse(row[resultColumn]);
-			var sum = partColumns.Select(c => double.Parse(row[c])).Sum();
+			var sum = Sum(row, partColumns);
 
 			var message = resultColumn + "(" + total + ") != " + partColumns.Aggregate((current, next) => current + " + " + next) + "(" + sum + ")";
 			return AssertTrue(row, total.ToString() == sum.ToString(), message, errors);
+		}
+
+		protected double Sum(Row row, IEnumerable<string> partColumns)
+		{
+			return partColumns.Select(c => double.Parse(row[c])).Sum();
 		}
 
 		protected bool AssertDivide(Row row, string resultColumn, string numeratorColumn, string denominatorColumn, List<string> errors)

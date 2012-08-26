@@ -16,9 +16,9 @@ namespace cde.district.validation.tests
 				yield return new Tuple<string, string, string>("RDPF_1YR_GRO_MADE_AGP_WRITE", "RDPF_1YR_GRO_RATING_WRITE", "RDPF_1YR_GRO_MGP_WRITE");
 				yield return new Tuple<string, string, string>("RDPF_1YR_GRO_MADE_AGP_ELP", "RDPF_1YR_GRO_RATING_ELP", "RDPF_1YR_GRO_MGP_ELP");
 				yield return new Tuple<string, string, string>("RDPF_3YR_GRO_MADE_AGP_READ", "RDPF_3YR_GRO_RATING_READ", "RDPF_3YR_GRO_MGP_READ");
-				yield return new Tuple<string, string, string>("RDPF_3YR_GRO_MADE_AGP_MATH", "RDPF_3YR_GRO_RATING_MATH", "RDPF_1YR_GRO_MGP_MATH");
-				yield return new Tuple<string, string, string>("RDPF_3YR_GRO_MADE_AGP_WRITE", "RDPF_3YR_GRO_RATING_WRITE", "RDPF_1YR_GRO_MGP_WRITE");
-				yield return new Tuple<string, string, string>("RDPF_3YR_GRO_MADE_AGP_ELP", "RDPF_3YR_GRO_RATING_ELP", "RDPF_1YR_GRO_MGP_ELP");
+				yield return new Tuple<string, string, string>("RDPF_3YR_GRO_MADE_AGP_MATH", "RDPF_3YR_GRO_RATING_MATH", "RDPF_3YR_GRO_MGP_MATH");
+				yield return new Tuple<string, string, string>("RDPF_3YR_GRO_MADE_AGP_WRITE", "RDPF_3YR_GRO_RATING_WRITE", "RDPF_3YR_GRO_MGP_WRITE");
+				yield return new Tuple<string, string, string>("RDPF_3YR_GRO_MADE_AGP_ELP", "RDPF_3YR_GRO_RATING_ELP", "RDPF_3YR_GRO_MGP_ELP");
 				yield return new Tuple<string, string, string>("RDPF_1YR_GG_FRL_MADE_AGP_READ", "RDPF_1YR_GG_FRL_RATING_READ", "RDPF_1YR_GG_FRL_MGP_READ");
 				yield return new Tuple<string, string, string>("RDPF_1YR_GG_MIN_MADE_AGP_READ", "RDPF_1YR_GG_MIN_RATING_READ", "RDPF_1YR_GG_MIN_MGP_READ");
 				yield return new Tuple<string, string, string>("RDPF_1YR_GG_DIS_MADE_AGP_READ", "RDPF_1YR_GG_DIS_RATING_READ", "RDPF_1YR_GG_DIS_MGP_READ");
