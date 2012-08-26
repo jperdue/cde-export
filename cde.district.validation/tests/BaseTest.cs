@@ -75,19 +75,25 @@ namespace cde.district.validation.tests
 			{
 				var rating = row[ratingColumn];
 				double percent;
-				var percentValue = row[percentOfPointsRatingColumn];
-				if (double.TryParse(percentValue, out percent))
+				if (AssertNumber(row, percentOfPointsRatingColumn, out percent, errors))
 				{
 					var expectedRating = ratingLookup(percent);
 
 					var message = "'" + rating + "' != '" + expectedRating + "' (" + percent + "%) for " + ratingColumn + ", " + percentOfPointsRatingColumn;
 					return AssertTrue(row, rating == expectedRating, message, errors);
 				}
-				else
-				{
-					errors.Add("Value in '" + percentOfPointsRatingColumn + "' cannot be converted to a number (" + percentValue + ")");
-				}
 			}
+			return false;
+		}
+
+		protected bool AssertNumber(Row row, string numberColumn, out double value, List<string> errors)
+		{
+			var numberValue = row[numberColumn];
+			if (double.TryParse(numberValue, out value))
+			{
+				return true;
+			}
+			errors.Add("Value in '" + numberColumn + "' cannot be converted to a number (" + numberValue + ")");
 			return false;
 		}
 	}
