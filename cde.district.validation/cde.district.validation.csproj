@@ -53,8 +53,11 @@
     <Compile Include="tests\AcademicAchievementPointsRollup.cs" />
     <Compile Include="tests\AcademicAchievementRating.cs" />
     <Compile Include="tests\AcademicGrowthAndGrowthGapsMetAdequateGrowth.cs" />
+    <Compile Include="tests\AcademicGrowthAndGrowthGapsRating.cs" />
     <Compile Include="tests\AchievementPointsEarnedEqualsPercentOfAchievementPoints.cs" />
     <Compile Include="tests\BaseTest.cs" />
+    <Compile Include="tests\GrowthPointsEarnedEqualsPercentOfGrowthPoints.cs" />
+    <Compile Include="tests\GrowthPointsRollup.cs" />
     <Compile Include="tests\IndicatorRating.cs" />
     <Compile Include="TestRunner.cs" />
     <Compile Include="tests\IndicatorRollupPoints.cs" />
