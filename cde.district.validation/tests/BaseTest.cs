@@ -75,9 +75,10 @@ namespace cde.district.validation.tests
 			var numerator = double.Parse(row[numeratorColumn]);
 			var denominator = double.Parse(row[denominatorColumn]);
 			var divide = numerator / denominator * 100.0;
+			var formatter = "{0:0.0}";
 
 			var message = resultColumn + "(" + result + ") != " + numeratorColumn + "/" + denominatorColumn + "(" + divide + ")";
-			return AssertTrue(row, result.ToString() == divide.ToString(), message, errors);
+			return AssertTrue(row, result.ToString(formatter) == divide.ToString(formatter), message, errors);
 		}
 
 		protected bool AssertRating(Row row, string ratingColumn, string percentOfPointsRatingColumn, Func<double, String> ratingLookup, List<string> errors)
