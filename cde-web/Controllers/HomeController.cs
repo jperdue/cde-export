@@ -15,6 +15,7 @@ namespace cde_web.Controllers
 		public ActionResult Index()
 		{
 			ViewBag.Message = "Get Started";
+			ViewBag.Tests = GetTests();
 
 			return View();
 		}
@@ -26,7 +27,9 @@ namespace cde_web.Controllers
 
 			if (file.ContentLength > 0)
 			{
-				return View(Test(file.InputStream));
+				var results = Test(file.InputStream, Request.Params["testname"]);
+				ViewBag.TotalErrors = results.Sum(r => r.Errors.Count);
+				return View(results);
 			}
 
 			return RedirectToAction("Index");
@@ -57,19 +60,28 @@ namespace cde_web.Controllers
 			return new Differ().CompareFiles(stream1, stream2).ToList();
 		}
 
-		List<Result> Test(Stream stream)
+		List<Result> Test(Stream stream, string testName)
 		{
 			var results = new List<Result>();
 			var runner = new TestRunner();
 			foreach (var row in Extension.GetRows(stream))
 			{
-				var errors = runner.Run(row);
+				var errors = runner.Run(row, testName);
 				if (errors.Count > 0)
 				{
 					results.Add(new Result { Title = row.ToString(), Errors = errors });
 				}
 			}
 			return results;
+		}
+
+		IEnumerable<SelectListItem> GetTests()
+		{
+			yield return new SelectListItem { Selected = true, Text = "All", Value = "All" };
+			foreach(var test in TestRunner.Tests)
+			{
+				yield return new SelectListItem { Text = test.GetPrettyName(), Value = test.GetPrettyName() };
+			}
 		}
 	}
 }

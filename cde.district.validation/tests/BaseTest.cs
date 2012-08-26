@@ -18,8 +18,9 @@ namespace cde.district.validation.tests
 
 		static Dictionary<Type, string> prettyNames = new Dictionary<Type, string>();
 
-		static string GetPrettyName(Type type)
+		public string GetPrettyName()
 		{
+			var type = GetType();
 			if(!prettyNames.ContainsKey(type))
 			{
 				prettyNames[type] = type.Name.SplitCamelCase();
@@ -34,7 +35,7 @@ namespace cde.district.validation.tests
 		{
 			if (!result)
 			{
-				errors.Add(GetPrettyName(GetType()) + " - " + message);
+				errors.Add(GetPrettyName() + " - " + message);
 			}
 			return result;
 		}

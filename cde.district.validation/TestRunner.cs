@@ -11,7 +11,7 @@ namespace cde.district.validation
 	{
 		static List<BaseTest> tests = null;
 
-		List<BaseTest> Tests
+		public static IEnumerable<BaseTest> Tests
 		{
 			get
 			{
@@ -32,11 +32,19 @@ namespace cde.district.validation
 
 		public List<string> Run(Row row)
 		{
-			var errors = new List<string>();
-			Tests.ForEach(t => t.Test(row, errors));
-			return errors;
+			return Run(row, null);
 		}
 
-
+		public List<string> Run(Row row, string testName)
+		{
+			var errors = new List<string>();
+			var testsToRun = Tests;
+			if(testName != "All")
+			{
+				testsToRun = testsToRun.Where(t => t.GetPrettyName() == testName);
+			}
+			testsToRun.ForEach(t => t.Test(row, errors));
+			return errors;
+		}
 	}
 }
