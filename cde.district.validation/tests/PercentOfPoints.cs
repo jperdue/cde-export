@@ -13,7 +13,7 @@ namespace cde.district.validation.tests
 			{				
 				yield return new Tuple<string, string, string>("RDPF_1_3_ACHIEVE_PCT_PTS_EARN", "RDPF_1_3_ACHIEVE_PTS_ELIG", "RDPF_1_3_ACHIEVE_PTS_EARN");
 				yield return new Tuple<string, string, string>("RDPF_1_3_GROWTH_PCT_PTS_EARN", "RDPF_1_3_GROWTH_PTS_ELIG", "RDPF_1_3_GROWTH_PTS_EARN");
-				yield return new Tuple<string, string, string>("RDPF_1_3_GRO_GAPS_PCT_PTS_EARN", "RDPF_1_3_GRO_GAPS_PTS_ELIG ", "RDPF_1_3_GRO_GAPS_PTS_EARN");
+				yield return new Tuple<string, string, string>("RDPF_1_3_GRO_GAPS_PCT_PTS_EARN", "RDPF_1_3_GRO_GAPS_PTS_ELIG", "RDPF_1_3_GRO_GAPS_PTS_EARN");
 				yield return new Tuple<string, string, string>("RDPF_1_3_POST_SEC_PCT_PTS_EARN", "RDPF_1_3_POST_SEC_PTS_ELIG", "RDPF_1_3_POST_SEC_PTS_EARN");
 				yield return new Tuple<string, string, string>("RDPF_1YR_ACHIEVE_PCT_PTS_EARN", "RDPF_1YR_ACHIEVE_PTS_ELIG", "RDPF_1YR_ACHIEVE_PTS_EARN");
 				yield return new Tuple<string, string, string>("RDPF_1YR_GROWTH_PCT_PTS_EARN", "RDPF_1YR_GROWTH_PTS_ELIG", "RDPF_1YR_GROWTH_PTS_EARN");
