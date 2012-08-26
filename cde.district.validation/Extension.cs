@@ -102,5 +102,10 @@ namespace cde.district.validation
 				"$1 $2"
 			);
 		}
+
+		public static string Format(this double value)
+		{
+			return value.ToString("{0:0.0}");
+		}
 	}
 }

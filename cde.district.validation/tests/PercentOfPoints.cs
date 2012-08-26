@@ -38,8 +38,10 @@ namespace cde.district.validation.tests
 				var percentPoints = double.Parse(row[percentPointsColumn]);
 				var pointsEligible = double.Parse(row[pointsEligibleColumn]);
 				var pointsEarned = double.Parse(row[pointsEarnedColumn]);
+				var pointsEarnedExpected = percentPoints * pointsEligible / 100.0;
 
-				AssertTrue(row, percentPoints * pointsEligible / 100.0 == pointsEarned, percentPointsColumn + ", " + pointsEligibleColumn + ", " + pointsEarnedColumn, errors);
+
+				AssertTrue(row, pointsEarnedExpected.Format() == pointsEarned.Format(), percentPointsColumn + ", " + pointsEligibleColumn + ", " + pointsEarnedColumn, errors);
 			}
 		}
 	}
