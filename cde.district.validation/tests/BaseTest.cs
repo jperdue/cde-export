@@ -96,5 +96,17 @@ namespace cde.district.validation.tests
 			errors.Add("Value in '" + numberColumn + "' cannot be converted to a number (" + numberValue + ")");
 			return false;
 		}
+
+		protected bool AssertEqual(Row row, string column1, string column2, List<string> errors)
+		{
+			if (AssertDefined(row, new[] { column1, column2 }, errors))
+			{
+				var column1Value = row[column1];
+				var column2Value = row[column2];
+				var message = column1 + " (" + column1Value + ") != " + column2 + " (" + column2Value + ")";
+				return AssertTrue(row, column1Value == column2Value, message, errors);
+			}
+			return false;
+		}
 	}
 }
