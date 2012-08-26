@@ -16,12 +16,17 @@ namespace cde.district.validation
 
 		public string Name
 		{
-			get { return this[District] + "-" + this[SchoolLevel]; }
+			get { return this[District] + "-" + Level; }
 		}
 
 		public override string ToString()
 		{
 			return Name + " (" + LineNumber + ")";
+		}
+
+		public string Level
+		{
+			get { return this[SchoolLevel]; }
 		}
 	}
 }

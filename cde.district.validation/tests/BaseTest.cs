@@ -41,6 +41,11 @@ namespace cde.district.validation.tests
 
 		protected bool AssertDefined(Row row, string column, List<string> errors)
 		{
+			if(Ignore.Column(row, column))
+			{
+				return false;
+			}
+
 			if (AssertTrue(row, row.ContainsKey(column), "Column undefined: " + column, errors))
 			{
 				return AssertTrue(row, !String.IsNullOrEmpty(row[column]), "Value undefined for " + column, errors);
@@ -124,11 +129,6 @@ namespace cde.district.validation.tests
 				return AssertTrue(row, column1Value == column2Value, message, errors);
 			}
 			return false;
-		}
-
-		protected string GetLevel(Row row)
-		{
-			return row["RDPF_EMH_CODE"];
 		}
 	}
 }

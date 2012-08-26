@@ -40,7 +40,6 @@ namespace cde.district.validation.tests
 				var pointsEarned = double.Parse(row[pointsEarnedColumn]);
 				var pointsEarnedExpected = percentPoints * pointsEligible / 100.0;
 
-
 				AssertTrue(row, pointsEarnedExpected.Format() == pointsEarned.Format(), percentPointsColumn + ", " + pointsEligibleColumn + ", " + pointsEarnedColumn, errors);
 			}
 		}
