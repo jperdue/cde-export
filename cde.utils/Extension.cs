@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace cde.utils
@@ -87,6 +88,19 @@ namespace cde.utils
 					yield return selector(l.Current, r.Current);
 				}
 			}
+		}
+
+		public static string SplitCamelCase(this string value)
+		{
+			return Regex.Replace(
+				Regex.Replace(
+					value,
+					@"(\P{Ll})(\P{Ll}\p{Ll})",
+					"$1 $2"
+				),
+				@"(\p{Ll})(\P{Ll})",
+				"$1 $2"
+			);
 		}
 	}
 }

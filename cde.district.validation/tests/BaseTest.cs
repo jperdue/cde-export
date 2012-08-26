@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace cde.district.validation.tests
 {
@@ -15,14 +16,26 @@ namespace cde.district.validation.tests
 		protected const string Exceeds = "Exceeds";
 		protected const string Unknown = "Unknown Rating";
 
-		public abstract void Test(Row row, List<string> errors);
+		static string name;
+		string Name
+		{
+			get
+			{
+				if(name == null)
+				{
+					name = GetType().Name.SplitCamelCase();
+				}
+				return name;
+			}
+		}
 
+		public abstract void Test(Row row, List<string> errors);
 
 		protected bool AssertTrue(Row row, bool result, string message, List<string> errors)
 		{
 			if (!result)
 			{
-				errors.Add(GetType().Name + " - " + message);
+				errors.Add(Name + " - " + message);
 			}
 			return result;
 		}
