@@ -130,5 +130,17 @@ namespace cde.district.validation.tests
 			}
 			return false;
 		}
+
+		protected bool AssertGreaterThan(Row row, string column1, string column2, List<string> errors)
+		{
+			double value1, value2;
+			if(AssertNumber(row, column1, out value1, errors) &&
+				AssertNumber(row, column2, out value2, errors))
+			{
+				var message = column1 + " (" + value1 + ") not greater than " + column2 + " (" + value2 + ")";
+				return AssertTrue(row, value1 > value2, message, errors);
+			}
+			return false;
+		}
 	}
 }
