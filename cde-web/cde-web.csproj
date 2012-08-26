@@ -255,10 +255,6 @@
       <Project>{28b242e4-f3be-4ea2-8a88-7f2f77abe5bc}</Project>
       <Name>cde.district.validation</Name>
     </ProjectReference>
-    <ProjectReference Include="..\cde.utils\cde.utils.csproj">
-      <Project>{69586b95-ddd8-46d2-b8e9-7fb2be61a079}</Project>
-      <Name>cde.utils</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

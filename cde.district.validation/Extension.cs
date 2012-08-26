@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace cde.utils
+namespace cde.district.validation
 {
 	public static class Extension
 	{

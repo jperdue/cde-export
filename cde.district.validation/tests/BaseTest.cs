@@ -1,5 +1,4 @@
-﻿using cde.utils;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -16,18 +15,17 @@ namespace cde.district.validation.tests
 		protected const string Exceeds = "Exceeds";
 		protected const string Unknown = "Unknown Rating";
 
-		static string name;
-		string Name
+		static Dictionary<Type, string> prettyNames = new Dictionary<Type, string>();
+
+		static string GetPrettyName(Type type)
 		{
-			get
+			if(!prettyNames.ContainsKey(type))
 			{
-				if(name == null)
-				{
-					name = GetType().Name.SplitCamelCase();
-				}
-				return name;
+				prettyNames[type] = type.Name.SplitCamelCase();
 			}
+			return prettyNames[type];
 		}
+
 
 		public abstract void Test(Row row, List<string> errors);
 
@@ -35,7 +33,7 @@ namespace cde.district.validation.tests
 		{
 			if (!result)
 			{
-				errors.Add(Name + " - " + message);
+				errors.Add(GetPrettyName(GetType()) + " - " + message);
 			}
 			return result;
 		}

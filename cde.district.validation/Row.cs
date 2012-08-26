@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace cde.utils
+namespace cde.district.validation
 {
 	public class Row : Dictionary<string, string>
 	{

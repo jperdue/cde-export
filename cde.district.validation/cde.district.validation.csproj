@@ -48,8 +48,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Differ.cs" />
+    <Compile Include="Extension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Result.cs" />
+    <Compile Include="Row.cs" />
     <Compile Include="tests\AcademicAchievementPointsRollup.cs" />
     <Compile Include="tests\AcademicAchievementRating.cs" />
     <Compile Include="tests\AcademicGrowthAndGrowthGapsRating.cs" />
@@ -77,12 +79,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\cde.utils\cde.utils.csproj">
-      <Project>{69586b95-ddd8-46d2-b8e9-7fb2be61a079}</Project>
-      <Name>cde.utils</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="input\marie.txt">
