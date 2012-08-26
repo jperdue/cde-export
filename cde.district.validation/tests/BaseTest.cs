@@ -142,5 +142,18 @@ namespace cde.district.validation.tests
 			}
 			return false;
 		}
+
+		protected bool AssertSubtract(Row row, string column1, string column2, string resultColumn, List<string> errors)
+		{
+			double value1, value2, result;
+			if (AssertNumber(row, column1, out value1, errors) &&
+				AssertNumber(row, column2, out value2, errors) &&
+				AssertNumber(row, resultColumn, out result, errors))
+			{
+				var message = column1 + " (" + value1 + ") - " + column2 + " (" + value2 + ") != " + resultColumn + " (" + result + ")";
+				return AssertTrue(row, value1 - value2 == result, message, errors);
+			}
+			return false;
+		}
 	}
 }
