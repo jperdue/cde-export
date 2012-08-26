@@ -11,8 +11,7 @@ namespace cde.district.validation.tests
 		IEnumerable<Tuple<string, string, string>> Columns
 		{
 			get
-			{
-				
+			{				
 				yield return new Tuple<string, string, string>("RDPF_1YR_GRO_MGP_READ", "RDPF_1YR_GRO_AGP_READ", "RDPF_1YR_GRO_MADE_AGP_READ");
 				yield return new Tuple<string, string, string>("RDPF_1YR_GRO_MGP_MATH", "RDPF_1YR_GRO_AGP_MATH", "RDPF_1YR_GRO_MADE_AGP_MATH");
 				yield return new Tuple<string, string, string>("RDPF_1YR_GRO_MGP_WRITE", "RDPF_1YR_GRO_AGP_WRITE", "RDPF_1YR_GRO_MADE_AGP_WRITE");
@@ -65,11 +64,11 @@ namespace cde.district.validation.tests
 				if (AssertNumber(row, mgpColumn, out mgp, errors) &&
 					AssertNumber(row, agpColumn, out agp, errors))
 				{
-					var madeAgp = row[madeAgpColumn];
-					var madeAgpExpected = MadeAGP(mgp, agp);
+					var madeAgp = row[madeAgpColumn].ToLower();
+					var madeAgpExpected = MadeAGP(mgp, agp).ToLower();
 
 					var message = "Calculated made AGP (" + madeAgpExpected + ") != Made MGP (" + madeAgp + ")";
-					AssertTrue(row, MadeAGP(mgp, agp) == madeAgp, message, errors);
+					AssertTrue(row, madeAgpExpected == madeAgp, message, errors);
 				}
 			}
 		}		
