@@ -119,5 +119,10 @@ namespace cde.district.validation.tests
 			}
 			return false;
 		}
+
+		protected string GetLevel(Row row)
+		{
+			return row["RDPF_EMH_CODE"];
+		}
 	}
 }
