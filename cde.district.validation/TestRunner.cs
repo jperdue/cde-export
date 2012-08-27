@@ -32,7 +32,7 @@ namespace cde.district.validation
 
 		public List<string> Run(Row row)
 		{
-			return Run(row, null);
+			return Run(row, "All");
 		}
 
 		public List<string> Run(Row row, string testName)
