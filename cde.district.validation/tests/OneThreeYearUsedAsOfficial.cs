@@ -20,7 +20,7 @@ namespace cde.district.validation.tests
 				if (ratingYearUsed == "1 year")
 				{
 					if (oneYearCount > threeYearCount) return;
-					if (oneYearCount == threeYearCount && oneYearPercent > threeYearPercent) return;
+					if (oneYearCount == threeYearCount && oneYearPercent > = threeYearPercent) return;
 				}
 				else if(ratingYearUsed == "3 year")
 				{
