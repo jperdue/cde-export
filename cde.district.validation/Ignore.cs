@@ -74,7 +74,7 @@ namespace cde.district.validation
 			{
 				yield return "RDPF_1YR_ACH_PTS_EARN_READ";
 				yield return "RDPF_1YR_ACH_PTS_ELIG_READ";
-				yield return "RDPF_1YR_ACH_RATING_REA";
+				yield return "RDPF_1YR_ACH_RATING_READ";
 				yield return "RDPF_1YR_ACH_N_COUNT_READ";
 				yield return "RDPF_1YR_ACH_PA_PCT_REA";
 				yield return "RDPF_1YR_ACH_PCTILE_READ";
