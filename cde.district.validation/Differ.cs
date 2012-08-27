@@ -39,7 +39,7 @@ namespace cde.district.validation
 				{
 					errors.Add("Missing column: " + pair.Key);
 				}
-				else if (bigger[pair.Key] != pair.Value)
+				else if (bigger[pair.Key].ToLower() != pair.Value.ToLower())
 				{
 					errors.Add("Mismatched value on column: " + pair.Key + "(" + pair.Value + "," + bigger[pair.Key] + ")");
 				}
