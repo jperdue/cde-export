@@ -49,9 +49,14 @@ namespace cde.district.validation.tests
 
 			if (AssertTrue(row, row.ContainsKey(column), "Column undefined: " + column, errors))
 			{
-				return AssertTrue(row, !String.IsNullOrEmpty(row[column]), "Value undefined for " + column, errors);
+				return AssertTrue(row, Defined(row, column), "Value undefined for " + column, errors);
 			}
 			return false;
+		}
+
+		protected bool Defined(Row row, string column)
+		{
+			return !String.IsNullOrWhiteSpace(row[column]);
 		}
 
 		protected bool AssertDefined(Row row, IEnumerable<string> columns, List<string> errors)
@@ -77,7 +82,7 @@ namespace cde.district.validation.tests
 			return partColumns.Select(c => double.Parse(row[c])).Sum();
 		}
 
-		protected bool AssertDivide(Row row, string resultColumn, string numeratorColumn, string denominatorColumn, List<string> errors)
+		protected virtual bool AssertDivide(Row row, string resultColumn, string numeratorColumn, string denominatorColumn, List<string> errors)
 		{
 			if (!AssertDefined(row, new [] { resultColumn, numeratorColumn, denominatorColumn }, errors))
 			{
