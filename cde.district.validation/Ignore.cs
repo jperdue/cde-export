@@ -635,6 +635,8 @@ namespace cde.district.validation
 			get
 			{
 				yield return "RDPF_1_3_POST_SEC_RATING";
+				yield return "RDPF_1YR_PTS_EARN_TTL";
+				yield return "RDPF_3YR_PTS_EARN_TTL";
 				yield return "RDPF_1_3_POST_SEC_PCT_PTS_EARN";
 				yield return "RDPF_1YR_POST_SEC_RATING";
 				yield return "RDPF_1YR_POST_SEC_PCT_PTS_EARN";
