@@ -21,15 +21,16 @@ namespace cde.district.validation
 		IEnumerable<Result> DiffRows(IEnumerable<Row> rows1, IEnumerable<Row> rows2)
 		{
 			var rows = rows1.Join(rows2, r => r.Name, r => r.Name, (r1, r2) => new Tuple<Row, Row>(r1, r2));
-			return rows.Select(t => DiffRows(t.Item1, t.Item2)).Where(r => r != null);			
+			var errors = rows.Select(t => DiffRows(t.Item1, t.Item2)).SelectMany(i => i);
+
+			return errors.GroupBy(e => e.Column).Select(g => new Result { Title = g.Key, Errors = g.Select(e => e.Message).Distinct().ToList() });
 		}
 
-		Result DiffRows(Row row1, Row row2)
+		IEnumerable<Error> DiffRows(Row row1, Row row2)
 		{
-			var errors = new List<string>();
 			if (row1.Count != row2.Count)
 			{
-				errors.Add("Different column counts");
+				yield return new Error(row1.Name, "Mismatch", "Different column counts");
 			}
 			var smaller = row1.Count < row2.Count ? row1 : row2;
 			var bigger = row1.Count >= row2.Count ? row1 : row2;
@@ -37,22 +38,13 @@ namespace cde.district.validation
 			{
 				if (!bigger.ContainsKey(pair.Key))
 				{
-					errors.Add("Missing column: " + pair.Key);
+					yield return new Error(row1.Name, pair.Key, "Missing Column: '" + pair.Key + "' (" + row1.Name + ")");
 				}
 				else if (bigger[pair.Key].ToLower() != pair.Value.ToLower())
 				{
-					errors.Add("Mismatched value on column: " + pair.Key + "(" + pair.Value + "," + bigger[pair.Key] + ")");
+					yield return new Error(row1.Name, pair.Key, "Mismatched value: ('" + pair.Value + "', '" + bigger[pair.Key] + "') (" + row1.Name + ")");
 				}
 			}
-			if (errors.Count > 0)
-			{
-				return new Result
-				{
-					Title = row1.ToString(),
-					Errors = errors
-				};
-			}
-			return null;
 		}
 	}
 }
