@@ -56,7 +56,8 @@ namespace cde.district.validation.tests
 
 		protected bool Defined(Row row, string column)
 		{
-			return !String.IsNullOrWhiteSpace(row[column]);
+			var value = row[column];
+			return !String.IsNullOrWhiteSpace(value) && value.Trim() != "-";
 		}
 
 		protected bool AssertDefined(Row row, IEnumerable<string> columns, List<string> errors)
@@ -97,7 +98,7 @@ namespace cde.district.validation.tests
 			return AssertTrue(row, result.Format() == divide.Format(), message, errors);
 		}
 
-		protected bool AssertRating(Row row, string ratingColumn, string percentOfPointsRatingColumn, Func<double, String> ratingLookup, List<string> errors)
+		protected virtual bool AssertRating(Row row, string ratingColumn, string percentOfPointsRatingColumn, Func<double, String> ratingLookup, List<string> errors)
 		{
 			if (AssertDefined(row, new[] { ratingColumn, percentOfPointsRatingColumn }, errors))
 			{
