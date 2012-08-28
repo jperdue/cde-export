@@ -8,7 +8,7 @@
 
 @foreach (var item in Model) {
 <p>
-	<h1>@item.Title</h1><br />
+	<h3>@item.Title</h3><br />
 	@foreach(var error in item.Errors) {
 		@error <br />
 	}

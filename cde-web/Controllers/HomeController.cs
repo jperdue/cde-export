@@ -64,13 +64,10 @@ namespace cde_web.Controllers
 		{
 			var results = new List<Result>();
 			var runner = new TestRunner();
-			foreach (var row in Extension.GetRows(stream))
+			var errors = Extension.GetRows(stream).Select(r => runner.Run(r)).SelectMany(e => e);
+			foreach (var group in errors.GroupBy(e => e.Message))
 			{
-				var errors = runner.Run(row, testName);
-				if (errors.Count > 0)
-				{
-					results.Add(new Result { Title = row.ToString(), Errors = errors.Select(e => e.Message ).ToList()});
-				}
+				results.Add(new Result { Title = group.Key, Errors = group.Select(e => e.Row.ToString() ).ToList()});
 			}
 			return results;
 		}
