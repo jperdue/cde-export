@@ -50,17 +50,12 @@ namespace cde.runner
 			var outputFile = output + "\\" + new FileInfo(filename).Name;
 			using (var writer = new StreamWriter(outputFile))
 			{
-				foreach (var row in Extension.GetRows(filename))
+				var errors = Extension.GetRows(filename).Select(r => runner.Run(r)).SelectMany(e => e);
+				foreach(var group in errors.GroupBy(e => e.Message))
 				{
-					var errors = runner.Run(row);
-					if (errors.Count > 0)
-					{
-						writer.WriteLine("---------- " + row + " ----------");
-
-						errors.ForEach(e => writer.WriteLine(e.Message));
-
-						writer.WriteLine();
-					}
+					writer.WriteLine("---------- " + group.Key + " ----------");
+					group.ForEach(e => writer.WriteLine(e.Row));
+					writer.WriteLine();
 				}
 			}
 		}

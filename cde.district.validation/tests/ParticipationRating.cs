@@ -66,7 +66,7 @@ namespace cde.district.validation.tests
 		{
 			if(AssertDefined(row, columns, errors))
 			{
-				return (int)Sum(row, columns.Where(c => row[c] == DoesNotMeet));
+				return columns.Where(c => row[c] == DoesNotMeet).Count();
 			}
 			return -1;
 		}
