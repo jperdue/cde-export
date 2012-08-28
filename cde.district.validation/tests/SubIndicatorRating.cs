@@ -54,10 +54,10 @@ namespace cde.district.validation.tests
 				yield return new Tuple<string, string>("RDPF_3YR_GG_ELL_RATING_WRITE", "RDPF_3YR_GG_ELL_PTS_EARN_WRITE");
 				yield return new Tuple<string, string>("RDPF_3YR_GG_BPA_RATING_WRITE", "RDPF_3YR_GG_BPA_PTS_EARN_WRITE");
 				yield return new Tuple<string, string>("RDPF_1YR_PS_GRAD_RATING", "RDPF_1YR_PS_GRAD_PTS_EARN");
-				yield return new Tuple<string, string>("RDPF_1YR_PS_DROP_RATING ", "RDPF_1YR_PS_DROP_PTS_EARN");
+				yield return new Tuple<string, string>("RDPF_1YR_PS_DROP_RATING", "RDPF_1YR_PS_DROP_PTS_EARN");
 				yield return new Tuple<string, string>("RDPF_1YR_PS_ACT_RATING", "RDPF_1YR_PS_ACT_PTS_EARN");
 				yield return new Tuple<string, string>("RDPF_3YR_PS_GRAD_RATING", "RDPF_3YR_PS_GRAD_PTS_EARN");
-				yield return new Tuple<string, string>("RDPF_3YR_PS_DROP_RATING ", "RDPF_3YR_PS_DROP_PTS_EARN");
+				yield return new Tuple<string, string>("RDPF_3YR_PS_DROP_RATING", "RDPF_3YR_PS_DROP_PTS_EARN");
 				yield return new Tuple<string, string>("RDPF_3YR_PS_ACT_RATING", "RDPF_3YR_PS_ACT_PTS_EARN");
 			}
 		}
