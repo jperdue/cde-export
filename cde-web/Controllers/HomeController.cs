@@ -64,7 +64,7 @@ namespace cde_web.Controllers
 		{
 			var results = new List<Result>();
 			var runner = new TestRunner();
-			var errors = Extension.GetRows(stream).Select(r => runner.Run(r)).SelectMany(e => e);
+			var errors = Extension.GetRows(stream).Select(r => runner.Run(r, testName)).SelectMany(e => e);
 			foreach (var group in errors.GroupBy(e => e.Message))
 			{
 				results.Add(new Result { Title = group.Key, Errors = group.Select(e => e.Row.ToString() ).ToList()});

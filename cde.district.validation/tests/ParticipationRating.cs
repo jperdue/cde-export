@@ -33,6 +33,7 @@ namespace cde.district.validation.tests
 				yield return new Tuple<string, string>("RDPF_1YR_PARTIC_PCT_TEST_WRITE", "RDPF_1YR_PARTIC_RATING_WRITE");
 				yield return new Tuple<string, string>("RDPF_1YR_PARTIC_PCT_TEST_SCI", "RDPF_1YR_PARTIC_RATING_SCI");
 				yield return new Tuple<string, string>("RDPF_1YR_PARTIC_PCT_TEST_ACT", "RDPF_1YR_PARTIC_RATING_ACT");
+
 				yield return new Tuple<string, string>("RDPF_3YR_PARTIC_PCT_TEST_READ", "RDPF_3YR_PARTIC_RATING_READ");
 				yield return new Tuple<string, string>("RDPF_3YR_PARTIC_PCT_TEST_MATH", "RDPF_3YR_PARTIC_RATING_MATH");
 				yield return new Tuple<string, string>("RDPF_3YR_PARTIC_PCT_TEST_WRITE", "RDPF_3YR_PARTIC_RATING_WRITE");
@@ -56,8 +57,10 @@ namespace cde.district.validation.tests
 			var valueColumns = ParticipationRateColumns.Select(t => t.Item2).Where(c => c.Contains(matcher));
 			if(AssertDefined(row, countColumn, errors))
 			{
-				var message = "Sum of Participation columns does not match the value in '" + countColumn + "'";
-				return AssertTrue(row, row[countColumn] == GetParticipationCount(row, valueColumns, errors).ToString(), message, errors);
+				var participationCount = row[countColumn];
+				var expectedParticipationCount = GetParticipationCount(row, valueColumns, errors).ToString();
+				var message = "Sum of Participation columns (" + expectedParticipationCount + ") does not match the value in '" + countColumn + "' (" + participationCount + ")";
+				return AssertTrue(row, participationCount == expectedParticipationCount, message, errors);
 			}
 			return false;
 		}

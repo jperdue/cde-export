@@ -62,12 +62,19 @@ namespace cde.district.validation.tests
 			}
 		}
 
-		IEnumerable<Tuple<string, string>> PointColumns
+		IEnumerable<Tuple<string, string>> ElpColumns
 		{
 			get
 			{
 				yield return new Tuple<string, string>("RDPF_1YR_GRO_RATING_ELP", "RDPF_1YR_GRO_PTS_EARN_ELP");
 				yield return new Tuple<string, string>("RDPF_3YR_GRO_RATING_ELP", "RDPF_3YR_GRO_PTS_EARN_ELP");
+			}
+		}
+
+		IEnumerable<Tuple<string, string>> PointColumns
+		{
+			get
+			{
 				yield return new Tuple<string, string>("RDPF_1YR_PS_GRAD_FRL_RATING", "RDPF_1YR_PS_GRAD_FRL_PTS_EARN");
 				yield return new Tuple<string, string>("RDPF_1YR_PS_GRAD_MIN_RATING", "RDPF_1YR_PS_GRAD_MIN_PTS_EARN");
 				yield return new Tuple<string, string>("RDPF_1YR_PS_GRAD_IEP_RATING", "RDPF_1YR_PS_GRAD_IEP_PTS_EARN");
@@ -83,6 +90,7 @@ namespace cde.district.validation.tests
 		{
 			Columns.ForEach(t => AssertRating(row, t.Item1, t.Item2, GetRating, errors));
 			PointColumns.ForEach(t => AssertRating(row, t.Item1, t.Item2, GetPointRating, errors));
+			ElpColumns.ForEach(t => AssertRating(row, t.Item1, t.Item2, GetElpRating, errors));
 		}
 
 		string GetRating(double value)
@@ -102,6 +110,15 @@ namespace cde.district.validation.tests
 			if (value == 0.75) return Meets;
 			if (value == 0.5) return Approaching;
 			if (value == 0.25) return DoesNotMeet;
+			return Unknown;
+		}
+
+		string GetElpRating(double value)
+		{
+			if (value == 2.0) return Exceeds;
+			if (value == 1.5) return Meets;
+			if (value == 1.0) return Approaching;
+			if (value == 0.5) return DoesNotMeet;
 			return Unknown;
 		}
 	}
