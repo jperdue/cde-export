@@ -43,7 +43,7 @@ namespace cde.district.validation.tests
 			}
 		}
 
-		public override void Test(Row row, List<string> errors)
+		public override void Test(Row row, Errors errors)
 		{
 			Columns.ForEach(t => AssertRating(row, t.Item1, t.Item2, Rating, errors));
 		}

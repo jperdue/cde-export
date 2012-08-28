@@ -87,7 +87,7 @@ namespace cde.district.validation.tests
 			};
 		}
 
-		public override void Test(Row row, List<string> errors)
+		public override void Test(Row row, Errors errors)
 		{
 			AssertRating(row, "RDPF_1YR_ACH_PA_PCT_READ", "RDPF_1YR_ACH_RATING_READ", GetRead1(), errors);
 			AssertRating(row, "RDPF_1YR_ACH_PA_PCT_MATH", "RDPF_1YR_ACH_RATING_MATH", GetMath1(), errors);
@@ -100,7 +100,7 @@ namespace cde.district.validation.tests
 			AssertRating(row, "RDPF_3YR_ACH_PA_PCT_SCI", "RDPF_3YR_ACH_RATING_SCI", GetSci3(), errors);
 		}
 
-		void AssertRating(Row row, string percentColumn, string ratingColumn, Dictionary<string, double[]> cutoffs, List<string> errors)
+		void AssertRating(Row row, string percentColumn, string ratingColumn, Dictionary<string, double[]> cutoffs, Errors errors)
 		{
 			var levelColumn = "RDPF_EMH_CODE";
 			if(AssertDefined(row, levelColumn, errors))

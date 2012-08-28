@@ -28,19 +28,18 @@ namespace cde.district.validation.tests
 			return prettyNames[type];
 		}
 
+		public abstract void Test(Row row, Errors errors);
 
-		public abstract void Test(Row row, List<string> errors);
-
-		protected bool AssertTrue(Row row, bool result, string message, List<string> errors)
+		protected bool AssertTrue(Row row, bool result, string message, Errors errors)
 		{
 			if (!result)
 			{
-				errors.Add(GetPrettyName() + " - " + message);
+				errors.Add(row, GetPrettyName() + " - " + message);
 			}
 			return result;
 		}
 
-		protected bool AssertDefined(Row row, string column, List<string> errors)
+		protected bool AssertDefined(Row row, string column, Errors errors)
 		{
 			if(Ignore.Column(row, column))
 			{
@@ -60,12 +59,12 @@ namespace cde.district.validation.tests
 			return !String.IsNullOrWhiteSpace(value) && value.Trim() != "-";
 		}
 
-		protected bool AssertDefined(Row row, IEnumerable<string> columns, List<string> errors)
+		protected bool AssertDefined(Row row, IEnumerable<string> columns, Errors errors)
 		{
 			return !columns.Any(c => !AssertDefined(row, c, errors));
 		}
 
-		protected bool AssertSum(Row row, string resultColumn, IEnumerable<string> partColumns, List<string> errors)
+		protected bool AssertSum(Row row, string resultColumn, IEnumerable<string> partColumns, Errors errors)
 		{
 			if(!AssertDefined(row, new [] { resultColumn }.Concat(partColumns), errors))
 			{
@@ -83,7 +82,7 @@ namespace cde.district.validation.tests
 			return partColumns.Select(c => double.Parse(row[c])).Sum();
 		}
 
-		protected virtual bool AssertDivide(Row row, string resultColumn, string numeratorColumn, string denominatorColumn, List<string> errors)
+		protected virtual bool AssertDivide(Row row, string resultColumn, string numeratorColumn, string denominatorColumn, Errors errors)
 		{
 			if (!AssertDefined(row, new [] { resultColumn, numeratorColumn, denominatorColumn }, errors))
 			{
@@ -98,7 +97,7 @@ namespace cde.district.validation.tests
 			return AssertTrue(row, result.Format() == divide.Format(), message, errors);
 		}
 
-		protected virtual bool AssertRating(Row row, string ratingColumn, string percentOfPointsRatingColumn, Func<double, String> ratingLookup, List<string> errors)
+		protected virtual bool AssertRating(Row row, string ratingColumn, string percentOfPointsRatingColumn, Func<double, String> ratingLookup, Errors errors)
 		{
 			if (AssertDefined(row, new[] { ratingColumn, percentOfPointsRatingColumn }, errors))
 			{
@@ -115,18 +114,18 @@ namespace cde.district.validation.tests
 			return false;
 		}
 
-		protected bool AssertNumber(Row row, string numberColumn, out double value, List<string> errors)
+		protected bool AssertNumber(Row row, string numberColumn, out double value, Errors errors)
 		{
 			var numberValue = row[numberColumn];
 			if (double.TryParse(numberValue, out value))
 			{
 				return true;
 			}
-			errors.Add("Value in '" + numberColumn + "' cannot be converted to a number (" + numberValue + ")");
+			errors.Add(row, "Value in '" + numberColumn + "' cannot be converted to a number (" + numberValue + ")");
 			return false;
 		}
 
-		protected bool AssertEqual(Row row, string column1, string column2, List<string> errors)
+		protected bool AssertEqual(Row row, string column1, string column2, Errors errors)
 		{
 			if (AssertDefined(row, new[] { column1, column2 }, errors))
 			{
@@ -138,7 +137,7 @@ namespace cde.district.validation.tests
 			return false;
 		}
 
-		protected bool AssertGreaterThan(Row row, string column1, string column2, List<string> errors)
+		protected bool AssertGreaterThan(Row row, string column1, string column2, Errors errors)
 		{
 			double value1, value2;
 			if(AssertNumber(row, column1, out value1, errors) &&
@@ -150,7 +149,7 @@ namespace cde.district.validation.tests
 			return false;
 		}
 
-		protected bool AssertSubtract(Row row, string column1, string column2, string resultColumn, List<string> errors)
+		protected bool AssertSubtract(Row row, string column1, string column2, string resultColumn, Errors errors)
 		{
 			double value1, value2, result;
 			if (AssertNumber(row, column1, out value1, errors) &&

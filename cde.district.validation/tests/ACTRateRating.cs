@@ -7,13 +7,13 @@ namespace cde.district.validation.tests
 {
 	public class ACTRateRating : BaseTest
 	{
-		public override void Test(Row row, List<string> errors)
+		public override void Test(Row row, Errors errors)
 		{
 			AssertRating(row, "RDPF_1YR_PS_ACT_RATING", "RDPF_1YR_PS_ACT_SCORE", Rating1, errors);
 			AssertRating(row, "RDPF_3YR_PS_ACT_RATING", "RDPF_3YR_PS_ACT_SCORE", Rating3, errors);
 		}
 
-		protected override bool AssertRating(Row row, string ratingColumn, string percentOfPointsRatingColumn, Func<double, string> ratingLookup, List<string> errors)
+		protected override bool AssertRating(Row row, string ratingColumn, string percentOfPointsRatingColumn, Func<double, string> ratingLookup, Errors errors)
 		{
 			if (!Defined(row, ratingColumn) && !Defined(row, percentOfPointsRatingColumn)) return true;
 

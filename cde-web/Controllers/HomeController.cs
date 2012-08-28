@@ -69,7 +69,7 @@ namespace cde_web.Controllers
 				var errors = runner.Run(row, testName);
 				if (errors.Count > 0)
 				{
-					results.Add(new Result { Title = row.ToString(), Errors = errors });
+					results.Add(new Result { Title = row.ToString(), Errors = errors.Select(e => e.Message });
 				}
 			}
 			return results;

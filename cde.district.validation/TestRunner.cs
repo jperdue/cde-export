@@ -30,14 +30,14 @@ namespace cde.district.validation
 			}
 		}
 
-		public List<string> Run(Row row)
+		public Errors Run(Row row)
 		{
 			return Run(row, "All");
 		}
 
-		public List<string> Run(Row row, string testName)
+		public Errors Run(Row row, string testName)
 		{
-			var errors = new List<string>();
+			var errors = new Errors();
 			var testsToRun = Tests;
 			if(testName != "All")
 			{

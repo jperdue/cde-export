@@ -7,7 +7,7 @@ namespace cde.district.validation.tests
 {
 	public class IndicatorPercentOfPointsEarnedMatchSummaryPercentOfPoints : BaseTest
 	{
-		public override void Test(Row row, List<string> errors)
+		public override void Test(Row row, Errors errors)
 		{
 			AssertEqual(row, "RDPF_1YR_ACHIEVE_PCT_PTS_EARN", "RDPF_1YR_ACH_PCT_PTS_EARN_TTL", errors);
 			AssertEqual(row, "RDPF_3YR_ACHIEVE_PCT_PTS_EARN", "RDPF_3YR_ACH_PCT_PTS_EARN_TTL", errors);

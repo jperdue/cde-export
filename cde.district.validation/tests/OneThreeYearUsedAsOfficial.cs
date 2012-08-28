@@ -7,7 +7,7 @@ namespace cde.district.validation.tests
 {
 	public class OneThreeYearUsedAsOfficial : BaseTest
 	{
-		public override void Test(Row row, List<string> errors)
+		public override void Test(Row row, Errors errors)
 		{
 			if(AssertDefined(row, new[] { "RDPF_1_3_RATING_YEAR_USED", "RDPF_1YR_INDICATOR_NCOUNT", "RDPF_3YR_INDICATOR_NCOUNT", "RDPF_1YR_TOTAL_PCT_PTS_EARN", "RDPF_3YR_TOTAL_PCT_PTS_EARN" }, errors))
 			{

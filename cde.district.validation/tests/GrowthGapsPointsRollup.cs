@@ -7,7 +7,7 @@ namespace cde.district.validation.tests
 {
 	public class GrowthGapsPointsRollup : BaseTest
 	{
-		public override void Test(Row row, List<string> errors)
+		public override void Test(Row row, Errors errors)
 		{
 			AssertSum(row, "RDPF_1YR_GG_PTS_EARN_READ", new[] { "RDPF_1YR_GG_BPA_PTS_EARN_READ", "RDPF_1YR_GG_ELL_PTS_EARN_READ", "RDPF_1YR_GG_DIS_PTS_EARN_READ", "RDPF_1YR_GG_MIN_PTS_EARN_READ", "RDPF_1YR_GG_FRL_PTS_EARN_READ" }, errors);
 			AssertSum(row, "RDPF_1YR_GG_PTS_ELIG_READ", new[] { "RDPF_1YR_GG_BPA_PTS_ELIG_READ", "RDPF_1YR_GG_ELL_PTS_ELIG_READ", "RDPF_1YR_GG_DIS_PTS_ELIG_READ", "RDPF_1YR_GG_MIN_PTS_ELIG_READ", "RDPF_1YR_GG_FRL_PTS_ELIG_READ" }, errors);

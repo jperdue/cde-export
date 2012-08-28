@@ -23,12 +23,12 @@ namespace cde.district.validation.tests
 			}
 		}
 
-		public override void Test(Row row, List<string> errors)
+		public override void Test(Row row, Errors errors)
 		{
 			Columns.ForEach(t => AssertSubtract(row, t.Item1, t.Item2, t.Item3, t.Item4, errors));
 		}
 
-		void AssertSubtract(Row row, string excdColumn, string panColumn, string pctnColumn, string nexcdColumn, List<string> errors)
+		void AssertSubtract(Row row, string excdColumn, string panColumn, string pctnColumn, string nexcdColumn, Errors errors)
 		{
 			if (AssertDefined(row, excdColumn, errors) && row[excdColumn].ToLower() == "no")
 			{

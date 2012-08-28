@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Differ.cs" />
     <Compile Include="Error.cs" />
+    <Compile Include="Errors.cs" />
     <Compile Include="Extension.cs" />
     <Compile Include="Ignore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

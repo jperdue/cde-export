@@ -7,7 +7,7 @@ namespace cde.district.validation.tests
 {
 	public class DropoutRateRatings : BaseTest
 	{
-		public override void Test(Row row, List<string> errors)
+		public override void Test(Row row, Errors errors)
 		{
 			AssertRating(row, "RDPF_1YR_PS_DROP_RATING", "RDPF_1YR_PS_DROP_RATE", Rating1, errors);
 			AssertRating(row, "RDPF_3YR_PS_DROP_RATING", "RDPF_3YR_PS_DROP_RATE", Rating3, errors);

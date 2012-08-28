@@ -52,12 +52,12 @@ namespace cde.district.validation.tests
 			}
 		}
 
-		public override void Test(Row row, List<string> errors)
+		public override void Test(Row row, Errors errors)
 		{
 			Columns.ForEach(t => AssertAGP(row, t.Item1, t.Item2, t.Item3, errors));
 		}
 
-		bool AssertAGP(Row row, string madeMgpColumn, string ratingColumn, string mgpColumn, List<string> errors)
+		bool AssertAGP(Row row, string madeMgpColumn, string ratingColumn, string mgpColumn, Errors errors)
 		{
 			if(AssertDefined(row, madeMgpColumn, errors))
 			{
@@ -71,7 +71,7 @@ namespace cde.district.validation.tests
 				}
 				else
 				{
-					errors.Add("Unknown Made MGP State (should be 'Yes' or 'No'):" + madeMgp);
+					errors.Add(row, "Unknown Made MGP State (should be 'Yes' or 'No'):" + madeMgp);
 				}
 				
 			}

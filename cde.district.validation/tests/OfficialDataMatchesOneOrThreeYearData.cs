@@ -57,13 +57,13 @@ namespace cde.district.validation.tests
 			}
 		}
 
-		public override void Test(Row row, List<string> errors)
+		public override void Test(Row row, Errors errors)
 		{
 			var columns = row["RDPF_1_3_RATING_YEAR_USED"].ToLower() == "1 year" ? OneYearColumns : ThreeYearColumns;
 			AssertMatch(row, columns, errors);
 		}
 
-		void AssertMatch(Row row, IEnumerable<Tuple<string, string>> columns, List<string> errors)
+		void AssertMatch(Row row, IEnumerable<Tuple<string, string>> columns, Errors errors)
 		{
 			columns.ForEach(t => AssertEqual(row, t.Item1, t.Item2, errors));
 		}

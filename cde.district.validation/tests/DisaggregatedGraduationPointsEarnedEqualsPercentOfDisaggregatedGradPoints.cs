@@ -16,11 +16,11 @@ namespace cde.district.validation.tests
 			}
 		}
 
-		public override void Test(Row row, List<string> errors)
+		public override void Test(Row row, Errors errors)
 		{
 		}
 
-		protected override bool AssertDivide(Row row, string resultColumn, string numeratorColumn, string denominatorColumn, List<string> errors)
+		protected override bool AssertDivide(Row row, string resultColumn, string numeratorColumn, string denominatorColumn, Errors errors)
 		{
 			if (!Defined(row, resultColumn) && row[denominatorColumn] == "0") return true;
 

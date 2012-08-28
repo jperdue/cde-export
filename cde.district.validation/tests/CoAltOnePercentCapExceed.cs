@@ -23,12 +23,12 @@ namespace cde.district.validation.tests
 			}
 		}
 
-		public override void Test(Row row, List<string> errors)
+		public override void Test(Row row, Errors errors)
 		{
 			Columns.ForEach(t => AssertGreaterThan(row, t.Item1, t.Item2, t.Item3, errors));
 		}
 
-		void AssertGreaterThan(Row row, string panColumn, string pctnColumn, string excdColumn, List<string> errors)
+		void AssertGreaterThan(Row row, string panColumn, string pctnColumn, string excdColumn, Errors errors)
 		{
 			if(AssertDefined(row, excdColumn, errors) && row[excdColumn].ToLower() == "no")
 			{

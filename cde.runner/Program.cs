@@ -57,7 +57,7 @@ namespace cde.runner
 					{
 						writer.WriteLine("---------- " + row + " ----------");
 
-						errors.ForEach(e => writer.WriteLine(e));
+						errors.ForEach(e => writer.WriteLine(e.Message));
 
 						writer.WriteLine();
 					}

@@ -50,7 +50,7 @@ namespace cde.district.validation.tests
 			}
 		}
 
-		public override void Test(Row row, List<string> errors)
+		public override void Test(Row row, Errors errors)
 		{
 			AssertSum(row, "RDPF_1YR_GRO_PTS_EARN_TTL", new[] { "RDPF_1YR_GRO_PTS_EARN_ELP", "RDPF_1YR_GRO_PTS_EARN_READ", "RDPF_1YR_GRO_PTS_EARN_MATH", "RDPF_1YR_GRO_PTS_EARN_WRITE" }, errors);
 			AssertSum(row, "RDPF_1YR_GRO_PTS_ELIG_TTL", new[] { "RDPF_1YR_GRO_PTS_ELIG_ELP", "RDPF_1YR_GRO_PTS_ELIG_READ", "RDPF_1YR_GRO_PTS_ELIG_MATH", "RDPF_1YR_GRO_PTS_ELIG_WRITE" }, errors);
@@ -60,7 +60,7 @@ namespace cde.district.validation.tests
 			Columns.ForEach(t => AssertMadeAGP(row, t.Item1, t.Item2, t.Item3, errors));
 		}
 
-		void AssertMadeAGP(Row row, string mgpColumn, string agpColumn, string madeAgpColumn, List<string> errors)
+		void AssertMadeAGP(Row row, string mgpColumn, string agpColumn, string madeAgpColumn, Errors errors)
 		{
 			if (AssertDefined(row, new[] { mgpColumn, agpColumn, madeAgpColumn }, errors))
 			{

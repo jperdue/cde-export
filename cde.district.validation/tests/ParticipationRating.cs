@@ -41,7 +41,7 @@ namespace cde.district.validation.tests
 			}
 		}
 
-		public override void Test(Row row, List<string> errors)
+		public override void Test(Row row, Errors errors)
 		{
 			AssertRating(row, "RDPF_1YR_PARTIC_DNM_COUNT", "_1YR_", errors);
 			AssertRating(row, "RDPF_3YR_PARTIC_DNM_COUNT", "_3YR_", errors);
@@ -51,7 +51,7 @@ namespace cde.district.validation.tests
 			ParticipationRateColumns.ForEach(t => AssertRating(row, t.Item2, t.Item1, RatingParticipation, errors));
 		}
 
-		bool AssertRating(Row row, string countColumn, string matcher, List<string> errors)
+		bool AssertRating(Row row, string countColumn, string matcher, Errors errors)
 		{
 			var valueColumns = ParticipationRateColumns.Select(t => t.Item2).Where(c => c.Contains(matcher));
 			if(AssertDefined(row, countColumn, errors))
@@ -62,7 +62,7 @@ namespace cde.district.validation.tests
 			return false;
 		}
 
-		int GetParticipationCount(Row row, IEnumerable<string> columns, List<string> errors)
+		int GetParticipationCount(Row row, IEnumerable<string> columns, Errors errors)
 		{
 			if(AssertDefined(row, columns, errors))
 			{
