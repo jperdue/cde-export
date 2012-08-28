@@ -48,15 +48,23 @@ namespace cde.district.validation.tests
 
 			if (AssertTrue(row, row.ContainsKey(column), "Column undefined: " + column, errors))
 			{
-				return AssertTrue(row, Defined(row, column), "Value undefined for " + column, errors);
+				return AssertTrue(row, Defined(row, column), "Value undefined for " + column + " (" + row[column] + ")", errors);
 			}
 			return false;
 		}
 
 		protected bool Defined(Row row, string column)
 		{
-			var value = row[column];
-			return !String.IsNullOrWhiteSpace(value) && value.Trim() != "-";
+			var value = row[column].Trim();
+
+			var result = !String.IsNullOrEmpty(value) && value != "-";
+
+			if (value == "-")
+			{
+				int i = 0;
+			}
+
+			return result;
 		}
 
 		protected bool AssertDefined(Row row, IEnumerable<string> columns, Errors errors)
@@ -99,12 +107,14 @@ namespace cde.district.validation.tests
 
 		protected virtual bool AssertRating(Row row, string ratingColumn, string valueColumn, Func<double, String> ratingLookup, Errors errors, bool passIfBlank = false)
 		{
-			if(passIfBlank && !Defined(row, ratingColumn) && !Defined(row, valueColumn))
+			var ratingDefined = Defined(row, ratingColumn);
+			var valueDefined = Defined(row, valueColumn);
+			if(passIfBlank && !ratingDefined && (!valueDefined || row[valueColumn] == "0"))
 			{
 				return true;
 			}
 
-			if (AssertDefined(row, new[] { ratingColumn, valueColumn }, errors))
+			if (AssertDefined(row, ratingColumn, errors))
 			{
 				var rating = row[ratingColumn];
 				double percent;
