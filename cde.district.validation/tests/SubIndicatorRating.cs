@@ -88,9 +88,9 @@ namespace cde.district.validation.tests
 
 		public override void Test(Row row, Errors errors)
 		{
-			Columns.ForEach(t => AssertRating(row, t.Item1, t.Item2, GetRating, errors));
-			PointColumns.ForEach(t => AssertRating(row, t.Item1, t.Item2, GetPointRating, errors));
-			ElpColumns.ForEach(t => AssertRating(row, t.Item1, t.Item2, GetElpRating, errors));
+			Columns.ForEach(t => AssertRating(row, t.Item1, t.Item2, GetRating, errors, true));
+			PointColumns.ForEach(t => AssertRating(row, t.Item1, t.Item2, GetPointRating, errors, true));
+			ElpColumns.ForEach(t => AssertRating(row, t.Item1, t.Item2, GetElpRating, errors, true));
 		}
 
 		string GetRating(double value)

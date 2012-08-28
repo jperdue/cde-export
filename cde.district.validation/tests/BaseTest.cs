@@ -97,17 +97,22 @@ namespace cde.district.validation.tests
 			return AssertTrue(row, result.Format() == divide.Format(), message, errors);
 		}
 
-		protected virtual bool AssertRating(Row row, string ratingColumn, string percentOfPointsRatingColumn, Func<double, String> ratingLookup, Errors errors)
+		protected virtual bool AssertRating(Row row, string ratingColumn, string valueColumn, Func<double, String> ratingLookup, Errors errors, bool passIfBlank = false)
 		{
-			if (AssertDefined(row, new[] { ratingColumn, percentOfPointsRatingColumn }, errors))
+			if(passIfBlank && !Defined(row, ratingColumn) && !Defined(row, valueColumn))
+			{
+				return true;
+			}
+
+			if (AssertDefined(row, new[] { ratingColumn, valueColumn }, errors))
 			{
 				var rating = row[ratingColumn];
 				double percent;
-				if (AssertNumber(row, percentOfPointsRatingColumn, out percent, errors))
+				if (AssertNumber(row, valueColumn, out percent, errors))
 				{
 					var expectedRating = ratingLookup(percent);
 
-					var message = "'" + rating + "' != '" + expectedRating + "' (" + percent + "%) for " + ratingColumn + ", " + percentOfPointsRatingColumn;
+					var message = "'" + rating + "' != '" + expectedRating + "' (" + percent + "%) for " + ratingColumn + ", " + valueColumn;
 					return AssertTrue(row, rating == expectedRating, message, errors);
 				}
 			}
