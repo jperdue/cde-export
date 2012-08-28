@@ -12,8 +12,6 @@ namespace cde.district.validation.tests
 			get
 			{				
 				yield return new Tuple<string, string>("RDPF_1_3_TOTAL_RATING", "RDPF_1_3_TOTAL_PCT_PTS_EARN");
-				yield return new Tuple<string, string>("RDPF_1_3_TOTAL_RATING", "RDPF_1YR_TOTAL_PCT_PTS_EARN");
-				yield return new Tuple<string, string>("RDPF_1_3_TOTAL_RATING", "RDPF_3YR_TOTAL_PCT_PTS_EARN");
 			}
 		}
 
@@ -29,6 +27,7 @@ namespace cde.district.validation.tests
 		public override void Test(Row row, Errors errors)
 		{
 			TotalColumns.ForEach(t => AssertRating(row, t.Item1, t.Item2, GetTotalRating, errors));
+
 			SPFColumns.ForEach(t => AssertRating(row, t.Item1, t.Item2, GetSPFRating, errors));
 		}
 
