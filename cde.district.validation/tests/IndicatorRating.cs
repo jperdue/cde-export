@@ -45,15 +45,15 @@ namespace cde.district.validation.tests
 
 		public override void Test(Row row, Errors errors)
 		{
-			Columns.ForEach(t => AssertRating(row, t.Item1, t.Item2, Rating, errors));
+			Columns.ForEach(t => AssertRating(row, t.Item1, t.Item2, Rating, errors, true));
 		}
 
 		string Rating(double percent)
 		{
-			if (percent < 37.5) return "Does Not Meet";
-			if (percent < 62.5) return "Approaching";
-			if (percent < 87.5) return "Meets";
-			return "Exceeds";
+			if (percent < 37.5) return DoesNotMeet;
+			if (percent < 62.5) return Approaching;
+			if (percent < 87.5) return Meets;
+			return Exceeds;
 		}
 	}
 }

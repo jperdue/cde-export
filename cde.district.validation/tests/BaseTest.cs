@@ -57,14 +57,7 @@ namespace cde.district.validation.tests
 		{
 			var value = row[column].Trim();
 
-			var result = !String.IsNullOrEmpty(value) && value != "-";
-
-			if (value == "-")
-			{
-				int i = 0;
-			}
-
-			return result;
+			return !String.IsNullOrEmpty(value) && value != "-";
 		}
 
 		protected bool AssertDefined(Row row, IEnumerable<string> columns, Errors errors)
