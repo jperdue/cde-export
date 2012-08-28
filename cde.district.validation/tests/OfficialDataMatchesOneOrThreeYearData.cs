@@ -27,8 +27,8 @@ namespace cde.district.validation.tests
 				yield return new Tuple<string, string>("RDPF_1_3_POST_SEC_PCT_PTS_EARN", "RDPF_1YR_POST_SEC_PCT_PTS_EARN");
 				yield return new Tuple<string, string>("RDPF_1_3_POST_SEC_PTS_EARN", "RDPF_1YR_POST_SEC_PTS_EARN");
 				yield return new Tuple<string, string>("RDPF_1_3_POST_SEC_PTS_ELIG", "RDPF_1YR_POST_SEC_PTS_ELIG");
-				yield return new Tuple<string, string>("RDPF_1_3_PARTIC_DNM_COUNT", "RDPF_1YR_PARTIC_DNM_COUNT");
-				yield return new Tuple<string, string>("RDPF_1_3_PARTIC_RATING", "RDPF_1YR_PARTIC_RATING");
+				yield return new Tuple<string, string>("RDPF_1_3_PARTIC_DNM_COUNT", "RDPF_1YR_TEST_PARTIC_DNM_COUNT");
+				yield return new Tuple<string, string>("RDPF_1_3_PARTIC_RATING", "RDPF_1YR_TEST_PARTIC_RATING");
 			}
 		}
 
@@ -52,8 +52,8 @@ namespace cde.district.validation.tests
 				yield return new Tuple<string, string>("RDPF_1_3_POST_SEC_PCT_PTS_EARN", "RDPF_3YR_POST_SEC_PCT_PTS_EARN");
 				yield return new Tuple<string, string>("RDPF_1_3_POST_SEC_PTS_EARN", "RDPF_3YR_POST_SEC_PTS_EARN");
 				yield return new Tuple<string, string>("RDPF_1_3_POST_SEC_PTS_ELIG", "RDPF_3YR_POST_SEC_PTS_ELIG");
-				yield return new Tuple<string, string>("RDPF_1_3_PARTIC_DNM_COUNT", "RDPF_3YR_PARTIC_DNM_COUNT");
-				yield return new Tuple<string, string>("RDPF_1_3_PARTIC_RATING", "RDPF_3YR_PARTIC_RATING");
+				yield return new Tuple<string, string>("RDPF_1_3_PARTIC_DNM_COUNT", "RDPF_3YR_TEST_PARTIC_DNM_COUNT");
+				yield return new Tuple<string, string>("RDPF_1_3_PARTIC_RATING", "RDPF_3YR_TEST_PARTIC_RATING");
 			}
 		}
 

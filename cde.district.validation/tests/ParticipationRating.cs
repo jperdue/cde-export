@@ -43,8 +43,8 @@ namespace cde.district.validation.tests
 
 		public override void Test(Row row, Errors errors)
 		{
-			AssertRating(row, "RDPF_1YR_PARTIC_DNM_COUNT", "_1YR_", errors);
-			AssertRating(row, "RDPF_3YR_PARTIC_DNM_COUNT", "_3YR_", errors);
+			AssertRating(row, "RDPF_1YR_TEST_PARTIC_DNM_COUNT", "_1YR_", errors);
+			AssertRating(row, "RDPF_3YR_TEST_PARTIC_DNM_COUNT", "_3YR_", errors);
 
 			ParticipationColumns.ForEach(t => AssertDivide(row, t.Item1, t.Item2, t.Item3, errors));
 

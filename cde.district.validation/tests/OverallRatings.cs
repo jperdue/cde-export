@@ -35,7 +35,7 @@ namespace cde.district.validation.tests
 		string GetTotalRating(double value)
 		{
 			if (value < 42.0) return "Turnaround";
-			if (value < 54.0) return "Priority Improvement";
+			if (value < 52.0) return "Priority Improvement";
 			if (value < 64.0) return "Improvement";
 			if (value < 80.0) return "Performance";
 			return "Distinction";
