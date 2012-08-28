@@ -13,11 +13,11 @@ namespace cde.district.validation.tests
 			AssertRating(row, "RDPF_3YR_PS_ACT_RATING", "RDPF_3YR_PS_ACT_SCORE", Rating3, errors);
 		}
 
-		protected override bool AssertRating(Row row, string ratingColumn, string percentOfPointsRatingColumn, Func<double, string> ratingLookup, Errors errors, bool passIfBlank = false)
+		protected override bool AssertRating(Row row, string ratingColumn, string valueColumn, Func<double, string> ratingLookup, Errors errors, bool passIfBlank = false)
 		{
-			if (!Defined(row, ratingColumn) && !Defined(row, percentOfPointsRatingColumn)) return true;
+			if (!Defined(row, ratingColumn, errors) && !Defined(row, valueColumn, errors)) return true;
 
-			return base.AssertRating(row, ratingColumn, percentOfPointsRatingColumn, ratingLookup, errors);
+			return base.AssertRating(row, ratingColumn, valueColumn, ratingLookup, errors);
 		}
 
 		string Rating1(double value)

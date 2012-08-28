@@ -22,7 +22,7 @@ namespace cde.district.validation.tests
 
 		protected override bool AssertDivide(Row row, string resultColumn, string numeratorColumn, string denominatorColumn, Errors errors)
 		{
-			if (!Defined(row, resultColumn) && row[denominatorColumn] == "0") return true;
+			if (!Defined(row, resultColumn, errors) && row[denominatorColumn] == "0") return true;
 
 			return base.AssertDivide(row, resultColumn, numeratorColumn, denominatorColumn, errors);
 		}

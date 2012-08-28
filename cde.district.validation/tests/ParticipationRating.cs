@@ -67,11 +67,7 @@ namespace cde.district.validation.tests
 
 		int GetParticipationCount(Row row, IEnumerable<string> columns, Errors errors)
 		{
-			if(AssertDefined(row, columns, errors))
-			{
-				return columns.Where(c => row[c] == DoesNotMeet).Count();
-			}
-			return -1;
+			return columns.Where(c => row[c] == DoesNotMeet).Count();
 		}
 
 		string RatingParticipation(double value)
