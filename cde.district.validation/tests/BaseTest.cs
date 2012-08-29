@@ -34,7 +34,7 @@ namespace cde.district.validation.tests
 		{
 			if (!result)
 			{
-				errors.Add(row, GetPrettyName() + " - " + message);
+				errors.Add(row, GetPrettyName() + " - " + message, GetPrettyName());
 			}
 			return result;
 		}
@@ -57,7 +57,7 @@ namespace cde.district.validation.tests
 		{
 			if(!row.ContainsKey(column))
 			{
-				errors.Add(row, "Column not defined: " + column);
+				errors.Add(row, "Column not defined: " + column, GetPrettyName());
 				return false;
 			}
 
@@ -149,7 +149,7 @@ namespace cde.district.validation.tests
 			{
 				return true;
 			}
-			errors.Add(row, "Value in '" + numberColumn + "' cannot be converted to a number (" + numberValue + ")");
+			errors.Add(row, "Value in '" + numberColumn + "' cannot be converted to a number (" + numberValue + ")", GetPrettyName());
 			return false;
 		}
 

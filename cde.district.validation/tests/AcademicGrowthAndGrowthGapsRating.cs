@@ -71,7 +71,7 @@ namespace cde.district.validation.tests
 				}
 				else
 				{
-					errors.Add(row, "Unknown Made MGP State (should be 'Yes' or 'No'):" + madeMgp);
+					errors.Add(row, "Unknown Made MGP State (should be 'Yes' or 'No'):" + madeMgp, GetPrettyName());
 				}
 				
 			}

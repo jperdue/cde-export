@@ -14,15 +14,16 @@ namespace cde.district.validation
 			get { return Values.Count; }
 		}
 
-		public void Add(Row row, string message)
+		public void Add(Row row, string message, string testName)
 		{
-			Values.Add(new Value { Row = row, Message = message });
+			Values.Add(new Value { Row = row, Message = message, TestName = testName });
 		}
 
 		public class Value
 		{
 			public Row Row;
 			public string Message;
+			public string TestName;
 		}
 
 		public IEnumerator<Errors.Value> GetEnumerator()
