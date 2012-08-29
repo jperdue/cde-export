@@ -26,5 +26,15 @@ namespace cde.district.validation.tests
 		{
 			Columns.ForEach(t => AssertSubtract(row, t.Item1, t.Item2, t.Item3, errors));
 		}
+
+		protected override bool AssertSubtract(Row row, string column1, string column2, string resultColumn, Errors errors)
+		{
+			if(!Defined(row, resultColumn, errors))
+			{
+				row[resultColumn] = "0";
+			}
+
+			return base.AssertSubtract(row, column1, column2, resultColumn, errors);
+		}
 	}
 }

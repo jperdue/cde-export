@@ -178,7 +178,7 @@ namespace cde.district.validation.tests
 			return false;
 		}
 
-		protected bool AssertSubtract(Row row, string column1, string column2, string resultColumn, Errors errors)
+		protected virtual bool AssertSubtract(Row row, string column1, string column2, string resultColumn, Errors errors)
 		{
 			double value1, value2, result;
 			if (AssertNumber(row, column1, out value1, errors) &&
