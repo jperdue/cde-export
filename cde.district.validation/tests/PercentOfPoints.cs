@@ -31,8 +31,13 @@ namespace cde.district.validation.tests
 			Columns.ForEach(t => CheckPointsEarned(row, t.Item1, t.Item2, t.Item3, errors));
 		}
 
-		void CheckPointsEarned(Row row, string percentPointsColumn, string pointsEligibleColumn, string pointsEarnedColumn, Errors errors)
+		bool CheckPointsEarned(Row row, string percentPointsColumn, string pointsEligibleColumn, string pointsEarnedColumn, Errors errors)
 		{
+			if(!Defined(row, percentPointsColumn, errors) && (row[pointsEligibleColumn] == "0" || row[pointsEarnedColumn] == "0"))
+			{
+				return true;
+			}
+
 			if (AssertDefined(row, new[] { percentPointsColumn, pointsEligibleColumn, pointsEarnedColumn }, errors))
 			{
 				var percentPoints = double.Parse(row[percentPointsColumn]);
@@ -40,8 +45,9 @@ namespace cde.district.validation.tests
 				var pointsEarned = double.Parse(row[pointsEarnedColumn]);
 				var pointsEarnedExpected = percentPoints * pointsEligible / 100.0;
 
-				AssertTrue(row, pointsEarnedExpected.Format() == pointsEarned.Format(), percentPointsColumn + ", " + pointsEligibleColumn + ", " + pointsEarnedColumn, errors);
+				return AssertTrue(row, pointsEarnedExpected.Format() == pointsEarned.Format(), percentPointsColumn + ", " + pointsEligibleColumn + ", " + pointsEarnedColumn, errors);
 			}
+			return false;
 		}
 	}
 }
