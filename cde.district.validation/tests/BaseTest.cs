@@ -100,6 +100,11 @@ namespace cde.district.validation.tests
 
 		protected virtual bool AssertDivide(Row row, string resultColumn, string numeratorColumn, string denominatorColumn, Errors errors)
 		{
+			if((row[numeratorColumn] == "0" || row[denominatorColumn] == "0") && !Defined(row, resultColumn, errors))
+			{
+				return true;
+			}
+
 			if (!AssertDefined(row, new [] { resultColumn, numeratorColumn, denominatorColumn }, errors))
 			{
 				return false;
