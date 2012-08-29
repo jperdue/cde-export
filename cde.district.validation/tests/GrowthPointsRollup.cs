@@ -57,6 +57,11 @@ namespace cde.district.validation.tests
 
 		void AssertMadeAGP(Row row, string mgpColumn, string agpColumn, string madeAgpColumn, Errors errors)
 		{
+			if (!Defined(row, mgpColumn, errors) && !Defined(row, agpColumn, errors) && !Defined(row, madeAgpColumn, errors))
+			{
+				return;
+			}
+			
 			if (AssertDefined(row, new[] { mgpColumn, agpColumn, madeAgpColumn }, errors))
 			{
 				double mgp, agp;
@@ -67,7 +72,7 @@ namespace cde.district.validation.tests
 					var madeAgpExpected = MadeAGP(mgp, agp).ToLower();
 
 					var message = "Calculated made AGP (" + madeAgpExpected + ") != Made MGP (" + madeAgp + ")";
-					AssertTrue(row, madeAgpExpected == madeAgp, message, errors);
+					AssertTrue(row, madeAgpExpected.ToLower() == madeAgp.ToLower(), message, errors);
 				}
 			}
 		}
