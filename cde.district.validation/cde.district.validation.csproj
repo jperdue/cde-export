@@ -77,7 +77,8 @@
     <Compile Include="tests\IndicatorRollupPoints.cs" />
     <Compile Include="tests\OfficialDataMatchesOneOrThreeYearData.cs" />
     <Compile Include="tests\OneThreeYearUsedAsOfficial.cs" />
-    <Compile Include="tests\OverallRatings.cs" />
+    <Compile Include="tests\OverallOfficialRating.cs" />
+    <Compile Include="tests\OverallTotalRating.cs" />
     <Compile Include="tests\ParticipationRateCalculation.cs" />
     <Compile Include="tests\ParticipationRating.cs" />
     <Compile Include="tests\ParticipationRatingCounter.cs" />

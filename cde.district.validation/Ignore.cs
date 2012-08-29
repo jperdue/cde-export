@@ -65,6 +65,7 @@ namespace cde.district.validation
 			{
 				yield return "RDPF_A_TTL_DPF_RATING_CALC";
 				yield return "RDPF_A_TTL_DPF_RATING_OFFICIAL";
+				yield return "RDPF_A_TTL_DPF_RATING_CALC";
 			}
 		}
 
@@ -847,6 +848,7 @@ namespace cde.district.validation
 				yield return "RDPF_A_TTL_SPF_RATING_OFFICIAL";
 				yield return "RDPF_1YR_PS_DROP_RATING";
 				yield return "RDPF_3YR_PS_DROP_RATING";
+				yield return "RDPF_A_TTL_DPF_RATING_CALC";
 			}
 		}
 	}
