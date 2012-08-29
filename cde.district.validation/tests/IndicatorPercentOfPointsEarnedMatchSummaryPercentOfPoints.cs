@@ -16,6 +16,7 @@ namespace cde.district.validation.tests
 			AssertEqual(row, "RDPF_1YR_GRO_GAPS_PCT_PTS_EARN", "RDPF_1YR_GG_PCT_PTS_EARN_TTL", errors);
 			AssertEqual(row, "RDPF_3YR_GRO_GAPS_PCT_PTS_EARN", "RDPF_3YR_GG_PCT_PTS_EARN_TTL", errors);
 			AssertEqual(row, "RDPF_1YR_POST_SEC_PCT_PTS_EARN", "RDPF_1YR_PS_PCT_PTS_EARN_TTL", errors);
+			AssertEqual(row, "RDPF_3YR_POST_SEC_PCT_PTS_EARN", "RDPF_3YR_PS_PCT_PTS_EARN_TTL", errors);
 		}
 	}
 }

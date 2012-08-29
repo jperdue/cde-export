@@ -116,7 +116,7 @@ namespace cde.district.validation.tests
 			if (AssertDefined(row, ratingColumn, errors))
 			{
 				var rating = row[ratingColumn];
-				double percent;
+				double percent; 
 				if (AssertNumber(row, valueColumn, out percent, errors))
 				{
 					var expectedRating = ratingLookup(percent);
@@ -141,14 +141,15 @@ namespace cde.district.validation.tests
 
 		protected bool AssertEqual(Row row, string column1, string column2, Errors errors)
 		{
-			if (AssertDefined(row, new[] { column1, column2 }, errors))
+			if(Ignore.Column(row, column1) || Ignore.Column(row, column2))
 			{
-				var column1Value = row[column1];
-				var column2Value = row[column2];
-				var message = column1 + " (" + column1Value + ") != " + column2 + " (" + column2Value + ")";
-				return AssertTrue(row, column1Value == column2Value, message, errors);
+				return true;
 			}
-			return false;
+
+			var column1Value = row[column1].Trim();
+			var column2Value = row[column2].Trim();
+			var message = column1 + " (" + column1Value + ") != " + column2 + " (" + column2Value + ")";
+			return AssertTrue(row, column1Value == column2Value, message, errors);
 		}
 
 		protected bool AssertGreaterThan(Row row, string column1, string column2, Errors errors)
