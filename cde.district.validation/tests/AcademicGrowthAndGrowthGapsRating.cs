@@ -57,14 +57,19 @@ namespace cde.district.validation.tests
 			Columns.ForEach(t => AssertAGP(row, t.Item1, t.Item2, t.Item3, errors));
 		}
 
-		bool AssertAGP(Row row, string madeMgpColumn, string ratingColumn, string mgpColumn, Errors errors)
+		bool AssertAGP(Row row, string madeAgpColumn, string ratingColumn, string mgpColumn, Errors errors)
 		{
-			if(AssertDefined(row, madeMgpColumn, errors))
+			if(!Defined(row, madeAgpColumn, errors) && !Defined(row, ratingColumn, errors) && !Defined(row, mgpColumn, errors))
 			{
-				var madeMgp = row[madeMgpColumn];
+				return true;
+			}
+
+			if(AssertDefined(row, madeAgpColumn, errors))
+			{
+				var madeMgp = row[madeAgpColumn];
 				Func<double, string> rating = null;
-				if (madeMgp == "Yes") rating = RatingYes;
-				if (madeMgp == "No") rating = RatingNo;
+				if (madeMgp.ToLower() == "yes") rating = RatingYes;
+				if (madeMgp.ToLower() == "no") rating = RatingNo;
 				if(rating != null)
 				{
 					return AssertRating(row, ratingColumn, mgpColumn, rating, errors);
