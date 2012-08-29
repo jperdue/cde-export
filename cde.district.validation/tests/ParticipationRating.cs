@@ -7,72 +7,56 @@ namespace cde.district.validation.tests
 {
 	public class ParticipationRating : BaseTest
 	{
-		IEnumerable<Tuple<string, string, string>> ParticipationColumns
+		IEnumerable<Tuple<string, string, string>> ParticipationRateColumns
 		{
 			get
 			{
-				yield return new Tuple<string, string, string>("RDPF_1YR_PARTIC_PCT_TEST_READ", "RDPF_1YR_PARTIC_NM_READ", "RDPF_1YR_PARTIC_DN_READ");
-				yield return new Tuple<string, string, string>("RDPF_1YR_PARTIC_PCT_TEST_MATH", "RDPF_1YR_PARTIC_NM_MATH", "RDPF_1YR_PARTIC_DN_MATH");
-				yield return new Tuple<string, string, string>("RDPF_1YR_PARTIC_PCT_TEST_WRITE", "RDPF_1YR_PARTIC_NM_WRITE", "RDPF_1YR_PARTIC_DN_WRITE");
-				yield return new Tuple<string, string, string>("RDPF_1YR_PARTIC_PCT_TEST_SCI", "RDPF_1YR_PARTIC_NM_SCI", "RDPF_1YR_PARTIC_DN_SCI");
-				yield return new Tuple<string, string, string>("RDPF_1YR_PARTIC_PCT_TEST_ACT", "RDPF_1YR_PARTIC_NM_ACT", "RDPF_1YR_PARTIC_DN_ACT");
-				yield return new Tuple<string, string, string>("RDPF_3YR_PARTIC_PCT_TEST_READ", "RDPF_3YR_PARTIC_NM_READ", "RDPF_3YR_PARTIC_DN_READ");
-				yield return new Tuple<string, string, string>("RDPF_3YR_PARTIC_PCT_TEST_MATH", "RDPF_3YR_PARTIC_NM_MATH", "RDPF_3YR_PARTIC_DN_MATH");
-				yield return new Tuple<string, string, string>("RDPF_3YR_PARTIC_PCT_TEST_WRITE", "RDPF_3YR_PARTIC_NM_WRITE", "RDPF_3YR_PARTIC_DN_WRITE");
-				yield return new Tuple<string, string, string>("RDPF_3YR_PARTIC_PCT_TEST_SCI", "RDPF_3YR_PARTIC_NM_SCI", "RDPF_3YR_PARTIC_DN_SCI");
-				yield return new Tuple<string, string, string>("RDPF_3YR_PARTIC_PCT_TEST_ACT", "RDPF_3YR_PARTIC_NM_ACT", "RDPF_3YR_PARTIC_DN_ACT");
-			}
-		}
+				yield return new Tuple<string, string, string>("RDPF_1YR_PARTIC_RATING_READ", "RDPF_1YR_PARTIC_PCT_TEST_READ", "RDPF_1YR_PARTIC_DN_READ");
+				yield return new Tuple<string, string, string>("RDPF_1YR_PARTIC_RATING_MATH", "RDPF_1YR_PARTIC_PCT_TEST_MATH", "RDPF_1YR_PARTIC_DN_MATH");
+				yield return new Tuple<string, string, string>("RDPF_1YR_PARTIC_RATING_WRITE", "RDPF_1YR_PARTIC_PCT_TEST_WRITE", "RDPF_1YR_PARTIC_DN_WRITE");
+				yield return new Tuple<string, string, string>("RDPF_1YR_PARTIC_RATING_SCI", "RDPF_1YR_PARTIC_PCT_TEST_SCI", "RDPF_1YR_PARTIC_DN_SCI");
+				yield return new Tuple<string, string, string>("RDPF_1YR_PARTIC_RATING_ACT", "RDPF_1YR_PARTIC_PCT_TEST_ACT", "RDPF_1YR_PARTIC_DN_ACT");
 
-		IEnumerable<Tuple<string, string>> ParticipationRateColumns
-		{
-			get
-			{
-				yield return new Tuple<string, string>("RDPF_1YR_PARTIC_PCT_TEST_READ", "RDPF_1YR_PARTIC_RATING_READ");
-				yield return new Tuple<string, string>("RDPF_1YR_PARTIC_PCT_TEST_MATH", "RDPF_1YR_PARTIC_RATING_MATH");
-				yield return new Tuple<string, string>("RDPF_1YR_PARTIC_PCT_TEST_WRITE", "RDPF_1YR_PARTIC_RATING_WRITE");
-				yield return new Tuple<string, string>("RDPF_1YR_PARTIC_PCT_TEST_SCI", "RDPF_1YR_PARTIC_RATING_SCI");
-				yield return new Tuple<string, string>("RDPF_1YR_PARTIC_PCT_TEST_ACT", "RDPF_1YR_PARTIC_RATING_ACT");
-
-				yield return new Tuple<string, string>("RDPF_3YR_PARTIC_PCT_TEST_READ", "RDPF_3YR_PARTIC_RATING_READ");
-				yield return new Tuple<string, string>("RDPF_3YR_PARTIC_PCT_TEST_MATH", "RDPF_3YR_PARTIC_RATING_MATH");
-				yield return new Tuple<string, string>("RDPF_3YR_PARTIC_PCT_TEST_WRITE", "RDPF_3YR_PARTIC_RATING_WRITE");
-				yield return new Tuple<string, string>("RDPF_3YR_PARTIC_PCT_TEST_SCI", "RDPF_3YR_PARTIC_RATING_SCI");
-				yield return new Tuple<string, string>("RDPF_3YR_PARTIC_PCT_TEST_ACT", "RDPF_3YR_PARTIC_RATING_ACT");
+				yield return new Tuple<string, string, string>("RDPF_3YR_PARTIC_RATING_READ", "RDPF_3YR_PARTIC_PCT_TEST_READ", "RDPF_3YR_PARTIC_DN_READ");
+				yield return new Tuple<string, string, string>("RDPF_3YR_PARTIC_RATING_MATH", "RDPF_3YR_PARTIC_PCT_TEST_MATH", "RDPF_3YR_PARTIC_DN_MATH");
+				yield return new Tuple<string, string, string>("RDPF_3YR_PARTIC_RATING_WRITE", "RDPF_3YR_PARTIC_PCT_TEST_WRITE", "RDPF_3YR_PARTIC_DN_WRITE");
+				yield return new Tuple<string, string, string>("RDPF_3YR_PARTIC_RATING_SCI", "RDPF_3YR_PARTIC_PCT_TEST_SCI", "RDPF_3YR_PARTIC_DN_SCI");
+				yield return new Tuple<string, string, string>("RDPF_3YR_PARTIC_RATING_ACT", "RDPF_3YR_PARTIC_PCT_TEST_ACT", "RDPF_3YR_PARTIC_DN_ACT");
 			}
 		}
 
 		public override void Test(Row row, Errors errors)
 		{
-			AssertRating(row, "RDPF_1YR_TEST_PARTIC_DNM_COUNT", "_1YR_", errors);
-			AssertRating(row, "RDPF_3YR_TEST_PARTIC_DNM_COUNT", "_3YR_", errors);
-
-			ParticipationColumns.ForEach(t => AssertDivide(row, t.Item1, t.Item2, t.Item3, errors));
-
-			ParticipationRateColumns.ForEach(t => AssertRating(row, t.Item2, t.Item1, RatingParticipation, errors));
+			ParticipationRateColumns.ForEach(t => Assert(row, t.Item1, t.Item2, t.Item3, errors));
 		}
-
-		bool AssertRating(Row row, string countColumn, string matcher, Errors errors)
+	
+		bool Assert(Row row, string ratingColumn, string valueColumn, string denominatorColumn, Errors errors)
 		{
-			var valueColumns = ParticipationRateColumns.Select(t => t.Item2).Where(c => c.Contains(matcher));
-			if(AssertDefined(row, countColumn, errors))
+			double value;
+			if(double.TryParse(row[denominatorColumn], out value))
 			{
-				var participationCount = row[countColumn];
-				var expectedParticipationCount = GetParticipationCount(row, valueColumns, errors).ToString();
-				var message = "Sum of Participation columns (" + expectedParticipationCount + ") does not match the value in '" + countColumn + "' (" + participationCount + ")";
-				return AssertTrue(row, participationCount == expectedParticipationCount, message, errors);
+				if(value < 20)
+				{
+					return true;
+				}
+				return AssertRating(row, ratingColumn, valueColumn, RatingParticipation, errors);
 			}
 			return false;
 		}
 
-		int GetParticipationCount(Row row, IEnumerable<string> columns, Errors errors)
+		protected override bool AssertRating(Row row, string ratingColumn, string valueColumn, Func<double, string> ratingLookup, Errors errors, bool passIfBlank = false)
 		{
-			return columns.Where(c => row[c] == DoesNotMeet).Count();
+			if(!Defined(row, ratingColumn, errors) && !Defined(row, valueColumn, errors))
+			{
+				return true;
+			}
+
+			return base.AssertRating(row, ratingColumn, valueColumn, ratingLookup, errors, passIfBlank);
 		}
 
 		string RatingParticipation(double value)
 		{
-			if (value >= 94.45) return Meets;
+			if (value >= 94.5) return Meets;
 			return DoesNotMeet;
 		}
 	}

@@ -78,7 +78,9 @@
     <Compile Include="tests\OfficialDataMatchesOneOrThreeYearData.cs" />
     <Compile Include="tests\OneThreeYearUsedAsOfficial.cs" />
     <Compile Include="tests\OverallRatings.cs" />
+    <Compile Include="tests\ParticipationRateCalculation.cs" />
     <Compile Include="tests\ParticipationRating.cs" />
+    <Compile Include="tests\ParticipationRatingCounter.cs" />
     <Compile Include="tests\PercentOfPoints.cs" />
     <Compile Include="tests\PostSecondaryGraduationRatingsAndDisaggregatedGraduationRateRatings.cs" />
     <Compile Include="tests\PostSecondaryRollup.cs" />
