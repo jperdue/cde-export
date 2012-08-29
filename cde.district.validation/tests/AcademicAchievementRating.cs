@@ -100,14 +100,14 @@ namespace cde.district.validation.tests
 			AssertRating(row, "RDPF_3YR_ACH_PA_PCT_SCI", "RDPF_3YR_ACH_RATING_SCI", GetSci3(), errors);
 		}
 
-		void AssertRating(Row row, string percentColumn, string ratingColumn, Dictionary<string, double[]> cutoffs, Errors errors)
+		bool AssertRating(Row row, string percentColumn, string ratingColumn, Dictionary<string, double[]> cutoffs, Errors errors)
 		{
-			var levelColumn = "RDPF_EMH_CODE";
-			if(AssertDefined(row, levelColumn, errors))
+			if(!Defined(row, percentColumn, errors) && !Defined(row, ratingColumn, errors))
 			{
-				var level = row[levelColumn];
-				AssertRating(row, ratingColumn, percentColumn, v => GetRating(level, v, cutoffs), errors);
+				return true;
 			}
+
+			return AssertRating(row, ratingColumn, percentColumn, v => GetRating(row.Level, v, cutoffs), errors);
 		}
 
 		string GetRating(string level, double value, Dictionary<string, double[]> cutoffs)
