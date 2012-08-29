@@ -73,12 +73,21 @@ namespace cde.district.validation.tests
 
 		protected bool AssertSum(Row row, string resultColumn, IEnumerable<string> partColumns, Errors errors)
 		{
-			if(!AssertDefined(row, new [] { resultColumn }.Concat(partColumns), errors))
+			if(!AssertDefined(row, resultColumn, errors))
 			{
 				return false;
 			}
+
 			var total = double.Parse(row[resultColumn]);
-			var sum = Sum(row, partColumns);
+			var sum = 0.0;
+			foreach(var column in partColumns)
+			{
+				double value;
+				if(double.TryParse(row[column], out value))
+				{
+					sum += value;
+				}
+			}
 
 			var message = resultColumn + "(" + total + ") != " + partColumns.Aggregate((current, next) => current + " + " + next) + "(" + sum + ")";
 			return AssertTrue(row, total.ToString() == sum.ToString(), message, errors);

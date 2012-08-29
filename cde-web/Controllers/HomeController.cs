@@ -25,7 +25,7 @@ namespace cde_web.Controllers
 		{
 			ViewBag.Message = "Results";
 
-			if (file.ContentLength > 0)
+			if (file != null && file.ContentLength > 0)
 			{
 				var results = Test(file.InputStream, Request.Params["testname"]);
 				ViewBag.TotalErrors = results.Sum(r => r.Errors.Count);
@@ -75,7 +75,7 @@ namespace cde_web.Controllers
 		IEnumerable<SelectListItem> GetTests()
 		{
 			yield return new SelectListItem { Selected = true, Text = "All", Value = "All" };
-			foreach(var test in TestRunner.Tests)
+			foreach(var test in TestRunner.Tests.OrderBy(t => t.GetPrettyName()))
 			{
 				yield return new SelectListItem { Text = test.GetPrettyName(), Value = test.GetPrettyName() };
 			}

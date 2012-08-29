@@ -61,6 +61,7 @@
     <Compile Include="tests\AchievementPointsEarnedEqualsPercentOfAchievementPoints.cs" />
     <Compile Include="tests\ACTRateRating.cs" />
     <Compile Include="tests\BaseTest.cs" />
+    <Compile Include="tests\GrowthContentPointsSum.cs" />
     <Compile Include="tests\CoAltExceedNCount.cs" />
     <Compile Include="tests\CoAltOnePercentCapExceed.cs" />
     <Compile Include="tests\CoAltOnePercentExceedsAdjustment.cs" />
