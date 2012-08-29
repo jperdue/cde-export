@@ -30,7 +30,7 @@ namespace cde.district.validation.tests
 
 		void AssertSubtract(Row row, string excdColumn, string panColumn, string pctnColumn, string nexcdColumn, Errors errors)
 		{
-			if (AssertDefined(row, excdColumn, errors) && row[excdColumn].ToLower() == "no")
+			if (row[excdColumn].ToLower() == "yes")
 			{
 				AssertSubtract(row, panColumn, pctnColumn, nexcdColumn, errors);
 			}
