@@ -13,10 +13,12 @@ namespace cde.district.validation.tests
 			{
 				yield return new Tuple<string, string>("RDPF_1YR_PS_GRAD_RATING", "RDPF_1YR_PS_GRAD_BEST_GR");
 				yield return new Tuple<string, string>("RDPF_3YR_PS_GRAD_RATING", "RDPF_3YR_PS_GRAD_BEST_GR");
+
 				yield return new Tuple<string, string>("RDPF_1YR_PS_GRAD_FRL_RATING", "RDPF_1YR_PS_GRAD_FRL_BEST_GR");
 				yield return new Tuple<string, string>("RDPF_1YR_PS_GRAD_MIN_RATING", "RDPF_1YR_PS_GRAD_MIN_BEST_GR");
 				yield return new Tuple<string, string>("RDPF_1YR_PS_GRAD_IEP_RATING", "RDPF_1YR_PS_GRAD_IEP_BEST_GR");
 				yield return new Tuple<string, string>("RDPF_1YR_PS_GRAD_ELL_RATING", "RDPF_1YR_PS_GRAD_ELL_BEST_GR");
+
 				yield return new Tuple<string, string>("RDPF_3YR_PS_GRAD_FRL_RATING", "RDPF_3YR_PS_GRAD_FRL_BEST_GR");
 				yield return new Tuple<string, string>("RDPF_3YR_PS_GRAD_MIN_RATING", "RDPF_3YR_PS_GRAD_MIN_BEST_GR");
 				yield return new Tuple<string, string>("RDPF_3YR_PS_GRAD_IEP_RATING", "RDPF_3YR_PS_GRAD_IEP_BEST_GR");
@@ -27,6 +29,15 @@ namespace cde.district.validation.tests
 		public override void Test(Row row, Errors errors)
 		{
 			Columns.ForEach(t => AssertRating(row, t.Item1, t.Item2, Rating, errors));
+		}
+
+		protected override bool AssertRating(Row row, string ratingColumn, string valueColumn, Func<double, string> ratingLookup, Errors errors, bool passIfBlank = false)
+		{
+			if(!Defined(row, valueColumn, errors) && !Defined(row, valueColumn, errors))
+			{
+				return true;
+			}
+			return base.AssertRating(row, ratingColumn, valueColumn, ratingLookup, errors, passIfBlank);
 		}
 
 		string Rating(double value)
