@@ -11,18 +11,18 @@ namespace cde.district.validation.tests
 		{
 			get
 			{
-				yield return new Tuple<string, string>("RDPF_1YR_PS_GRAD_RATING", "RDPF_1YR_PS_GRAD_BEST_GR");
-				yield return new Tuple<string, string>("RDPF_3YR_PS_GRAD_RATING", "RDPF_3YR_PS_GRAD_BEST_GR");
+				yield return new Tuple<string, string>("1YR_PS_GRAD_RATING", "1YR_PS_GRAD_BEST_GR");
+				yield return new Tuple<string, string>("3YR_PS_GRAD_RATING", "3YR_PS_GRAD_BEST_GR");
 
-				yield return new Tuple<string, string>("RDPF_1YR_PS_GRAD_FRL_RATING", "RDPF_1YR_PS_GRAD_FRL_BEST_GR");
-				yield return new Tuple<string, string>("RDPF_1YR_PS_GRAD_MIN_RATING", "RDPF_1YR_PS_GRAD_MIN_BEST_GR");
-				yield return new Tuple<string, string>("RDPF_1YR_PS_GRAD_IEP_RATING", "RDPF_1YR_PS_GRAD_IEP_BEST_GR");
-				yield return new Tuple<string, string>("RDPF_1YR_PS_GRAD_ELL_RATING", "RDPF_1YR_PS_GRAD_ELL_BEST_GR");
+				yield return new Tuple<string, string>("1YR_PS_GRAD_FRL_RATING", "1YR_PS_GRAD_FRL_BEST_GR");
+				yield return new Tuple<string, string>("1YR_PS_GRAD_MIN_RATING", "1YR_PS_GRAD_MIN_BEST_GR");
+				yield return new Tuple<string, string>("1YR_PS_GRAD_IEP_RATING", "1YR_PS_GRAD_IEP_BEST_GR");
+				yield return new Tuple<string, string>("1YR_PS_GRAD_ELL_RATING", "1YR_PS_GRAD_ELL_BEST_GR");
 
-				yield return new Tuple<string, string>("RDPF_3YR_PS_GRAD_FRL_RATING", "RDPF_3YR_PS_GRAD_FRL_BEST_GR");
-				yield return new Tuple<string, string>("RDPF_3YR_PS_GRAD_MIN_RATING", "RDPF_3YR_PS_GRAD_MIN_BEST_GR");
-				yield return new Tuple<string, string>("RDPF_3YR_PS_GRAD_IEP_RATING", "RDPF_3YR_PS_GRAD_IEP_BEST_GR");
-				yield return new Tuple<string, string>("RDPF_3YR_PS_GRAD_ELL_RATING", "RDPF_3YR_PS_GRAD_ELL_BEST_GR");
+				yield return new Tuple<string, string>("3YR_PS_GRAD_FRL_RATING", "3YR_PS_GRAD_FRL_BEST_GR");
+				yield return new Tuple<string, string>("3YR_PS_GRAD_MIN_RATING", "3YR_PS_GRAD_MIN_BEST_GR");
+				yield return new Tuple<string, string>("3YR_PS_GRAD_IEP_RATING", "3YR_PS_GRAD_IEP_BEST_GR");
+				yield return new Tuple<string, string>("3YR_PS_GRAD_ELL_RATING", "3YR_PS_GRAD_ELL_BEST_GR");
 			}
 		}
 

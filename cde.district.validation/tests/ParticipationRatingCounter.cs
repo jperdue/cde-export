@@ -9,11 +9,11 @@ namespace cde.district.validation.tests
 	{
 		public override void Test(Row row, Errors errors)
 		{
-			var oneYear = new[] { "RDPF_1YR_PARTIC_RATING_READ", "RDPF_1YR_PARTIC_RATING_MATH", "RDPF_1YR_PARTIC_RATING_WRITE", "RDPF_1YR_PARTIC_RATING_SCI", "RDPF_1YR_PARTIC_RATING_ACT" };
-			AssertRating(row, "RDPF_1YR_TEST_PARTIC_DNM_COUNT", oneYear, errors);
+			var oneYear = new[] { "1YR_PARTIC_RATING_READ", "1YR_PARTIC_RATING_MATH", "1YR_PARTIC_RATING_WRITE", "1YR_PARTIC_RATING_SCI", "1YR_PARTIC_RATING_ACT" };
+			AssertRating(row, "1YR_TEST_PARTIC_DNM_COUNT", oneYear, errors);
 
-			var threeYear = new[] { "RDPF_3YR_PARTIC_RATING_READ", "RDPF_3YR_PARTIC_RATING_MATH", "RDPF_3YR_PARTIC_RATING_WRITE", "RDPF_3YR_PARTIC_RATING_SCI", "RDPF_3YR_PARTIC_RATING_ACT" };
-			AssertRating(row, "RDPF_3YR_TEST_PARTIC_DNM_COUNT", threeYear, errors);
+			var threeYear = new[] { "3YR_PARTIC_RATING_READ", "3YR_PARTIC_RATING_MATH", "3YR_PARTIC_RATING_WRITE", "3YR_PARTIC_RATING_SCI", "3YR_PARTIC_RATING_ACT" };
+			AssertRating(row, "3YR_TEST_PARTIC_DNM_COUNT", threeYear, errors);
 		}
 
 		bool AssertRating(Row row, string countColumn, string[] valueColumns, Errors errors)

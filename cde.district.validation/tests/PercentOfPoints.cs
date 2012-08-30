@@ -11,18 +11,18 @@ namespace cde.district.validation.tests
 		{
 			get
 			{				
-				yield return new Tuple<string, string, string>("RDPF_1_3_ACHIEVE_PCT_PTS_EARN", "RDPF_1_3_ACHIEVE_PTS_ELIG", "RDPF_1_3_ACHIEVE_PTS_EARN");
-				yield return new Tuple<string, string, string>("RDPF_1_3_GROWTH_PCT_PTS_EARN", "RDPF_1_3_GROWTH_PTS_ELIG", "RDPF_1_3_GROWTH_PTS_EARN");
-				yield return new Tuple<string, string, string>("RDPF_1_3_GRO_GAPS_PCT_PTS_EARN", "RDPF_1_3_GRO_GAPS_PTS_ELIG", "RDPF_1_3_GRO_GAPS_PTS_EARN");
-				yield return new Tuple<string, string, string>("RDPF_1_3_POST_SEC_PCT_PTS_EARN", "RDPF_1_3_POST_SEC_PTS_ELIG", "RDPF_1_3_POST_SEC_PTS_EARN");
-				yield return new Tuple<string, string, string>("RDPF_1YR_ACHIEVE_PCT_PTS_EARN", "RDPF_1YR_ACHIEVE_PTS_ELIG", "RDPF_1YR_ACHIEVE_PTS_EARN");
-				yield return new Tuple<string, string, string>("RDPF_1YR_GROWTH_PCT_PTS_EARN", "RDPF_1YR_GROWTH_PTS_ELIG", "RDPF_1YR_GROWTH_PTS_EARN");
-				yield return new Tuple<string, string, string>("RDPF_1YR_GRO_GAPS_PCT_PTS_EARN", "RDPF_1YR_GRO_GAPS_PTS_ELIG", "RDPF_1YR_GRO_GAPS_PTS_EARN");
-				yield return new Tuple<string, string, string>("RDPF_1YR_POST_SEC_PCT_PTS_EARN", "RDPF_1YR_POST_SEC_PTS_ELIG", "RDPF_1YR_POST_SEC_PTS_EARN");
-				yield return new Tuple<string, string, string>("RDPF_3YR_ACHIEVE_PCT_PTS_EARN", "RDPF_3YR_ACHIEVE_PTS_ELIG", "RDPF_3YR_ACHIEVE_PTS_EARN");
-				yield return new Tuple<string, string, string>("RDPF_3YR_GROWTH_PCT_PTS_EARN", "RDPF_3YR_GROWTH_PTS_ELIG", "RDPF_3YR_GROWTH_PTS_EARN");
-				yield return new Tuple<string, string, string>("RDPF_3YR_GRO_GAPS_PCT_PTS_EARN", "RDPF_3YR_GRO_GAPS_PTS_ELIG", "RDPF_3YR_GRO_GAPS_PTS_EARN");
-				yield return new Tuple<string, string, string>("RDPF_3YR_POST_SEC_PCT_PTS_EARN", "RDPF_3YR_POST_SEC_PTS_ELIG", "RDPF_3YR_POST_SEC_PTS_EARN");
+				yield return new Tuple<string, string, string>("1_3_ACHIEVE_PCT_PTS_EARN", "1_3_ACHIEVE_PTS_ELIG", "1_3_ACHIEVE_PTS_EARN");
+				yield return new Tuple<string, string, string>("1_3_GROWTH_PCT_PTS_EARN", "1_3_GROWTH_PTS_ELIG", "1_3_GROWTH_PTS_EARN");
+				yield return new Tuple<string, string, string>("1_3_GRO_GAPS_PCT_PTS_EARN", "1_3_GRO_GAPS_PTS_ELIG", "1_3_GRO_GAPS_PTS_EARN");
+				yield return new Tuple<string, string, string>("1_3_POST_SEC_PCT_PTS_EARN", "1_3_POST_SEC_PTS_ELIG", "1_3_POST_SEC_PTS_EARN");
+				yield return new Tuple<string, string, string>("1YR_ACHIEVE_PCT_PTS_EARN", "1YR_ACHIEVE_PTS_ELIG", "1YR_ACHIEVE_PTS_EARN");
+				yield return new Tuple<string, string, string>("1YR_GROWTH_PCT_PTS_EARN", "1YR_GROWTH_PTS_ELIG", "1YR_GROWTH_PTS_EARN");
+				yield return new Tuple<string, string, string>("1YR_GRO_GAPS_PCT_PTS_EARN", "1YR_GRO_GAPS_PTS_ELIG", "1YR_GRO_GAPS_PTS_EARN");
+				yield return new Tuple<string, string, string>("1YR_POST_SEC_PCT_PTS_EARN", "1YR_POST_SEC_PTS_ELIG", "1YR_POST_SEC_PTS_EARN");
+				yield return new Tuple<string, string, string>("3YR_ACHIEVE_PCT_PTS_EARN", "3YR_ACHIEVE_PTS_ELIG", "3YR_ACHIEVE_PTS_EARN");
+				yield return new Tuple<string, string, string>("3YR_GROWTH_PCT_PTS_EARN", "3YR_GROWTH_PTS_ELIG", "3YR_GROWTH_PTS_EARN");
+				yield return new Tuple<string, string, string>("3YR_GRO_GAPS_PCT_PTS_EARN", "3YR_GRO_GAPS_PTS_ELIG", "3YR_GRO_GAPS_PTS_EARN");
+				yield return new Tuple<string, string, string>("3YR_POST_SEC_PCT_PTS_EARN", "3YR_POST_SEC_PTS_ELIG", "3YR_POST_SEC_PTS_EARN");
 			}
 		}
 

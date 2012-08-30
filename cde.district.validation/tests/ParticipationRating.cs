@@ -11,17 +11,17 @@ namespace cde.district.validation.tests
 		{
 			get
 			{
-				yield return new Tuple<string, string, string>("RDPF_1YR_PARTIC_RATING_READ", "RDPF_1YR_PARTIC_PCT_TEST_READ", "RDPF_1YR_PARTIC_DN_READ");
-				yield return new Tuple<string, string, string>("RDPF_1YR_PARTIC_RATING_MATH", "RDPF_1YR_PARTIC_PCT_TEST_MATH", "RDPF_1YR_PARTIC_DN_MATH");
-				yield return new Tuple<string, string, string>("RDPF_1YR_PARTIC_RATING_WRITE", "RDPF_1YR_PARTIC_PCT_TEST_WRITE", "RDPF_1YR_PARTIC_DN_WRITE");
-				yield return new Tuple<string, string, string>("RDPF_1YR_PARTIC_RATING_SCI", "RDPF_1YR_PARTIC_PCT_TEST_SCI", "RDPF_1YR_PARTIC_DN_SCI");
-				yield return new Tuple<string, string, string>("RDPF_1YR_PARTIC_RATING_ACT", "RDPF_1YR_PARTIC_PCT_TEST_ACT", "RDPF_1YR_PARTIC_DN_ACT");
+				yield return new Tuple<string, string, string>("1YR_PARTIC_RATING_READ", "1YR_PARTIC_PCT_TEST_READ", "1YR_PARTIC_DN_READ");
+				yield return new Tuple<string, string, string>("1YR_PARTIC_RATING_MATH", "1YR_PARTIC_PCT_TEST_MATH", "1YR_PARTIC_DN_MATH");
+				yield return new Tuple<string, string, string>("1YR_PARTIC_RATING_WRITE", "1YR_PARTIC_PCT_TEST_WRITE", "1YR_PARTIC_DN_WRITE");
+				yield return new Tuple<string, string, string>("1YR_PARTIC_RATING_SCI", "1YR_PARTIC_PCT_TEST_SCI", "1YR_PARTIC_DN_SCI");
+				yield return new Tuple<string, string, string>("1YR_PARTIC_RATING_ACT", "1YR_PARTIC_PCT_TEST_ACT", "1YR_PARTIC_DN_ACT");
 
-				yield return new Tuple<string, string, string>("RDPF_3YR_PARTIC_RATING_READ", "RDPF_3YR_PARTIC_PCT_TEST_READ", "RDPF_3YR_PARTIC_DN_READ");
-				yield return new Tuple<string, string, string>("RDPF_3YR_PARTIC_RATING_MATH", "RDPF_3YR_PARTIC_PCT_TEST_MATH", "RDPF_3YR_PARTIC_DN_MATH");
-				yield return new Tuple<string, string, string>("RDPF_3YR_PARTIC_RATING_WRITE", "RDPF_3YR_PARTIC_PCT_TEST_WRITE", "RDPF_3YR_PARTIC_DN_WRITE");
-				yield return new Tuple<string, string, string>("RDPF_3YR_PARTIC_RATING_SCI", "RDPF_3YR_PARTIC_PCT_TEST_SCI", "RDPF_3YR_PARTIC_DN_SCI");
-				yield return new Tuple<string, string, string>("RDPF_3YR_PARTIC_RATING_ACT", "RDPF_3YR_PARTIC_PCT_TEST_ACT", "RDPF_3YR_PARTIC_DN_ACT");
+				yield return new Tuple<string, string, string>("3YR_PARTIC_RATING_READ", "3YR_PARTIC_PCT_TEST_READ", "3YR_PARTIC_DN_READ");
+				yield return new Tuple<string, string, string>("3YR_PARTIC_RATING_MATH", "3YR_PARTIC_PCT_TEST_MATH", "3YR_PARTIC_DN_MATH");
+				yield return new Tuple<string, string, string>("3YR_PARTIC_RATING_WRITE", "3YR_PARTIC_PCT_TEST_WRITE", "3YR_PARTIC_DN_WRITE");
+				yield return new Tuple<string, string, string>("3YR_PARTIC_RATING_SCI", "3YR_PARTIC_PCT_TEST_SCI", "3YR_PARTIC_DN_SCI");
+				yield return new Tuple<string, string, string>("3YR_PARTIC_RATING_ACT", "3YR_PARTIC_PCT_TEST_ACT", "3YR_PARTIC_DN_ACT");
 			}
 		}
 

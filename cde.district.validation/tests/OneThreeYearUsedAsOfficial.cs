@@ -9,13 +9,13 @@ namespace cde.district.validation.tests
 	{
 		public override void Test(Row row, Errors errors)
 		{
-			if(AssertDefined(row, new[] { "RDPF_1_3_RATING_YEAR_USED", "RDPF_1YR_INDICATOR_NCOUNT", "RDPF_3YR_INDICATOR_NCOUNT", "RDPF_1YR_TOTAL_PCT_PTS_EARN", "RDPF_3YR_TOTAL_PCT_PTS_EARN" }, errors))
+			if(AssertDefined(row, new[] { "1_3_RATING_YEAR_USED", "1YR_INDICATOR_NCOUNT", "3YR_INDICATOR_NCOUNT", "1YR_TOTAL_PCT_PTS_EARN", "3YR_TOTAL_PCT_PTS_EARN" }, errors))
 			{
-				var ratingYearUsed = row["RDPF_1_3_RATING_YEAR_USED"].ToLower();
-				var oneYearCount = double.Parse(row["RDPF_1YR_INDICATOR_NCOUNT"]);
-				var threeYearCount = double.Parse(row["RDPF_3YR_INDICATOR_NCOUNT"]);
-				var oneYearPercent = double.Parse(row["RDPF_1YR_TOTAL_PCT_PTS_EARN"]);
-				var threeYearPercent = double.Parse(row["RDPF_3YR_TOTAL_PCT_PTS_EARN"]);
+				var ratingYearUsed = row["1_3_RATING_YEAR_USED"].ToLower();
+				var oneYearCount = double.Parse(row["1YR_INDICATOR_NCOUNT"]);
+				var threeYearCount = double.Parse(row["3YR_INDICATOR_NCOUNT"]);
+				var oneYearPercent = double.Parse(row["1YR_TOTAL_PCT_PTS_EARN"]);
+				var threeYearPercent = double.Parse(row["3YR_TOTAL_PCT_PTS_EARN"]);
 
 				if (ratingYearUsed == "1 year")
 				{

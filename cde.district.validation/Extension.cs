@@ -70,7 +70,7 @@ namespace cde.district.validation
 					var row = new Row { LineNumber = counter };
 					for (var i = 0; i < header.Length; i++)
 					{
-						row[header[i]] = parts[i].Replace("\"", "");
+						row[header[i].Replace("RDPF_", "")] = parts[i].Replace("\"", "");
 					}
 					yield return row;
 					counter++;

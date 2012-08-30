@@ -7,10 +7,10 @@ namespace cde.district.validation
 {
 	public class Row : Dictionary<string, string>
 	{
-		const string Year = "RDPF_ACADEMIC_YEAR";
-		const string District = "RDPF_DIST_NUMBER";
-		const string DistrictName = "RDPF_DISTRICT_NAME";
-		const string SchoolLevel = "RDPF_EMH_CODE";
+		const string Year = "ACADEMIC_YEAR";
+		const string District = "DIST_NUMBER";
+		const string DistrictName = "DISTRICT_NAME";
+		const string SchoolLevel = "EMH_CODE";
 
 		public int LineNumber;
 

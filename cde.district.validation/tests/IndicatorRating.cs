@@ -12,34 +12,34 @@ namespace cde.district.validation.tests
 		{
 			get
 			{
-				yield return new Tuple<string, string>("RDPF_1_3_ACHIEVE_RATING", "RDPF_1_3_ACHIEVE_PCT_PTS_EARN");
-				yield return new Tuple<string, string>("RDPF_1_3_GROWTH_RATING", "RDPF_1_3_GROWTH_PCT_PTS_EARN");
-				yield return new Tuple<string, string>("RDPF_1_3_GRO_GAPS_RATING", "RDPF_1_3_GRO_GAPS_PCT_PTS_EARN");
-				yield return new Tuple<string, string>("RDPF_1_3_POST_SEC_RATING", "RDPF_1_3_POST_SEC_PCT_PTS_EARN");
-				yield return new Tuple<string, string>("RDPF_1YR_ACHIEVE_RATING", "RDPF_1YR_ACHIEVE_PCT_PTS_EARN");
-				yield return new Tuple<string, string>("RDPF_1YR_GROWTH_RATING", "RDPF_1YR_GROWTH_PCT_PTS_EARN");
-				yield return new Tuple<string, string>("RDPF_1YR_GRO_GAPS_RATING", "RDPF_1YR_GRO_GAPS_PCT_PTS_EARN");
-				yield return new Tuple<string, string>("RDPF_1YR_POST_SEC_RATING", "RDPF_1YR_POST_SEC_PCT_PTS_EARN");
-				yield return new Tuple<string, string>("RDPF_3YR_ACHIEVE_RATING", "RDPF_3YR_ACHIEVE_PCT_PTS_EARN");
-				yield return new Tuple<string, string>("RDPF_3YR_GROWTH_RATING", "RDPF_3YR_GROWTH_PCT_PTS_EARN");
-				yield return new Tuple<string, string>("RDPF_3YR_GRO_GAPS_RATING", "RDPF_3YR_GRO_GAPS_PCT_PTS_EARN");
-				yield return new Tuple<string, string>("RDPF_3YR_POST_SEC_RATING", "RDPF_3YR_POST_SEC_PCT_PTS_EARN");
-				yield return new Tuple<string, string>("RDPF_1YR_ACH_RATING_TTL", "RDPF_1YR_ACH_PCT_PTS_EARN_TTL");
-				yield return new Tuple<string, string>("RDPF_3YR_ACH_RATING_TTL", "RDPF_3YR_ACH_PCT_PTS_EARN_TTL");
-				yield return new Tuple<string, string>("RDPF_1YR_GRO_RATING_TTL", "RDPF_1YR_GRO_PCT_PTS_EARN_TTL");
-				yield return new Tuple<string, string>("RDPF_3YR_GRO_RATING_TTL", "RDPF_3YR_GRO_PCT_PTS_EARN_TTL");
-				yield return new Tuple<string, string>("RDPF_1YR_GG_RATING_READ", "RDPF_1YR_GG_PCT_PTS_EARN_READ");
-				yield return new Tuple<string, string>("RDPF_3YR_GG_RATING_READ", "RDPF_3YR_GG_PCT_PTS_EARN_READ");
-				yield return new Tuple<string, string>("RDPF_1YR_GG_RATING_MATH", "RDPF_1YR_GG_PCT_PTS_EARN_MATH");
-				yield return new Tuple<string, string>("RDPF_3YR_GG_RATING_MATH", "RDPF_3YR_GG_PCT_PTS_EARN_MATH");
-				yield return new Tuple<string, string>("RDPF_1YR_GG_RATING_WRITE", "RDPF_1YR_GG_PCT_PTS_EARN_WRITE");
-				yield return new Tuple<string, string>("RDPF_3YR_GG_RATING_WRITE", "RDPF_3YR_GG_PCT_PTS_EARN_WRITE");
-				yield return new Tuple<string, string>("RDPF_1YR_GG_RATING_TTL", "RDPF_1YR_GG_PCT_PTS_EARN_TTL");
-				yield return new Tuple<string, string>("RDPF_3YR_GG_RATING_TTL", "RDPF_3YR_GG_PCT_PTS_EARN_TTL");
-				yield return new Tuple<string, string>("RDPF_1YR_PS_GRAD_DSAG_RATING", "RDPF_1YR_PS_GRAD_DSAG_PCT_PTS");
-				yield return new Tuple<string, string>("RDPF_3YR_PS_GRAD_DSAG_RATING", "RDPF_3YR_PS_GRAD_DSAG_PCT_PTS");
-				yield return new Tuple<string, string>("RDPF_1YR_PS_RATING_TTL", "RDPF_1YR_PS_PCT_PTS_EARN_TTL");
-				yield return new Tuple<string, string>("RDPF_3YR_PS_RATING_TTL", "RDPF_3YR_PS_PCT_PTS_EARN_TTL");
+				yield return new Tuple<string, string>("1_3_ACHIEVE_RATING", "1_3_ACHIEVE_PCT_PTS_EARN");
+				yield return new Tuple<string, string>("1_3_GROWTH_RATING", "1_3_GROWTH_PCT_PTS_EARN");
+				yield return new Tuple<string, string>("1_3_GRO_GAPS_RATING", "1_3_GRO_GAPS_PCT_PTS_EARN");
+				yield return new Tuple<string, string>("1_3_POST_SEC_RATING", "1_3_POST_SEC_PCT_PTS_EARN");
+				yield return new Tuple<string, string>("1YR_ACHIEVE_RATING", "1YR_ACHIEVE_PCT_PTS_EARN");
+				yield return new Tuple<string, string>("1YR_GROWTH_RATING", "1YR_GROWTH_PCT_PTS_EARN");
+				yield return new Tuple<string, string>("1YR_GRO_GAPS_RATING", "1YR_GRO_GAPS_PCT_PTS_EARN");
+				yield return new Tuple<string, string>("1YR_POST_SEC_RATING", "1YR_POST_SEC_PCT_PTS_EARN");
+				yield return new Tuple<string, string>("3YR_ACHIEVE_RATING", "3YR_ACHIEVE_PCT_PTS_EARN");
+				yield return new Tuple<string, string>("3YR_GROWTH_RATING", "3YR_GROWTH_PCT_PTS_EARN");
+				yield return new Tuple<string, string>("3YR_GRO_GAPS_RATING", "3YR_GRO_GAPS_PCT_PTS_EARN");
+				yield return new Tuple<string, string>("3YR_POST_SEC_RATING", "3YR_POST_SEC_PCT_PTS_EARN");
+				yield return new Tuple<string, string>("1YR_ACH_RATING_TTL", "1YR_ACH_PCT_PTS_EARN_TTL");
+				yield return new Tuple<string, string>("3YR_ACH_RATING_TTL", "3YR_ACH_PCT_PTS_EARN_TTL");
+				yield return new Tuple<string, string>("1YR_GRO_RATING_TTL", "1YR_GRO_PCT_PTS_EARN_TTL");
+				yield return new Tuple<string, string>("3YR_GRO_RATING_TTL", "3YR_GRO_PCT_PTS_EARN_TTL");
+				yield return new Tuple<string, string>("1YR_GG_RATING_READ", "1YR_GG_PCT_PTS_EARN_READ");
+				yield return new Tuple<string, string>("3YR_GG_RATING_READ", "3YR_GG_PCT_PTS_EARN_READ");
+				yield return new Tuple<string, string>("1YR_GG_RATING_MATH", "1YR_GG_PCT_PTS_EARN_MATH");
+				yield return new Tuple<string, string>("3YR_GG_RATING_MATH", "3YR_GG_PCT_PTS_EARN_MATH");
+				yield return new Tuple<string, string>("1YR_GG_RATING_WRITE", "1YR_GG_PCT_PTS_EARN_WRITE");
+				yield return new Tuple<string, string>("3YR_GG_RATING_WRITE", "3YR_GG_PCT_PTS_EARN_WRITE");
+				yield return new Tuple<string, string>("1YR_GG_RATING_TTL", "1YR_GG_PCT_PTS_EARN_TTL");
+				yield return new Tuple<string, string>("3YR_GG_RATING_TTL", "3YR_GG_PCT_PTS_EARN_TTL");
+				yield return new Tuple<string, string>("1YR_PS_GRAD_DSAG_RATING", "1YR_PS_GRAD_DSAG_PCT_PTS");
+				yield return new Tuple<string, string>("3YR_PS_GRAD_DSAG_RATING", "3YR_PS_GRAD_DSAG_PCT_PTS");
+				yield return new Tuple<string, string>("1YR_PS_RATING_TTL", "1YR_PS_PCT_PTS_EARN_TTL");
+				yield return new Tuple<string, string>("3YR_PS_RATING_TTL", "3YR_PS_PCT_PTS_EARN_TTL");
 			}
 		}
 

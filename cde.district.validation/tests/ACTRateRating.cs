@@ -9,8 +9,8 @@ namespace cde.district.validation.tests
 	{
 		public override void Test(Row row, Errors errors)
 		{
-			AssertRating(row, "RDPF_1YR_PS_ACT_RATING", "RDPF_1YR_PS_ACT_SCORE", Rating1, errors);
-			AssertRating(row, "RDPF_3YR_PS_ACT_RATING", "RDPF_3YR_PS_ACT_SCORE", Rating3, errors);
+			AssertRating(row, "1YR_PS_ACT_RATING", "1YR_PS_ACT_SCORE", Rating1, errors);
+			AssertRating(row, "3YR_PS_ACT_RATING", "3YR_PS_ACT_SCORE", Rating3, errors);
 		}
 
 		protected override bool AssertRating(Row row, string ratingColumn, string valueColumn, Func<double, string> ratingLookup, Errors errors, bool passIfBlank = false)

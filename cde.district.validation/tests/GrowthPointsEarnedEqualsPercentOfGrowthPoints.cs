@@ -9,17 +9,17 @@ namespace cde.district.validation.tests
 	{
 		public override void Test(Row row, Errors errors)
 		{
-			AssertDivide(row, "RDPF_1YR_GRO_PCT_PTS_EARN_TTL", "RDPF_1YR_GRO_PTS_EARN_TTL", "RDPF_1YR_GRO_PTS_ELIG_TTL", errors);
-			AssertDivide(row, "RDPF_3YR_GRO_PCT_PTS_EARN_TTL", "RDPF_3YR_GRO_PTS_EARN_TTL", "RDPF_3YR_GRO_PTS_ELIG_TTL", errors);
+			AssertDivide(row, "1YR_GRO_PCT_PTS_EARN_TTL", "1YR_GRO_PTS_EARN_TTL", "1YR_GRO_PTS_ELIG_TTL", errors);
+			AssertDivide(row, "3YR_GRO_PCT_PTS_EARN_TTL", "3YR_GRO_PTS_EARN_TTL", "3YR_GRO_PTS_ELIG_TTL", errors);
 
-			AssertDivide(row, "RDPF_1YR_GG_PCT_PTS_EARN_READ", "RDPF_1YR_GG_PTS_EARN_READ",  "RDPF_1YR_GG_PTS_ELIG_READ", errors);
-			AssertDivide(row, "RDPF_3YR_GG_PCT_PTS_EARN_READ", "RDPF_3YR_GG_PTS_EARN_READ", "RDPF_3YR_GG_PTS_ELIG_READ", errors);
-			AssertDivide(row, "RDPF_1YR_GG_PCT_PTS_EARN_MATH", "RDPF_1YR_GG_PTS_EARN_MATH", "RDPF_1YR_GG_PTS_ELIG_MATH", errors);
-			AssertDivide(row, "RDPF_3YR_GG_PCT_PTS_EARN_MATH", "RDPF_3YR_GG_PTS_EARN_MATH", "RDPF_3YR_GG_PTS_ELIG_MATH", errors);
-			AssertDivide(row, "RDPF_1YR_GG_PCT_PTS_EARN_WRITE", "RDPF_1YR_GG_PTS_EARN_WRITE", "RDPF_1YR_GG_PTS_ELIG_WRITE", errors);
-			AssertDivide(row, "RDPF_3YR_GG_PCT_PTS_EARN_WRITE", "RDPF_3YR_GG_PTS_EARN_WRITE", "RDPF_3YR_GG_PTS_ELIG_WRITE", errors);
-			AssertDivide(row, "RDPF_1YR_GG_PCT_PTS_EARN_TTL", "RDPF_1YR_GG_PTS_EARN_TTL", "RDPF_1YR_GG_PTS_ELIG_TTL", errors);
-			AssertDivide(row, "RDPF_3YR_GG_PCT_PTS_EARN_TTL", "RDPF_3YR_GG_PTS_EARN_TTL", "RDPF_3YR_GG_PTS_ELIG_TTL", errors);  
+			AssertDivide(row, "1YR_GG_PCT_PTS_EARN_READ", "1YR_GG_PTS_EARN_READ",  "1YR_GG_PTS_ELIG_READ", errors);
+			AssertDivide(row, "3YR_GG_PCT_PTS_EARN_READ", "3YR_GG_PTS_EARN_READ", "3YR_GG_PTS_ELIG_READ", errors);
+			AssertDivide(row, "1YR_GG_PCT_PTS_EARN_MATH", "1YR_GG_PTS_EARN_MATH", "1YR_GG_PTS_ELIG_MATH", errors);
+			AssertDivide(row, "3YR_GG_PCT_PTS_EARN_MATH", "3YR_GG_PTS_EARN_MATH", "3YR_GG_PTS_ELIG_MATH", errors);
+			AssertDivide(row, "1YR_GG_PCT_PTS_EARN_WRITE", "1YR_GG_PTS_EARN_WRITE", "1YR_GG_PTS_ELIG_WRITE", errors);
+			AssertDivide(row, "3YR_GG_PCT_PTS_EARN_WRITE", "3YR_GG_PTS_EARN_WRITE", "3YR_GG_PTS_ELIG_WRITE", errors);
+			AssertDivide(row, "1YR_GG_PCT_PTS_EARN_TTL", "1YR_GG_PTS_EARN_TTL", "1YR_GG_PTS_ELIG_TTL", errors);
+			AssertDivide(row, "3YR_GG_PCT_PTS_EARN_TTL", "3YR_GG_PTS_EARN_TTL", "3YR_GG_PTS_ELIG_TTL", errors);  
 		}
 	}
 }

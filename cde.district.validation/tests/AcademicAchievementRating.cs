@@ -89,15 +89,15 @@ namespace cde.district.validation.tests
 
 		public override void Test(Row row, Errors errors)
 		{
-			AssertRating(row, "RDPF_1YR_ACH_PA_PCT_READ", "RDPF_1YR_ACH_RATING_READ", GetRead1(), errors);
-			AssertRating(row, "RDPF_1YR_ACH_PA_PCT_MATH", "RDPF_1YR_ACH_RATING_MATH", GetMath1(), errors);
-			AssertRating(row, "RDPF_1YR_ACH_PA_PCT_WRITE", "RDPF_1YR_ACH_RATING_WRITE", GetWrite1(), errors);
-			AssertRating(row, "RDPF_1YR_ACH_PA_PCT_SCI", "RDPF_1YR_ACH_RATING_SCI", GetSci1(), errors);
+			AssertRating(row, "1YR_ACH_PA_PCT_READ", "1YR_ACH_RATING_READ", GetRead1(), errors);
+			AssertRating(row, "1YR_ACH_PA_PCT_MATH", "1YR_ACH_RATING_MATH", GetMath1(), errors);
+			AssertRating(row, "1YR_ACH_PA_PCT_WRITE", "1YR_ACH_RATING_WRITE", GetWrite1(), errors);
+			AssertRating(row, "1YR_ACH_PA_PCT_SCI", "1YR_ACH_RATING_SCI", GetSci1(), errors);
 
-			AssertRating(row, "RDPF_3YR_ACH_PA_PCT_READ", "RDPF_3YR_ACH_RATING_READ", GetRead3(), errors);
-			AssertRating(row, "RDPF_3YR_ACH_PA_PCT_MATH", "RDPF_3YR_ACH_RATING_MATH", GetMath3(), errors);
-			AssertRating(row, "RDPF_3YR_ACH_PA_PCT_WRITE", "RDPF_3YR_ACH_RATING_WRITE", GetWrite3(), errors);
-			AssertRating(row, "RDPF_3YR_ACH_PA_PCT_SCI", "RDPF_3YR_ACH_RATING_SCI", GetSci3(), errors);
+			AssertRating(row, "3YR_ACH_PA_PCT_READ", "3YR_ACH_RATING_READ", GetRead3(), errors);
+			AssertRating(row, "3YR_ACH_PA_PCT_MATH", "3YR_ACH_RATING_MATH", GetMath3(), errors);
+			AssertRating(row, "3YR_ACH_PA_PCT_WRITE", "3YR_ACH_RATING_WRITE", GetWrite3(), errors);
+			AssertRating(row, "3YR_ACH_PA_PCT_SCI", "3YR_ACH_RATING_SCI", GetSci3(), errors);
 		}
 
 		bool AssertRating(Row row, string percentColumn, string ratingColumn, Dictionary<string, double[]> cutoffs, Errors errors)

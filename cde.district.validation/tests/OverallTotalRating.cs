@@ -11,7 +11,7 @@ namespace cde.district.validation.tests
 		{
 			get
 			{				
-				yield return new Tuple<string, string>("RDPF_1_3_TOTAL_RATING", "RDPF_1_3_TOTAL_PCT_PTS_EARN");
+				yield return new Tuple<string, string>("1_3_TOTAL_RATING", "1_3_TOTAL_PCT_PTS_EARN");
 			}
 		}
 

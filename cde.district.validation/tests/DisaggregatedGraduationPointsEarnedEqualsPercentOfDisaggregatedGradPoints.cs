@@ -11,8 +11,8 @@ namespace cde.district.validation.tests
 		{
 			get
 			{
-				yield return new Tuple<string, string, string>("RDPF_1YR_PS_GRAD_DSAG_PCT_PTS", "RDPF_1YR_PS_GRAD_DSAG_PTS_EARN", "RDPF_1YR_PS_GRAD_DSAG_PTS_ELIG");
-				yield return new Tuple<string, string, string>("RDPF_3YR_PS_GRAD_DSAG_PCT_PTS", "RDPF_3YR_PS_GRAD_DSAG_PTS_EARN", "RDPF_3YR_PS_GRAD_DSAG_PTS_ELIG");
+				yield return new Tuple<string, string, string>("1YR_PS_GRAD_DSAG_PCT_PTS", "1YR_PS_GRAD_DSAG_PTS_EARN", "1YR_PS_GRAD_DSAG_PTS_ELIG");
+				yield return new Tuple<string, string, string>("3YR_PS_GRAD_DSAG_PCT_PTS", "3YR_PS_GRAD_DSAG_PTS_EARN", "3YR_PS_GRAD_DSAG_PTS_ELIG");
 			}
 		}
 
