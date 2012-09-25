@@ -28,5 +28,7 @@ namespace cde.district.validation
 		{
 			get { return this[SchoolLevel]; }
 		}
+
+		public EDataType Type;
 	}
 }

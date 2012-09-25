@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Differ.cs" />
+    <Compile Include="Enumerations.cs" />
     <Compile Include="Error.cs" />
     <Compile Include="Errors.cs" />
     <Compile Include="Extension.cs" />

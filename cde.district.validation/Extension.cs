@@ -67,10 +67,12 @@ namespace cde.district.validation
 				}
 				else
 				{
-					var row = new Row { LineNumber = counter };
+					var type = header[0].StartsWith("RDPF_") ? EDataType.District : EDataType.School;
+					var row = new Row { LineNumber = counter, Type = type };
 					for (var i = 0; i < header.Length; i++)
 					{
-						row[header[i].Replace("RDPF_", "")] = parts[i].Replace("\"", "");
+						var columnHeader = header[i].Substring(5);
+						row[columnHeader] = parts[i].Replace("\"", "");
 					}
 					yield return row;
 					counter++;
