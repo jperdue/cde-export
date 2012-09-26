@@ -18,16 +18,31 @@ namespace cde.district.validation.tests
 
 		public override void Test(Row row, Errors errors)
 		{
-			Columns.ForEach(t => AssertRating(row, t.Item1, t.Item2, Rating, errors));
+			if (row.Type == EDataType.District)
+			{
+				Columns.ForEach(t => AssertRating(row, t.Item1, t.Item2, RatingDistrict, errors));
+			}
+			else
+			{
+				Columns.ForEach(t => AssertRating(row, t.Item1, t.Item2, RatingSchool, errors));				
+			}
 		}
 
 		protected override bool AssertRating(Row row, string ratingColumn, string valueColumn, Func<double, string> ratingLookup, Errors errors, bool passIfBlank = false)
 		{
-
 			return base.AssertRating(row, ratingColumn, valueColumn, ratingLookup, errors, passIfBlank);
 		}
 
-		string Rating(double value)
+		string RatingDistrict(double value)
+		{
+			if (value < 42.0) return "Accredited with Turnaround Plan";
+			if (value < 52.0) return "Accredited w/Priority Improvement Plan";
+			if (value < 64.0) return "Accredited with Improvement Plan";
+			if (value < 80.0) return "Accredited";
+			return "Accredited with Distinction";
+		}
+
+		string RatingSchool(double value)
 		{
 			if (value < 42.0) return "Accredited with Turnaround Plan";
 			if (value < 52.0) return "Accredited w/Priority Improvement Plan";

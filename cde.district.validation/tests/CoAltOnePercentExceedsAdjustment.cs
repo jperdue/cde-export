@@ -24,6 +24,8 @@ namespace cde.district.validation.tests
 
 		public override void Test(Row row, Errors errors)
 		{
+			if (row.Type == EDataType.School) return;
+
 			Columns.ForEach(t => AssertSubtract(row, t.Item1, t.Item2, t.Item3, errors));
 		}
 

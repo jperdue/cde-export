@@ -17,10 +17,17 @@ namespace cde.district.validation.tests
 
 		public override void Test(Row row, Errors errors)
 		{
-			Columns.ForEach(t => AssertRating(row, t.Item1, t.Item2, Rating, errors));
+			if (row.Type == EDataType.District)
+			{
+				Columns.ForEach(t => AssertRating(row, t.Item1, t.Item2, RatingDistrict, errors));
+			}
+			else
+			{
+				Columns.ForEach(t => AssertRating(row, t.Item1, t.Item2, RatingSchool, errors));				
+			}
 		}
 
-		string Rating(double value)
+		string RatingDistrict(double value)
 		{
 			if (value < 42.0) return "Turnaround";
 			if (value < 52.0) return "Priority Improvement";
@@ -28,5 +35,15 @@ namespace cde.district.validation.tests
 			if (value < 80.0) return "Performance";
 			return "Distinction";
 		}
+
+		string RatingSchool(double value)
+		{
+			if (value < 42.0) return "Turnaround";
+			if (value < 52.0) return "Priority Improvement";
+			if (value < 64.0) return "Improvement";
+			if (value < 80.0) return "Performance";
+			return "Distinction";
+		}
+
 	}
 }

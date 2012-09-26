@@ -5,7 +5,7 @@ using System.Text;
 
 namespace cde.district.validation.tests
 {
-	public class AcademicAchievementRating : BaseTest
+	public class AcademicAchievementRatingSchool : BaseTest
 	{
 		Dictionary<string, double[]> GetRead1()
 		{
@@ -89,6 +89,8 @@ namespace cde.district.validation.tests
 
 		public override void Test(Row row, Errors errors)
 		{
+			if (row.Type == EDataType.District) return;
+
 			AssertRating(row, "1YR_ACH_PA_PCT_READ", "1YR_ACH_RATING_READ", GetRead1(), errors);
 			AssertRating(row, "1YR_ACH_PA_PCT_MATH", "1YR_ACH_RATING_MATH", GetMath1(), errors);
 			AssertRating(row, "1YR_ACH_PA_PCT_WRITE", "1YR_ACH_RATING_WRITE", GetWrite1(), errors);

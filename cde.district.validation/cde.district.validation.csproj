@@ -57,11 +57,12 @@
     <Compile Include="Result.cs" />
     <Compile Include="Row.cs" />
     <Compile Include="tests\AcademicAchievementPointsRollup.cs" />
-    <Compile Include="tests\AcademicAchievementRating.cs" />
+    <Compile Include="tests\AcademicAchievementRatingDistrict.cs" />
     <Compile Include="tests\AcademicGrowthAndGrowthGapsRating.cs" />
     <Compile Include="tests\AchievementPointsEarnedEqualsPercentOfAchievementPoints.cs" />
     <Compile Include="tests\ACTRateRating.cs" />
     <Compile Include="tests\BaseTest.cs" />
+    <Compile Include="tests\AcademicAchievementRatingSchool.cs" />
     <Compile Include="tests\GrowthContentPointsSum.cs" />
     <Compile Include="tests\CoAltExceedNCount.cs" />
     <Compile Include="tests\CoAltOnePercentCapExceed.cs" />
