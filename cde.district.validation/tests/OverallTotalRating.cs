@@ -23,8 +23,18 @@ namespace cde.district.validation.tests
 			}
 			else
 			{
-				Columns.ForEach(t => AssertRating(row, t.Item1, t.Item2, RatingSchool, errors));				
+				Columns.ForEach(t => AssertRating(row, t.Item1, t.Item2, GetSchoolRating(row), errors));				
 			}
+		}
+
+		Func<double, string> GetSchoolRating(Row row)
+		{
+			var level = row.Level;
+			var emhCode = row["INCLUDED_EMH_FOR_A"];
+			if (level == "H") return RatingHighRubric;
+			if (level == "M" || level == "E") return RatingElementaryMiddleRubric;
+			if (emhCode.Contains("H")) return RatingHighRubric;
+			return RatingElementaryMiddleRubric;
 		}
 
 		string RatingDistrict(double value)
@@ -36,14 +46,20 @@ namespace cde.district.validation.tests
 			return "Distinction";
 		}
 
-		string RatingSchool(double value)
+		string RatingElementaryMiddleRubric(double value)
 		{
-			if (value < 42.0) return "Turnaround";
-			if (value < 52.0) return "Priority Improvement";
-			if (value < 64.0) return "Improvement";
-			if (value < 80.0) return "Performance";
-			return "Distinction";
+			if (value < 37.0) return "Turnaround Plan";
+			if (value < 47.0) return "Priority Improvement Plan";
+			if (value < 59.0) return "Improvement Plan";
+			return "Performance Plan";
 		}
 
+		string RatingHighRubric(double value)
+		{
+			if (value < 33.0) return "Turnaround Plan";
+			if (value < 47.0) return "Priority Improvement Plan";
+			if (value < 60.0) return "Improvement Plan";
+			return "Performance Plan";
+		}
 	}
 }
