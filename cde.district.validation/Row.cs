@@ -9,6 +9,7 @@ namespace cde.district.validation
 	{
 		const string Year = "ACADEMIC_YEAR";
 		const string District = "DIST_NUMBER";
+        const string School = "SCHOOL_NUMBER";
 		const string DistrictName = "DISTRICT_NAME";
 		const string SchoolLevel = "EMH_CODE";
 
@@ -16,8 +17,14 @@ namespace cde.district.validation
 
 		public string Name
 		{
-			get { return this[District] + "-" + Level; }
+			get { return Id + "-" + Level; }
 		}
+
+        public string Id
+        {
+            get { return Type == EDataType.District ? this[District] : this[School]; }
+        }
+
 
 		public override string ToString()
 		{
