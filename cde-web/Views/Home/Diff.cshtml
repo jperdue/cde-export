@@ -7,6 +7,12 @@
 <h2>Diff Results</h2>
 
 @foreach (var item in Model) {
+<ul>
+	<li>@item.Title (@item.Errors.Count)</li>
+</ul>
+}
+
+@foreach (var item in Model) {
 <p>
 	<h1>@item.Title</h1><br />
 	@foreach(var error in item.Errors) {

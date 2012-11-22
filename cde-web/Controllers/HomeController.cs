@@ -48,7 +48,7 @@ namespace cde_web.Controllers
 
 				if (file1.ContentLength > 0 && file2.ContentLength > 0)
 				{
-					return View(Diff(file1.InputStream, file2.InputStream));
+					return View(Diff(file1.InputStream, file2.InputStream).ToList());
 				}
 			}
 
