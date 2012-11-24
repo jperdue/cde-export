@@ -71,7 +71,11 @@ namespace cde.district.validation
 					var row = new Row { LineNumber = counter, Type = type };
 					for (var i = 0; i < header.Length; i++)
 					{
-						var columnHeader = header[i].Substring(5);
+                        var columnHeader = header[i];
+                        if (columnHeader.Length > 5)
+                        {
+                            columnHeader = columnHeader.Substring(5);
+                        }
 						row[columnHeader] = parts[i].Replace("\"", "");
 					}
 					yield return row;
