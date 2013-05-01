@@ -22,7 +22,17 @@ namespace cde.district.validation
 
         public string Id
         {
-            get { return Type == EDataType.District ? this[District] : this[School]; }
+            get 
+            {
+                if (Type == EDataType.District)
+                {
+                    return this.ContainsKey(District) ? this[District] : "Unknown District ID";
+                }
+                else 
+                {
+                    return this.ContainsKey(School) ? this[School] : this[District];
+                }
+            }
         }
 
 
