@@ -7,6 +7,8 @@ namespace cde.district.validation.tests
 {
 	public class OverallTotalRating : BaseTest
 	{
+        const string IncludedEMHForA = "INCLUDED_EMH_FOR_A";
+
 		IEnumerable<Tuple<string, string>> Columns
 		{
 			get
@@ -23,7 +25,10 @@ namespace cde.district.validation.tests
 			}
 			else
 			{
-				Columns.ForEach(t => AssertRating(row, t.Item1, t.Item2, GetSchoolRating(row), errors));				
+                if(AssertDefined(row, IncludedEMHForA, errors))
+                {
+    				Columns.ForEach(t => AssertRating(row, t.Item1, t.Item2, GetSchoolRating(row), errors));				
+                }
 			}
 		}
 

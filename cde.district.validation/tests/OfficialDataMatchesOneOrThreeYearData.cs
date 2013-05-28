@@ -59,7 +59,13 @@ namespace cde.district.validation.tests
 
 		public override void Test(Row row, Errors errors)
 		{
-			var columns = row["1_3_RATING_YEAR_USED"].ToLower() == "1 year" ? OneYearColumns : ThreeYearColumns;
+            var column = "1_3_RATING_YEAR_USED";
+            if(!AssertDefined(row, column, errors))
+            {
+                return;
+            }
+
+			var columns = row[column].ToLower() == "1 year" ? OneYearColumns : ThreeYearColumns;
 			AssertMatch(row, columns, errors);
 		}
 

@@ -100,6 +100,11 @@ namespace cde.district.validation.tests
 
 		protected virtual bool AssertDivide(Row row, string resultColumn, string numeratorColumn, string denominatorColumn, Errors errors)
 		{
+            if (!AssertDefined(row, numeratorColumn, errors) || !AssertDefined(row, denominatorColumn, errors))
+            {
+                return false;
+            }
+
 			if((row[numeratorColumn] == "0" || row[denominatorColumn] == "0") && !Defined(row, resultColumn, errors))
 			{
 				return true;
@@ -120,6 +125,11 @@ namespace cde.district.validation.tests
 
 		protected virtual bool AssertRating(Row row, string ratingColumn, string valueColumn, Func<double, String> ratingLookup, Errors errors, bool passIfBlank = false)
 		{
+            if (!AssertDefined(row, ratingColumn, errors) || !AssertDefined(row, ratingColumn, errors))
+            {
+                return false;
+            }
+
 			var ratingDefined = Defined(row, ratingColumn, errors);
 			var valueDefined = Defined(row, valueColumn, errors);
 			if(passIfBlank && !ratingDefined && (!valueDefined || row[valueColumn] == "0"))
@@ -159,6 +169,11 @@ namespace cde.district.validation.tests
 			{
 				return true;
 			}
+
+            if (!AssertDefined(row, column1, errors) || !AssertDefined(row, column2, errors))
+            {
+                return false;
+            }
 
 			var column1Value = row[column1].Trim();
 			var column2Value = row[column2].Trim();

@@ -28,14 +28,21 @@ namespace cde.district.validation
                 {
                     return this.ContainsKey(District) ? this[District] : "Unknown District ID";
                 }
-                else 
+                else if(this.ContainsKey(School))
                 {
-                    return this.ContainsKey(School) ? this[School] : this[District];
+                    return this[School];
+                }
+                else if (this.ContainsKey(District))
+                {
+                    return this[District];
+                }
+                else
+                {
+                    return "Unknown District or School Number";
                 }
             }
         }
-
-
+        
 		public override string ToString()
 		{
 			return Name + " (" + LineNumber + ")";

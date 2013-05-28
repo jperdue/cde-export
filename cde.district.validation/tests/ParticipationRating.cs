@@ -32,6 +32,11 @@ namespace cde.district.validation.tests
 	
 		bool Assert(Row row, string ratingColumn, string valueColumn, string denominatorColumn, Errors errors)
 		{
+            if(!AssertDefined(row, denominatorColumn, errors))
+            {
+                return false;
+            }
+
 			double value;
 			if(double.TryParse(row[denominatorColumn], out value))
 			{

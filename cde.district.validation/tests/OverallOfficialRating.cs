@@ -7,6 +7,8 @@ namespace cde.district.validation.tests
 {
 	public class OverallOfficialRating : BaseTest
 	{
+        const string IncludedEMHForA = "INCLUDED_EMH_FOR_A";
+
 		IEnumerable<Tuple<string, string>> Columns
 		{
 			get
@@ -24,19 +26,22 @@ namespace cde.district.validation.tests
 			}
 			else
 			{
-				Columns.ForEach(t => AssertRating(row, t.Item1, t.Item2, GetSchoolRating(row), errors));				
+                if(AssertDefined(row, IncludedEMHForA, errors))
+                {
+    				Columns.ForEach(t => AssertRating(row, t.Item1, t.Item2, GetSchoolRating(row), errors));
+                }
 			}
 		}
 
 		protected override bool AssertRating(Row row, string ratingColumn, string valueColumn, Func<double, string> ratingLookup, Errors errors, bool passIfBlank = false)
 		{
-			return base.AssertRating(row, ratingColumn, valueColumn, ratingLookup, errors, passIfBlank);
+            return base.AssertRating(row, ratingColumn, valueColumn, ratingLookup, errors, passIfBlank);
 		}
 
 		Func<double, string> GetSchoolRating(Row row)
 		{
 			var level = row.Level;
-			var emhCode = row["INCLUDED_EMH_FOR_A"];
+			var emhCode = row[IncludedEMHForA];
 			if (level == "H") return RatingHighRubric;
 			if (level == "M" || level == "E") return RatingElementaryMiddleRubric;
 			if (emhCode.Contains("H")) return RatingHighRubric;

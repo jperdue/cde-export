@@ -18,6 +18,11 @@ namespace cde.district.validation.tests
 
 		bool AssertRating(Row row, string countColumn, string[] valueColumns, Errors errors)
 		{
+            if(!AssertDefined(row, countColumn, errors))
+            {
+                return false;
+            }
+
 			var participationCount = row[countColumn];
 			var expectedParticipationCount = GetParticipationCount(row, valueColumns).ToString();
 			var message = "Sum of Participation columns (" + expectedParticipationCount + ") does not match the value in '" + countColumn + "' (" + participationCount + ")";
