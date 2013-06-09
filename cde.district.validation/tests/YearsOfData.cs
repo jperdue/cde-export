@@ -16,12 +16,28 @@ namespace cde.district.validation.tests
                 return;
             }
 
-			var oneYear = row["1_3_RATING_YEAR_USED"] == "1 Year" && row["1_3_YEARS_OF_DATA"] == "2011-12";
-			var threeYear = row["1_3_RATING_YEAR_USED"] == "3 Year" && row["1_3_YEARS_OF_DATA"] == "2009-10,2010-11,2011-12";
+            var year = new DateTime().Year;
+            var expectedOneYear = OneYear(year);
+            var expectedThreeYear = ThreeYear(year);
+
+			var oneYear = row["1_3_RATING_YEAR_USED"] == "1 Year" && row["1_3_YEARS_OF_DATA"] == expectedOneYear;
+			var threeYear = row["1_3_RATING_YEAR_USED"] == "3 Year" && row["1_3_YEARS_OF_DATA"] == expectedThreeYear;
 
 			AssertTrue(row, oneYear || threeYear, "1_3_RATING_YEAR_USED", errors);
-			AssertTrue(row, row["1YR_YEARS_OF_DATA"] == "2011-12", "1YR_YEARS_OF_DATA", errors);
-			AssertTrue(row, row["3YR_YEARS_OF_DATA"] == "2009-10,2010-11,2011-12", "3YR_YEARS_OF_DATA", errors);
+			AssertTrue(row, row["1YR_YEARS_OF_DATA"] == expectedOneYear, "1YR_YEARS_OF_DATA", errors);
+			AssertTrue(row, row["3YR_YEARS_OF_DATA"] == expectedThreeYear, "3YR_YEARS_OF_DATA", errors);
 		}
+
+        public string OneYear(int year)
+        {
+            return (year-1).ToString() + "-" + year.ToString().Substring(2);
+        }
+
+        public string ThreeYear(int year)
+        {
+            return OneYear(year - 2) + ","
+                 + OneYear(year - 1) + ","
+                 + OneYear(year);
+        }
 	}
 }
