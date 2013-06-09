@@ -16,7 +16,7 @@ namespace cde.district.validation.tests
                 return;
             }
 
-            var year = new DateTime().Year;
+            var year = DateTime.Now.Year;
             var expectedOneYear = OneYear(year);
             var expectedThreeYear = ThreeYear(year);
 
