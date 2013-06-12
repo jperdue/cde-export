@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,9 +11,9 @@ namespace cde.district.validation.tests
 		{
 			return new Dictionary<string, double[]>
 			{
-				{ "E", new double[] { 49.20, 71.60, 89.10 } },
-				{ "M", new double[] { 50.40, 71.40, 73.30 } },
-				{ "H", new double[] { 54.90, 73.30, 87.20  } }
+				{ "E", new double[] { 49.18, 71.65, 89.10 } },
+				{ "M", new double[] { 50.44, 71.43, 88.24 } },
+				{ "H", new double[] { 54.92, 73.33, 87.23 } }
 			};
 		}
 
@@ -21,9 +21,9 @@ namespace cde.district.validation.tests
 		{
 			return new Dictionary<string, double[]>
 			{
-				{ "E", new double[] { 48.60, 70.90, 89.30 } },
-				{ "M", new double[] { 29.70, 52.50, 75.00 } },
-				{ "H", new double[] { 16.00, 33.50, 54.80 } }
+				{ "E", new double[] { 48.60, 70.89, 89.34 } },
+				{ "M", new double[] { 29.72, 52.48, 75.00 } },
+				{ "H", new double[] { 15.97, 33.52, 54.79 } }
 			};
 		}
 
@@ -31,9 +31,9 @@ namespace cde.district.validation.tests
 		{
 			return new Dictionary<string, double[]>
 			{
-				{ "E", new double[] { 32.50, 53.50, 76.80 } },
-				{ "M", new double[] { 35.00, 57.80, 79.70 } },
-				{ "H", new double[] { 31.00, 50.00, 72.20 } }
+				{ "E", new double[] { 32.48, 53.52, 76.83 } },
+				{ "M", new double[] { 34.95, 57.77, 79.67 } },
+				{ "H", new double[] { 30.96, 50.00, 72.24 } }
 			};
 		}
 
@@ -41,9 +41,9 @@ namespace cde.district.validation.tests
 		{
 			return new Dictionary<string, double[]>
 			{
-				{ "E", new double[] { 19.70, 47.50, 76.00 } },
-				{ "M", new double[] { 23.80, 48.00, 75.10 } },
-				{ "H", new double[] { 25.70, 50.00, 72.40 } }
+				{ "E", new double[] { 19.67, 47.53, 75.96 } },
+				{ "M", new double[] { 23.85, 48.00, 75.11 } },
+				{ "H", new double[] { 27.50, 50.00, 72.41 } }
 			};
 		}
 
@@ -51,9 +51,9 @@ namespace cde.district.validation.tests
 		{
 			return new Dictionary<string, double[]>
 			{
-				{ "E", new double[] { 50.00, 72.00, 88.20 } },
-				{ "M", new double[] { 50.60, 71.40, 87.40 } },
-				{ "H", new double[] { 53.30, 72.20, 86.20 } }
+				{ "E", new double[] { 50.00, 72.05, 88.21 } },
+				{ "M", new double[] { 50.56, 71.35, 87.40 } },
+				{ "H", new double[] { 53.34, 72.21, 86.17 } }
 			};
 		}
 
@@ -61,9 +61,9 @@ namespace cde.district.validation.tests
 		{
 			return new Dictionary<string, double[]>
 			{
-				{ "E", new double[] { 48.70, 70.10, 87.50 } },
-				{ "M", new double[] { 29.70, 51.60, 74.40 } },
-				{ "H", new double[] { 13.50, 30.50, 52.20 } }
+				{ "E", new double[] { 48.73, 70.11, 87.48 } },
+				{ "M", new double[] { 29.69, 51.53, 74.41 } },
+				{ "H", new double[] { 13.49, 30.53, 52.19 } }
 			};
 		}
 
@@ -71,9 +71,9 @@ namespace cde.district.validation.tests
 		{
 			return new Dictionary<string, double[]>
 			{
-				{ "E", new double[] { 32.60, 54.80, 76.50 } },
-				{ "M", new double[] { 36.80, 58.30, 79.20 } },
-				{ "H", new double[] { 30.00, 49.60, 71.00 } }
+				{ "E", new double[] { 32.56, 54.84, 76.51 } },
+				{ "M", new double[] { 36.84, 58.34, 79.17 } },
+				{ "H", new double[] { 30.00, 49.57, 71.00 } }
 			};
 		}
 
@@ -81,9 +81,9 @@ namespace cde.district.validation.tests
 		{
 			return new Dictionary<string, double[]>
 			{
-				{ "E", new double[] { 20.50, 25.00, 27.90 } },
-				{ "M", new double[] { 25.00, 48.70, 71.03 } },
-				{ "H", new double[] { 27.90, 50.00, 71.50 } }
+				{ "E", new double[] { 20.46, 45.36, 72.65 } },
+				{ "M", new double[] { 25.00, 48.72, 71.26 } },
+				{ "H", new double[] { 27.93, 50.00, 71.45 } }
 			};
 		}
 
