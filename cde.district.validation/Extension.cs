@@ -60,6 +60,10 @@ namespace cde.district.validation
 			foreach(var line in lines)
 			{
 				var parts = line.Split('\t');
+                if (parts.Length == 1)
+                {
+                    throw new Exception("Only one column defined (data must be tab separated)");
+                }
 				if(first)
 				{
 					header = line.Split('\t');

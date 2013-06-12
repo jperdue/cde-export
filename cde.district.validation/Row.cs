@@ -5,7 +5,7 @@ using System.Text;
 
 namespace cde.district.validation
 {
-	public class Row : Dictionary<string, string>
+	public class Row : IEnumerable<KeyValuePair<string, string>>
 	{
 		const string Year = "ACADEMIC_YEAR";
 		const string District = "DIST_NUMBER";
@@ -13,7 +13,8 @@ namespace cde.district.validation
 		const string DistrictName = "DISTRICT_NAME";
 		const string SchoolLevel = "EMH_CODE";
 
-		public int LineNumber;
+        private Dictionary<string, string> data = new Dictionary<string, string>();
+        public int LineNumber;
 
 		public string Name
 		{
@@ -53,6 +54,42 @@ namespace cde.district.validation
 			get { return this[SchoolLevel]; }
 		}
 
+        public bool ContainsKey(string key)
+        {
+            return data.ContainsKey(key);
+        }
+
+        public int Count
+        {
+            get { return data.Count; }
+        }
+
+        public string this[string key]
+        {
+            get
+            {
+                if (ContainsKey(key))
+                {
+                    return data[key];
+                }
+                else
+                {
+                    throw new Exception("Key (" + key + ") not found for row: " + Id);
+                }
+            }
+            set { data[key] = value; }
+        }
+
 		public EDataType Type;
-	}
+
+        public IEnumerator<KeyValuePair<string, string>> GetEnumerator()
+        {
+            return data.GetEnumerator();
+        }
+
+        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+    }
 }
