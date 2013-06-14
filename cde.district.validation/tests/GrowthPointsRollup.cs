@@ -14,11 +14,11 @@ namespace cde.district.validation.tests
 				yield return new Tuple<string, string, string>("1YR_GRO_MGP_READ", "1YR_GRO_AGP_READ", "1YR_GRO_MADE_AGP_READ");
 				yield return new Tuple<string, string, string>("1YR_GRO_MGP_MATH", "1YR_GRO_AGP_MATH", "1YR_GRO_MADE_AGP_MATH");
 				yield return new Tuple<string, string, string>("1YR_GRO_MGP_WRITE", "1YR_GRO_AGP_WRITE", "1YR_GRO_MADE_AGP_WRITE");
-				yield return new Tuple<string, string, string>("1YR_GRO_MGP_ELP", "1YR_GRO_AGP_ELP", "1YR_GRO_MADE_AGP_ELP");
+                //yield return new Tuple<string, string, string>("1YR_GRO_MGP_ELP", "1YR_GRO_AGP_ELP", "1YR_GRO_MADE_AGP_ELP");
 				yield return new Tuple<string, string, string>("3YR_GRO_MGP_READ", "3YR_GRO_AGP_READ", "3YR_GRO_MADE_AGP_READ");
 				yield return new Tuple<string, string, string>("3YR_GRO_MGP_MATH", "3YR_GRO_AGP_MATH", "3YR_GRO_MADE_AGP_MATH");
 				yield return new Tuple<string, string, string>("3YR_GRO_MGP_WRITE", "3YR_GRO_AGP_WRITE", "3YR_GRO_MADE_AGP_WRITE");
-				yield return new Tuple<string, string, string>("3YR_GRO_MGP_ELP", "3YR_GRO_AGP_ELP", "3YR_GRO_MADE_AGP_ELP");
+				//yield return new Tuple<string, string, string>("3YR_GRO_MGP_ELP", "3YR_GRO_AGP_ELP", "3YR_GRO_MADE_AGP_ELP");
 				yield return new Tuple<string, string, string>("1YR_GG_FRL_MGP_READ", "1YR_GG_FRL_AGP_READ", "1YR_GG_FRL_MADE_AGP_READ");
 				yield return new Tuple<string, string, string>("1YR_GG_MIN_MGP_READ", "1YR_GG_MIN_AGP_READ", "1YR_GG_MIN_MADE_AGP_READ");
 				yield return new Tuple<string, string, string>("1YR_GG_DIS_MGP_READ", "1YR_GG_DIS_AGP_READ", "1YR_GG_DIS_MADE_AGP_READ");
