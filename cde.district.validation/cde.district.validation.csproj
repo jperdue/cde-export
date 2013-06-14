@@ -73,6 +73,7 @@
     <Compile Include="tests\GrowthGapsPointsRollup.cs" />
     <Compile Include="tests\GrowthPointsEarnedEqualsPercentOfGrowthPoints.cs" />
     <Compile Include="tests\GrowthPointsRollup.cs" />
+    <Compile Include="tests\IndicatorCount.cs" />
     <Compile Include="tests\IndicatorPercentOfPointsEarnedMatchSummaryPercentOfPoints.cs" />
     <Compile Include="tests\IndicatorRating.cs" />
     <Compile Include="TestRunner.cs" />

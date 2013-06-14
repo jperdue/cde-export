@@ -12,9 +12,13 @@ namespace cde.district.validation.tests
 		IEnumerable<Tuple<string, string>> Columns
 		{
 			get
-			{				
+			{
 				yield return new Tuple<string, string>("1_3_TOTAL_RATING", "1_3_TOTAL_PCT_PTS_EARN");
-			}
+                yield return new Tuple<string, string>("1YR_TOTAL_RATING", "1YR_TOTAL_PCT_PTS_EARN");
+                yield return new Tuple<string, string>("3YR_TOTAL_RATING", "3YR_TOTAL_PCT_PTS_EARN");
+                yield return new Tuple<string, string>("A_TTL_SPF_RATING_CALC", "1_3_TOTAL_PCT_PTS_EARN");
+                yield return new Tuple<string, string>("A_TTL_SPF_RATING_OFFICIAL", "1_3_TOTAL_PCT_PTS_EARN");
+            }
 		}
 
 		public override void Test(Row row, Errors errors)

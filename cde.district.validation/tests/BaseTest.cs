@@ -205,5 +205,18 @@ namespace cde.district.validation.tests
 			}
 			return false;
 		}
+
+        protected bool AssertRating(Row row, string countColumn, string[] valueColumns, Errors errors, Func<Row, IEnumerable<string>, int> getCount)
+        {
+            if (!AssertDefined(row, countColumn, errors))
+            {
+                return false;
+            }
+
+            var count = row[countColumn];
+            var expectedCount = getCount(row, valueColumns).ToString();
+            var message = "Sum of columns (" + expectedCount + ") does not match the value in '" + countColumn + "' (" + count + ")";
+            return AssertTrue(row, count == expectedCount, message, errors);
+        }
 	}
 }
