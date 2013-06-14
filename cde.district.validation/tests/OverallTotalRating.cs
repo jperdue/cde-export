@@ -53,18 +53,18 @@ namespace cde.district.validation.tests
 
 		string RatingElementaryMiddleRubric(double value)
 		{
-			if (value < 37.0) return "Turnaround Plan";
-			if (value < 47.0) return "Priority Improvement Plan";
-			if (value < 59.0) return "Improvement Plan";
-			return "Performance Plan";
+			if (value < 37.0) return "Turnaround";
+			if (value < 47.0) return "Priority Improvement";
+			if (value < 59.0) return "Improvement";
+			return "Performance";
 		}
 
 		string RatingHighRubric(double value)
 		{
-			if (value < 33.0) return "Turnaround Plan";
-			if (value < 47.0) return "Priority Improvement Plan";
-			if (value < 60.0) return "Improvement Plan";
-			return "Performance Plan";
+			if (value < 33.0) return "Turnaround";
+			if (value < 47.0) return "Priority Improvement";
+			if (value < 60.0) return "Improvement";
+			return "Performance";
 		}
 	}
 }
