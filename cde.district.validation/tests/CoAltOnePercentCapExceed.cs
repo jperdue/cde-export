@@ -32,10 +32,15 @@ namespace cde.district.validation.tests
 
 		void AssertGreaterThan(Row row, string panColumn, string pctnColumn, string excdColumn, Errors errors)
 		{
-			if(row[excdColumn].ToLower() == "yes")
+            var excdValue = row[excdColumn].ToLower();
+			if(excdValue == "yes")
 			{
 				AssertGreaterThan(row, panColumn, pctnColumn, errors);
 			}
+            else if (excdValue == "no")
+            {
+                AssertGreaterThan(row, pctnColumn, panColumn, errors);
+            }
 		}
 	}
 }
