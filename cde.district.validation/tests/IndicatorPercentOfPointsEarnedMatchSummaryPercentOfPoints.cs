@@ -18,5 +18,15 @@ namespace cde.district.validation.tests
 			AssertEqual(row, "1YR_POST_SEC_PCT_PTS_EARN", "1YR_PS_PCT_PTS_EARN_TTL", errors);
 			AssertEqual(row, "3YR_POST_SEC_PCT_PTS_EARN", "3YR_PS_PCT_PTS_EARN_TTL", errors);
 		}
+
+        protected override bool AssertEqual(Row row, string column1, string column2, Errors errors)
+        {
+            if (!Defined(row, column1, errors) && !Defined(row, column2, errors))
+            {
+                return true;
+            }
+
+            return base.AssertEqual(row, column1, column2, errors);
+        }
 	}
 }

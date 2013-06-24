@@ -163,7 +163,7 @@ namespace cde.district.validation.tests
 			return false;
 		}
 
-		protected bool AssertEqual(Row row, string column1, string column2, Errors errors)
+		protected virtual bool AssertEqual(Row row, string column1, string column2, Errors errors)
 		{
 			if(Ignore.Column(row, column1) || Ignore.Column(row, column2))
 			{
