@@ -93,6 +93,15 @@ namespace cde.district.validation.tests
 			ElpColumns.ForEach(t => AssertRating(row, t.Item1, t.Item2, GetElpRating, errors, true));
 		}
 
+        protected override bool AssertRating(Row row, string ratingColumn, string valueColumn, Func<double, string> ratingLookup, Errors errors, bool passIfBlank = false)
+        {
+            if (Defined(row, ratingColumn, errors))
+            {
+                return base.AssertRating(row, ratingColumn, valueColumn, ratingLookup, errors, passIfBlank);
+            }
+            return true;
+        }
+
 		string GetRating(double value)
 		{
 			switch((int)value)
