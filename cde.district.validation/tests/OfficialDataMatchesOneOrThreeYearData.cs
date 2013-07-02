@@ -57,6 +57,27 @@ namespace cde.district.validation.tests
 			}
 		}
 
+        HashSet<string> nullAllowed;
+        HashSet<string> NullAllowed
+        {
+            get
+            {
+                if (nullAllowed == null)
+                {
+                    nullAllowed = new HashSet<string>();
+                    nullAllowed.Add("RSPF_1YR_POST_SEC_RATING");
+                    nullAllowed.Add("RSPF_1YR_POST_SEC_PCT_PTS_EARN");
+                    nullAllowed.Add("RSPF_1YR_POST_SEC_PTS_EARN");
+                    nullAllowed.Add("RSPF_1YR_POST_SEC_PTS_ELIG");
+                    nullAllowed.Add("RSPF_3YR_POST_SEC_RATING");
+                    nullAllowed.Add("RSPF_3YR_POST_SEC_PCT_PTS_EARN");
+                    nullAllowed.Add("RSPF_3YR_POST_SEC_PTS_EARN");
+                    nullAllowed.Add("RSPF_3YR_POST_SEC_PTS_ELIG");
+                }
+                return nullAllowed;
+            }
+        }
+
 		public override void Test(Row row, Errors errors)
 		{
             var column = "1_3_RATING_YEAR_USED";
@@ -73,5 +94,15 @@ namespace cde.district.validation.tests
 		{
 			columns.ForEach(t => AssertEqual(row, t.Item1, t.Item2, errors));
 		}
+
+        protected override bool AssertEqual(Row row, string column1, string column2, Errors errors)
+        {
+            if (NullAllowed.Contains(column2) && !Defined(row, column2, errors))
+            {
+                return true;
+            }
+
+            return base.AssertEqual(row, column1, column2, errors);
+        }
 	}
 }
