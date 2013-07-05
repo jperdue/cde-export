@@ -5,7 +5,7 @@ using System.Text;
 
 namespace cde.district.validation.tests
 {
-	public class GrowthPointsRollup : BaseTest
+	public class GrowthMadeAGP : BaseTest
 	{
 		IEnumerable<Tuple<string, string, string>> Columns
 		{
