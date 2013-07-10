@@ -13,6 +13,16 @@ namespace cde.district.validation.tests
 			AssertRating(row, "3YR_PS_DROP_RATING", "3YR_PS_DROP_RATE", Rating3, errors);
 		}
 
+        protected override bool AssertRating(Row row, string ratingColumn, string valueColumn, Func<double, string> ratingLookup, Errors errors, bool passIfBlank = false)
+        {
+            if (!Defined(row, ratingColumn, errors))
+            {
+                return true;
+            }
+
+            return base.AssertRating(row, ratingColumn, valueColumn, ratingLookup, errors, passIfBlank);
+        }
+
 		string Rating1(double value)
 		{
 			if (value <= 1.0) return Exceeds;
