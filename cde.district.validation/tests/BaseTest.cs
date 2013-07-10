@@ -71,7 +71,7 @@ namespace cde.district.validation.tests
 			return !columns.Any(c => !AssertDefined(row, c, errors));
 		}
 
-		protected bool AssertSum(Row row, string resultColumn, IEnumerable<string> partColumns, Errors errors)
+		protected virtual bool AssertSum(Row row, string resultColumn, IEnumerable<string> partColumns, Errors errors)
 		{
 			if(!AssertDefined(row, resultColumn, errors))
 			{
