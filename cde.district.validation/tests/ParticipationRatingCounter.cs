@@ -16,6 +16,16 @@ namespace cde.district.validation.tests
 			AssertRating(row, "3YR_TEST_PARTIC_DNM_COUNT", threeYear, errors, GetParticipationCount);
 		}
 
+        protected override bool AssertRating(Row row, string ratingColumn, string valueColumn, Func<double, string> ratingLookup, Errors errors, bool passIfBlank = false)
+        {
+            if (!Defined(row, ratingColumn, errors))
+            {
+                return true;
+            }
+
+            return base.AssertRating(row, ratingColumn, valueColumn, ratingLookup, errors, passIfBlank);
+        }
+
 		int GetParticipationCount(Row row, IEnumerable<string> columns)
 		{
 			return columns.Where(c => row[c] == DoesNotMeet).Count();
