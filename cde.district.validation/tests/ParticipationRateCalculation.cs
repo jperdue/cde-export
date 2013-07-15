@@ -28,5 +28,15 @@ namespace cde.district.validation.tests
 		{
 			ParticipationColumns.ForEach(t => AssertDivide(row, t.Item1, t.Item2, t.Item3, errors));
 		}
+
+        protected override bool AssertDivide(Row row, string resultColumn, string numeratorColumn, string denominatorColumn, Errors errors)
+        {
+            if (!Defined(row, numeratorColumn, errors))
+            {
+                return true;
+            }
+
+            return base.AssertDivide(row, resultColumn, numeratorColumn, denominatorColumn, errors);
+        }
 	}
 }
