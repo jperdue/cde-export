@@ -24,7 +24,7 @@ namespace cde.district.validation.tests
 
         bool AssertMet(Row row, string countColumn, string ratingColumn, Errors errors)
         {
-            if(!Defined(row, countColumn, errors) &&
+            if(!Defined(row, countColumn, errors) ||
                 !Defined(row, ratingColumn, errors))
             {
                 return true;
