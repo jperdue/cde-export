@@ -25,7 +25,10 @@ namespace cde.district.validation
 				var line = (String)null;
 				while ((line = file.ReadLine()) != null)
 				{
-					yield return line;
+                    if (line.Length > 0)
+                    {
+                        yield return line;
+                    }
 				}
 			}
 		}
@@ -37,7 +40,10 @@ namespace cde.district.validation
 				var line = (String)null;
 				while ((line = file.ReadLine()) != null)
 				{
-					yield return line;
+                    if (line.Length > 0)
+                    {
+                        yield return line;
+                    }
 				}
 			}
 		}

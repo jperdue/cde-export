@@ -74,7 +74,7 @@ namespace cde.district.validation
                 }
                 else
                 {
-                    throw new Exception("Key (" + key + ") not found for row: " + Id);
+                    throw new Exception("Key (" + key + ") not found for row: " + Name);
                 }
             }
             set { data[key] = value; }
