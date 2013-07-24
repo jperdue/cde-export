@@ -39,7 +39,7 @@ namespace cde.district.validation.tests
 			return result;
 		}
 
-		protected bool AssertDefined(Row row, string column, Errors errors)
+		protected virtual bool AssertDefined(Row row, string column, Errors errors)
 		{
 			if(Ignore.Column(row, column))
 			{
