@@ -59,6 +59,11 @@ namespace cde.district.validation.tests
 
 		bool AssertAGP(Row row, string madeAgpColumn, string ratingColumn, string mgpColumn, Errors errors)
 		{
+            if (madeAgpColumn.Contains("GRO_MADE_AGP_ELP") && !Defined(row, madeAgpColumn, errors))
+            {
+                return true;
+            }
+
 			if(!Defined(row, madeAgpColumn, errors) && !Defined(row, ratingColumn, errors) && !Defined(row, mgpColumn, errors))
 			{
 				return true;
