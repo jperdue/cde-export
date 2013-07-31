@@ -15,7 +15,7 @@ namespace cde.district.validation.tests
 			AssertSum(row, "3YR_ACH_PTS_ELIG_TTL", new[] { "3YR_ACH_PTS_ELIG_READ", "3YR_ACH_PTS_ELIG_MATH", "3YR_ACH_PTS_ELIG_WRITE", "3YR_ACH_PTS_ELIG_SCI" }, errors);
 		}
 
-        protected override bool AssertSum(Row row, string resultColumn, IEnumerable<string> partColumns, Errors errors)
+        public override bool AssertSum(Row row, string resultColumn, IEnumerable<string> partColumns, Errors errors)
         {
             if(!Defined(row, resultColumn, errors))
             {

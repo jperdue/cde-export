@@ -27,15 +27,15 @@ namespace cde.district.validation
             {
                 if (Type == EDataType.District)
                 {
-                    return this.ContainsKey(District) ? this[District] : "Unknown District ID";
+                    return data.ContainsKey(District) ? data[District] : "Unknown District ID";
                 }
                 else if(this.ContainsKey(School))
                 {
-                    return this[School];
+                    return data[School];
                 }
                 else if (this.ContainsKey(District))
                 {
-                    return this[District];
+                    return data[District];
                 }
                 else
                 {
@@ -51,7 +51,7 @@ namespace cde.district.validation
 
 		public string Level
 		{
-			get { return this[SchoolLevel]; }
+			get { return data[SchoolLevel]; }
 		}
 
         public bool ContainsKey(string key)
