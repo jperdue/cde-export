@@ -125,7 +125,7 @@ namespace cde.district.validation.tests
 
 		protected virtual bool AssertRating(Row row, string ratingColumn, string valueColumn, Func<double, String> ratingLookup, Errors errors, bool passIfBlank = false)
 		{
-            if (!AssertDefined(row, ratingColumn, errors) || !AssertDefined(row, ratingColumn, errors))
+            if (!AssertDefined(row, ratingColumn, errors))
             {
                 return false;
             }
