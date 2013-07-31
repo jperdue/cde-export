@@ -11,9 +11,9 @@ namespace cde.district.validation.tests
         {
             get
             {
-                yield return new Tuple<string, string>("RDPF_1YR_TEST_PARTIC_DNM_COUNT", "RDPF_1YR_TEST_PARTIC_RATING");
-                yield return new Tuple<string, string>("RDPF_3YR_TEST_PARTIC_DNM_COUNT", "RDPF_3YR_TEST_PARTIC_RATING");
-                yield return new Tuple<string, string>("RDPF_1_3_PARTIC_DNM_COUNT", "RDPF_1_3_PARTIC_RATING");
+                yield return new Tuple<string, string>("1YR_TEST_PARTIC_DNM_COUNT", "1YR_TEST_PARTIC_RATING");
+                yield return new Tuple<string, string>("3YR_TEST_PARTIC_DNM_COUNT", "3YR_TEST_PARTIC_RATING");
+                yield return new Tuple<string, string>("1_3_PARTIC_DNM_COUNT", "1_3_PARTIC_RATING");
             }
         }
 
