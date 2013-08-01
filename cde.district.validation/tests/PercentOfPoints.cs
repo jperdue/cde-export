@@ -43,6 +43,12 @@ namespace cde.district.validation.tests
 				return true;
 			}
 
+            if (!Defined(row, percentPointsColumn, errors) &&
+                (!Defined(row, pointsEligibleColumn, errors) || !Defined(row, pointsEarnedColumn, errors)))
+            {
+                return true;
+            }
+
 			if (AssertDefined(row, new[] { percentPointsColumn, pointsEligibleColumn, pointsEarnedColumn }, errors))
 			{
 				var percentPoints = double.Parse(row[percentPointsColumn]);
