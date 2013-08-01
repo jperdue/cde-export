@@ -65,14 +65,14 @@ namespace cde.district.validation.tests
                 if (nullAllowed == null)
                 {
                     nullAllowed = new HashSet<string>();
-                    nullAllowed.Add("RSPF_1YR_POST_SEC_RATING");
-                    nullAllowed.Add("RSPF_1YR_POST_SEC_PCT_PTS_EARN");
-                    nullAllowed.Add("RSPF_1YR_POST_SEC_PTS_EARN");
-                    nullAllowed.Add("RSPF_1YR_POST_SEC_PTS_ELIG");
-                    nullAllowed.Add("RSPF_3YR_POST_SEC_RATING");
-                    nullAllowed.Add("RSPF_3YR_POST_SEC_PCT_PTS_EARN");
-                    nullAllowed.Add("RSPF_3YR_POST_SEC_PTS_EARN");
-                    nullAllowed.Add("RSPF_3YR_POST_SEC_PTS_ELIG");
+                    nullAllowed.Add("1YR_POST_SEC_RATING");
+                    nullAllowed.Add("1YR_POST_SEC_PCT_PTS_EARN");
+                    nullAllowed.Add("1YR_POST_SEC_PTS_EARN");
+                    nullAllowed.Add("1YR_POST_SEC_PTS_ELIG");
+                    nullAllowed.Add("3YR_POST_SEC_RATING");
+                    nullAllowed.Add("3YR_POST_SEC_PCT_PTS_EARN");
+                    nullAllowed.Add("3YR_POST_SEC_PTS_EARN");
+                    nullAllowed.Add("3YR_POST_SEC_PTS_ELIG");
                 }
                 return nullAllowed;
             }
