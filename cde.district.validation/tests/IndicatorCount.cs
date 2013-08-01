@@ -34,7 +34,7 @@ namespace cde.district.validation.tests
 
         int GetIndicatorCount(Row row, IEnumerable<string> columns)
         {
-            if (row.Level != "H") //E, M, or A
+            if (row.Level == "E" && row.Level == "M")
             {
                 columns = columns.Take(3);
             }
