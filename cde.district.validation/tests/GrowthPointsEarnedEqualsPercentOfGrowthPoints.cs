@@ -27,7 +27,7 @@ namespace cde.district.validation.tests
             if (!Defined(row, resultColumn, errors) &&
                 (!Defined(row, numeratorColumn, errors) || !Defined(row, denominatorColumn, errors)))
             {
-                return true
+                return true;
             }
 
             return base.AssertDivide(row, resultColumn, numeratorColumn, denominatorColumn, errors);
