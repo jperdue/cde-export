@@ -33,6 +33,12 @@ namespace cde.district.validation.tests
 
 		bool CheckPointsEarned(Row row, string percentPointsColumn, string pointsEligibleColumn, string pointsEarnedColumn, Errors errors)
 		{
+            if (!Defined(row, percentPointsColumn, errors) &&
+                (!Defined(row, pointsEligibleColumn, errors) || !Defined(row, pointsEarnedColumn, errors)))
+            {
+                return true;
+            }
+
             if (!AssertDefined(row, pointsEligibleColumn, errors) || !AssertDefined(row, pointsEarnedColumn, errors))
             {
                 return false;
@@ -42,12 +48,6 @@ namespace cde.district.validation.tests
 			{
 				return true;
 			}
-
-            if (!Defined(row, percentPointsColumn, errors) &&
-                (!Defined(row, pointsEligibleColumn, errors) || !Defined(row, pointsEarnedColumn, errors)))
-            {
-                return true;
-            }
 
 			if (AssertDefined(row, new[] { percentPointsColumn, pointsEligibleColumn, pointsEarnedColumn }, errors))
 			{
