@@ -36,6 +36,11 @@ namespace cde.district.validation.tests
                 return true;
             }
 
+            if (row[denominatorColumn] == "0")
+            {
+                return AssertTrue(row, row[resultColumn] == "0", "If denominator is '0', the result must be '0'", errors);
+            }
+
             return base.AssertDivide(row, resultColumn, numeratorColumn, denominatorColumn, errors);
         }
 	}
