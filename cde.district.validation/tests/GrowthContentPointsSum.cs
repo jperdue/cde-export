@@ -14,5 +14,16 @@ namespace cde.district.validation.tests
 			AssertSum(row, "3YR_GRO_PTS_EARN_TTL", new[] { "3YR_GRO_PTS_EARN_ELP", "3YR_GRO_PTS_EARN_READ", "3YR_GRO_PTS_EARN_MATH", "3YR_GRO_PTS_EARN_WRITE" }, errors);
 			AssertSum(row, "3YR_GRO_PTS_ELIG_TTL", new[] { "3YR_GRO_PTS_ELIG_ELP", "3YR_GRO_PTS_ELIG_READ", "3YR_GRO_PTS_ELIG_MATH", "3YR_GRO_PTS_ELIG_WRITE" }, errors);
 		}
+
+        public override bool AssertSum(Row row, string resultColumn, IEnumerable<string> partColumns, Errors errors)
+        {
+            if (!Defined(row, resultColumn, errors) &&
+                partColumns.All(c => !Defined(row, c, errors)))
+            {
+                return true;
+            }
+
+            return base.AssertSum(row, resultColumn, partColumns, errors);
+        }
 	}
 }
