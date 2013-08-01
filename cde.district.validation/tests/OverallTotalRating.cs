@@ -36,6 +36,16 @@ namespace cde.district.validation.tests
 			}
 		}
 
+        protected override bool AssertRating(Row row, string ratingColumn, string valueColumn, Func<double, string> ratingLookup, Errors errors, bool passIfBlank = false)
+        {
+            if (!Defined(row, ratingColumn, errors) && ratingColumn.Contains("_SPF_"))
+            {
+                ratingColumn = ratingColumn.Replace("_SPF_", "_DPF_");
+            }
+
+            return base.AssertRating(row, ratingColumn, valueColumn, ratingLookup, errors, passIfBlank);
+        }
+
 		Func<double, string> GetSchoolRating(Row row)
 		{
 			var level = row.Level;
