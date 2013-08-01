@@ -7,6 +7,22 @@ namespace cde.district.validation.tests
 {
     public class IndicatorCount : BaseTest
     {
+        HashSet<string> countableValues;
+        HashSet<string> CountableValues
+        {
+            get
+            {
+                if (countableValues == null)
+                {
+                    countableValues = new HashSet<string>
+                    {
+                        "Approaching", "Meets", "Does Not Meet", "Exceeds"
+                    };
+                }
+                return countableValues;
+            }
+        }
+
         public override void Test(Row row, Errors errors)
         {
             var oneYear = new[] { "1YR_ACHIEVE_RATING", "1YR_GROWTH_RATING", "1YR_GRO_GAPS_RATING", "1YR_POST_SEC_RATING" };
@@ -18,7 +34,11 @@ namespace cde.district.validation.tests
 
         int GetIndicatorCount(Row row, IEnumerable<string> columns)
         {
-            return columns.Where(c => row[c] == " " || row[c] == "-").Count();
+            if (row.Level != "H") //E, M, or A
+            {
+                columns = columns.Take(3);
+            }
+            return columns.Where(c => CountableValues.Contains(row[c])).Count();
         }
     }
 }
