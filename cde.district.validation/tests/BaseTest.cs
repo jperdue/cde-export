@@ -152,15 +152,25 @@ namespace cde.district.validation.tests
 			return false;
 		}
 
+        protected bool Number(Row row, string numberColumn, out double value)
+        {
+            var numberValue = row[numberColumn];
+            if (double.TryParse(numberValue, out value))
+            {
+                return true;
+            }
+            return false;
+        }
+
 		protected bool AssertNumber(Row row, string numberColumn, out double value, Errors errors)
 		{
-			var numberValue = row[numberColumn];
-			if (double.TryParse(numberValue, out value))
-			{
-				return true;
-			}
-			errors.Add(row, "Value in '" + numberColumn + "' cannot be converted to a number (" + numberValue + ")", GetPrettyName());
-			return false;
+            var result = Number(row, numberColumn, out value);
+            var numberValue = row[numberColumn];
+            if (!result)
+            {
+                errors.Add(row, "Value in '" + numberColumn + "' cannot be converted to a number (" + numberValue + ")", GetPrettyName());
+            }
+            return result;
 		}
 
 		protected virtual bool AssertEqual(Row row, string column1, string column2, Errors errors)

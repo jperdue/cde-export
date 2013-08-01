@@ -48,6 +48,22 @@ namespace cde.district.validation.tests
 			Columns.ForEach(t => AssertRating(row, t.Item1, t.Item2, Rating, errors, true));
 		}
 
+        protected override bool AssertRating(cde.district.validation.Row row, string ratingColumn, string valueColumn, System.Func<double, string> ratingLookup, cde.district.validation.Errors errors, bool passIfBlank = false)
+        {
+            if (!Defined(row, ratingColumn, errors) && !Defined(row, valueColumn, errors))
+            {
+                return true;
+            }
+
+            double value;
+            if (Number(row, valueColumn, out value) && value > 0.0 && !Defined(row, ratingColumn, errors))
+            {
+                return AssertDefined(row, ratingColumn, errors);
+            }
+
+            return base.AssertRating(row, ratingColumn, valueColumn, ratingLookup, errors, passIfBlank);
+        }
+
 		string Rating(double percent)
 		{
 			if (percent < 37.5) return DoesNotMeet;
