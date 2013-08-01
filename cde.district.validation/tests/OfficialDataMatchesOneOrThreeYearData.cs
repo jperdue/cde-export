@@ -97,7 +97,7 @@ namespace cde.district.validation.tests
 
         protected override bool AssertEqual(Row row, string column1, string column2, Errors errors)
         {
-            if (NullAllowed.Contains(column2) && !Defined(row, column2, errors))
+            if (!Defined(row, column2, errors))
             {
                 return true;
             }
