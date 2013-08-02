@@ -58,11 +58,11 @@ namespace cde.district.validation.tests
 
 		string RatingDistrict(double value)
 		{
-			if (value < 42.0) return "Turnaround";
-			if (value < 52.0) return "Priority Improvement";
-			if (value < 64.0) return "Improvement";
-			if (value < 80.0) return "Performance";
-			return "Distinction";
+			if (value < 42.0) return "Accredited with Turnaround Plan";
+			if (value < 52.0) return "Accredited w/Priority Improvement Plan";
+			if (value < 64.0) return "Accredited with Improvement Plan";
+			if (value < 80.0) return "Accredited";
+			return "Accredited with Distinction";
 		}
 
 		string RatingElementaryMiddleRubric(double value)
