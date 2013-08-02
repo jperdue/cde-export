@@ -35,6 +35,11 @@ namespace cde.district.validation.tests
 
         protected override bool AssertRating(Row row, string ratingColumn, string valueColumn, Func<double, string> ratingLookup, Errors errors, bool passIfBlank = false)
         {
+            if (row.Level != "A")
+            {
+                return true;
+            }
+
             if (!Defined(row, ratingColumn, errors) && ratingColumn.Contains("_SPF_"))
             {
                 ratingColumn = ratingColumn.Replace("_SPF_", "_DPF_");
