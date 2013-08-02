@@ -45,11 +45,11 @@ namespace cde.district.validation.tests
             var excdValue = row[excdColumn].ToLower();
 			if(excdValue == "yes")
 			{
-                AssertGreaterOrEqual(row, panColumn, pctnColumn, errors);
+                AssertGreaterThan(row, panColumn, pctnColumn, errors);
 			}
             else if (excdValue == "no")
             {
-                AssertGreaterThan(row, pctnColumn, panColumn, errors);
+                AssertGreaterOrEqual(row, pctnColumn, panColumn, errors);
             }
 		}
 	}
