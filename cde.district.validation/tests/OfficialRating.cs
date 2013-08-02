@@ -40,7 +40,7 @@ namespace cde.district.validation.tests
                 return true;
             }
 
-            if (!Defined(row, ratingColumn, errors) && ratingColumn.Contains("_SPF_"))
+            if (!row.ContainsKey(ratingColumn))
             {
                 ratingColumn = ratingColumn.Replace("_SPF_", "_DPF_");
             }
