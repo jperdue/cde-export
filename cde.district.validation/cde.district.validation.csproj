@@ -63,6 +63,7 @@
     <Compile Include="tests\ACTRateRating.cs" />
     <Compile Include="tests\BaseTest.cs" />
     <Compile Include="tests\AcademicAchievementRatingSchool.cs" />
+    <Compile Include="tests\OverallTotalRating.cs" />
     <Compile Include="tests\GrowthContentPointsSum.cs" />
     <Compile Include="tests\CoAltExceedNCount.cs" />
     <Compile Include="tests\CoAltOnePercentCapExceed.cs" />
@@ -82,7 +83,7 @@
     <Compile Include="tests\OfficialDataMatchesOneOrThreeYearData.cs" />
     <Compile Include="tests\OneThreeYearUsedAsOfficial.cs" />
     <Compile Include="tests\OverallOfficialRating.cs" />
-    <Compile Include="tests\OverallTotalRating.cs" />
+    <Compile Include="tests\OfficialRating.cs" />
     <Compile Include="tests\ParticipationOverallMet.cs" />
     <Compile Include="tests\ParticipationRateCalculation.cs" />
     <Compile Include="tests\ParticipationRating.cs" />
