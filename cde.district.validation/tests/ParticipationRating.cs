@@ -32,6 +32,11 @@ namespace cde.district.validation.tests
 	
 		bool Assert(Row row, string ratingColumn, string valueColumn, string denominatorColumn, Errors errors)
 		{
+            if (row.Level == "A" && denominatorColumn.EndsWith("_DN_ACT"))
+            {
+                return true;
+            }
+
             if(!AssertDefined(row, denominatorColumn, errors))
             {
                 return false;
