@@ -9,6 +9,16 @@ namespace cde.district.validation.tests
 	{
 		public override void Test(Row row, Errors errors)
 		{
+            if (row["1YR_TOTAL_PTS_EARN"] == "0" && row["1YR_TOTAL_PTS_ELIG"] == "0" && !Defined(row, "1YR_TOTAL_PCT_PTS_EARN", errors))
+            {
+                return;
+            }
+
+            if (row["3YR_TOTAL_PTS_EARN"] == "0" && row["3YR_TOTAL_PTS_ELIG"] == "0" && !Defined(row, "3YR_TOTAL_PCT_PTS_EARN", errors))
+            {
+                return;
+            }
+
 			if(AssertDefined(row, new[] { "1_3_RATING_YEAR_USED", "1YR_INDICATOR_NCOUNT", "3YR_INDICATOR_NCOUNT", "1YR_TOTAL_PCT_PTS_EARN", "3YR_TOTAL_PCT_PTS_EARN" }, errors))
 			{
 				var ratingYearUsed = row["1_3_RATING_YEAR_USED"].ToLower();
