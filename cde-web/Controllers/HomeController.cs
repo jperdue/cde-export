@@ -65,12 +65,12 @@ namespace cde_web.Controllers
 			var results = new List<Result>();
 			var runner = new TestRunner();
 			var errors = Extension.GetRows(stream).Select(r => runner.Run(r, testName)).SelectMany(e => e).ToList();
-			foreach (var group in errors.GroupBy(e => e.Message))
+			foreach (var group in errors.GroupBy(e => e.Message).OrderBy(g => g.Key))
 			{
 				results.Add(new Result { Title = group.Key, Errors = group.Select(e => e.Row.ToString() ).ToList()});
 			}
 
-			var testTotals = errors.GroupBy(e => e.TestName).Select(g => new Tuple<string, int>(g.Key, g.Count()));
+			var testTotals = errors.GroupBy(e => e.TestName).OrderBy(g => g.Key).Select(g => new Tuple<string, int>(g.Key, g.Count()));
 			ViewBag.TestTotals = testTotals;
 			return results;
 		}
