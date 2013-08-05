@@ -240,5 +240,10 @@ namespace cde.district.validation.tests
             var message = "Sum of columns (" + expectedCount + ") does not match the value in '" + countColumn + "' (" + count + ")";
             return AssertTrue(row, count == expectedCount, message, errors);
         }
+
+        protected bool IsDivideByZero(Row row, string resultColumn, string numeratorColumn, string denominatorColumn, Errors errors)
+        {
+            return row[numeratorColumn] == "0" && row[denominatorColumn] == "0" && !Defined(row, resultColumn, errors);
+        }
 	}
 }

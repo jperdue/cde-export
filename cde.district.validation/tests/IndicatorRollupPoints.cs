@@ -17,5 +17,15 @@ namespace cde.district.validation.tests
 			AssertDivide(row, "1YR_TOTAL_PCT_PTS_EARN", "1YR_TOTAL_PTS_EARN", "1YR_TOTAL_PTS_ELIG", errors);
 			AssertDivide(row, "3YR_TOTAL_PCT_PTS_EARN", "3YR_TOTAL_PTS_EARN", "3YR_TOTAL_PTS_ELIG", errors);
 		}
+
+        protected override bool AssertDivide(Row row, string resultColumn, string numeratorColumn, string denominatorColumn, Errors errors)
+        {
+            if(IsDivideByZero(row, resultColumn, numeratorColumn, denominatorColumn, errors))
+            {
+                return true;
+            }
+
+            return base.AssertDivide(row, resultColumn, numeratorColumn, denominatorColumn, errors);
+        }
 	}
 }

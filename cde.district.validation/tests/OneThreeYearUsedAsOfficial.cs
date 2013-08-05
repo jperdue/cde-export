@@ -9,12 +9,8 @@ namespace cde.district.validation.tests
 	{
 		public override void Test(Row row, Errors errors)
 		{
-            if (row["1YR_TOTAL_PTS_EARN"] == "0" && row["1YR_TOTAL_PTS_ELIG"] == "0" && !Defined(row, "1YR_TOTAL_PCT_PTS_EARN", errors))
-            {
-                return;
-            }
-
-            if (row["3YR_TOTAL_PTS_EARN"] == "0" && row["3YR_TOTAL_PTS_ELIG"] == "0" && !Defined(row, "3YR_TOTAL_PCT_PTS_EARN", errors))
+            if (IsDivideByZero(row, "1YR_TOTAL_PCT_PTS_EARN", "1YR_TOTAL_PTS_EARN", "1YR_TOTAL_PTS_ELIG", errors) ||
+                IsDivideByZero(row, "3YR_TOTAL_PCT_PTS_EARN", "3YR_TOTAL_PTS_EARN", "3YR_TOTAL_PTS_ELIG", errors))
             {
                 return;
             }
