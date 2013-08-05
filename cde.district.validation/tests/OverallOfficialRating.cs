@@ -37,6 +37,11 @@ namespace cde.district.validation.tests
 		{
             if (row.Type == EDataType.School)
             {
+                if (row.Level != "A")
+                {
+                    return true;
+                }
+
                 ratingColumn = ratingColumn.Replace("_DPF_", "_SPF_");
             }
 
