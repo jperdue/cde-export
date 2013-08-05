@@ -23,9 +23,9 @@ namespace cde.district.validation.tests
 			var oneYear = row["1_3_RATING_YEAR_USED"] == "1 Year" && row["1_3_YEARS_OF_DATA"] == expectedOneYear;
 			var threeYear = row["1_3_RATING_YEAR_USED"] == "3 Year" && row["1_3_YEARS_OF_DATA"] == expectedThreeYear;
 
-			AssertTrue(row, oneYear || threeYear, "1_3_RATING_YEAR_USED", errors);
-			AssertTrue(row, row["1YR_YEARS_OF_DATA"] == expectedOneYear, "1YR_YEARS_OF_DATA", errors);
-			AssertTrue(row, row["3YR_YEARS_OF_DATA"] == expectedThreeYear, "3YR_YEARS_OF_DATA", errors);
+            AssertTrue(row, oneYear || threeYear, "1_3_RATING_YEAR_USED (" + row["1_3_YEARS_OF_DATA"] + ")", errors);
+            AssertTrue(row, row["1YR_YEARS_OF_DATA"] == expectedOneYear, "1YR_YEARS_OF_DATA (" + row["1YR_YEARS_OF_DATA"] + ")", errors);
+            AssertTrue(row, row["3YR_YEARS_OF_DATA"] == expectedThreeYear, "3YR_YEARS_OF_DATA (" + row["3YR_YEARS_OF_DATA"] + ")", errors);
 		}
 
         public string OneYear(int year)
