@@ -35,6 +35,11 @@ namespace cde.district.validation.tests
 
 		protected override bool AssertRating(Row row, string ratingColumn, string valueColumn, Func<double, string> ratingLookup, Errors errors, bool passIfBlank = false)
 		{
+            if (row.Type == EDataType.School)
+            {
+                ratingColumn = ratingColumn.Replace("_DPF_", "_SPF_");
+            }
+
             return base.AssertRating(row, ratingColumn, valueColumn, ratingLookup, errors, passIfBlank);
 		}
 
