@@ -46,15 +46,27 @@ namespace cde.district.validation.tests
 
 		Func<double, string> GetSchoolRating(Row row)
 		{
+            var meetsParticipationRate = !row["_1_3_PARTIC_RATING"].Contains("Not");
 			var level = row.Level;
 			var emhCode = row["INCLUDED_EMH_FOR_A"];
-			if (level == "H") return RatingHighRubric;
-			if (level == "M" || level == "E") return RatingElementaryMiddleRubric;
-			if (emhCode.Contains("H")) return RatingHighRubric;
-			return RatingElementaryMiddleRubric;
+
+            if (meetsParticipationRate)
+            {
+                if (level == "H") return RatingHighRubricMeets;
+                if (level == "M" || level == "E") return RatingElementaryMiddleRubricMeets;
+                if (emhCode.Contains("H")) return RatingHighRubricMeets;
+                return RatingElementaryMiddleRubricMeets;
+            }
+            else
+            {
+                if (level == "H") return RatingHighRubricNotMeets;
+                if (level == "M" || level == "E") return RatingElementaryMiddleRubricNotMeets;
+                if (emhCode.Contains("H")) return RatingHighRubricNotMeets;
+                return RatingElementaryMiddleRubricNotMeets;
+            }
 		}
 
-		string RatingDistrict(double value)
+		string RatingDistrictMeets(double value)
 		{
 			if (value < 42.0) return "Turnaround";
 			if (value < 52.0) return "Priority Improvement";
@@ -63,7 +75,7 @@ namespace cde.district.validation.tests
 			return "Distinction";
 		}
 
-		string RatingElementaryMiddleRubric(double value)
+        string RatingElementaryMiddleRubricMeets(double value)
 		{
 			if (value < 37.0) return "Turnaround";
 			if (value < 47.0) return "Priority Improvement";
@@ -71,12 +83,34 @@ namespace cde.district.validation.tests
 			return "Performance";
 		}
 
-		string RatingHighRubric(double value)
+        string RatingHighRubricMeets(double value)
 		{
 			if (value < 33.0) return "Turnaround";
 			if (value < 47.0) return "Priority Improvement";
 			if (value < 60.0) return "Improvement";
 			return "Performance";
 		}
+
+        string RatingDistrictNotMeets(double value)
+        {
+            if (value < 52.0) return "Turnaround";
+            if (value < 64.0) return "Priority Improvement";
+            if (value < 80.0) return "Improvement";
+            return "Performance";
+        }
+
+        string RatingElementaryMiddleRubricNotMeets(double value)
+        {
+            if (value < 47.0) return "Turnaround";
+            if (value < 59.0) return "Priority Improvement";
+            return "Improvement";
+        }
+
+        string RatingHighRubricNotMeets(double value)
+        {
+            if (value < 47.0) return "Turnaround";
+            if (value < 60.0) return "Priority Improvement";
+            return "Improvement";
+        }
 	}
 }
