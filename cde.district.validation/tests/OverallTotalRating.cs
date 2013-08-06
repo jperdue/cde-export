@@ -9,13 +9,13 @@ namespace cde.district.validation.tests
 	{
         const string IncludedEMHForA = "INCLUDED_EMH_FOR_A";
 
-		IEnumerable<Tuple<string, string>> Columns
+		IEnumerable<Tuple<string, string, string>> Columns
 		{
 			get
 			{
-				yield return new Tuple<string, string>("1_3_TOTAL_RATING", "1_3_TOTAL_PCT_PTS_EARN");
-                yield return new Tuple<string, string>("1YR_TOTAL_RATING", "1YR_TOTAL_PCT_PTS_EARN");
-                yield return new Tuple<string, string>("3YR_TOTAL_RATING", "3YR_TOTAL_PCT_PTS_EARN");
+				yield return new Tuple<string, string, string>("1_3_TOTAL_RATING", "1_3_TOTAL_PCT_PTS_EARN", "1_3_PARTIC_RATING");
+                yield return new Tuple<string, string, string>("1YR_TOTAL_RATING", "1YR_TOTAL_PCT_PTS_EARN", "1YR_TEST_PARTIC_RATING");
+                yield return new Tuple<string, string, string>("3YR_TOTAL_RATING", "3YR_TOTAL_PCT_PTS_EARN", "3YR_TEST_PARTIC_RATING");
             }
 		}
 
@@ -23,26 +23,30 @@ namespace cde.district.validation.tests
 		{
 			if (row.Type == EDataType.District)
 			{
-                Func<double, string> ratingDistrict = null;
-                if (MeetsParticipationRate(row))
-                {
-                    ratingDistrict = RatingDistrictMeets;
-                }
-                else
-                {
-                    ratingDistrict = RatingDistrictNotMeets;
-                }
 
-				Columns.ForEach(t => AssertRating(row, t.Item1, t.Item2, ratingDistrict, errors));
+
+				Columns.ForEach(t => AssertRating(row, t.Item1, t.Item2, RatingDistrict(row, t.Item3), errors));
 			}
 			else
 			{
                 if(AssertDefined(row, IncludedEMHForA, errors))
                 {
-    				Columns.ForEach(t => AssertRating(row, t.Item1, t.Item2, GetSchoolRating(row), errors));				
+    				Columns.ForEach(t => AssertRating(row, t.Item1, t.Item2, GetSchoolRating(row, t.Item3), errors));				
                 }
 			}
 		}
+
+        Func<double, string> RatingDistrict(Row row, string participationColumn)
+        {
+            if (MeetsParticipationRate(row, participationColumn))
+            {
+                return RatingDistrictMeets;
+            }
+            else
+            {
+                return RatingDistrictNotMeets;
+            }
+        }
 
         protected override bool AssertRating(Row row, string ratingColumn, string valueColumn, Func<double, string> ratingLookup, Errors errors, bool passIfBlank = false)
         {
@@ -54,12 +58,12 @@ namespace cde.district.validation.tests
             return base.AssertRating(row, ratingColumn, valueColumn, ratingLookup, errors, passIfBlank);
         }
 
-		Func<double, string> GetSchoolRating(Row row)
+		Func<double, string> GetSchoolRating(Row row, string participationColumn)
 		{
     		var level = row.Level;
 			var emhCode = row["INCLUDED_EMH_FOR_A"];
 
-            if (MeetsParticipationRate(row))
+            if (MeetsParticipationRate(row, participationColumn))
             {
                 if (level == "H") return RatingHighRubricMeets;
                 if (level == "M" || level == "E") return RatingElementaryMiddleRubricMeets;
@@ -75,9 +79,9 @@ namespace cde.district.validation.tests
             }
 		}
 
-        bool MeetsParticipationRate(Row row)
+        bool MeetsParticipationRate(Row row, string participationColumn)
         {
-            return !row["1_3_PARTIC_RATING"].Contains("Not");
+            return !row[participationColumn].Contains("Not");
         }
 
 		string RatingDistrictMeets(double value)
