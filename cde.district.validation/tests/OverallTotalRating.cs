@@ -77,7 +77,7 @@ namespace cde.district.validation.tests
 
         bool MeetsParticipationRate(Row row)
         {
-            return !row["_1_3_PARTIC_RATING"].Contains("Not");
+            return !row["1_3_PARTIC_RATING"].Contains("Not");
         }
 
 		string RatingDistrictMeets(double value)
