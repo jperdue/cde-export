@@ -23,7 +23,17 @@ namespace cde.district.validation.tests
 		{
 			if (row.Type == EDataType.District)
 			{
-				Columns.ForEach(t => AssertRating(row, t.Item1, t.Item2, RatingDistrict, errors));
+                Func<double, string> ratingDistrict = null;
+                if (MeetsParticipationRate(row))
+                {
+                    ratingDistrict = RatingDistrictMeets;
+                }
+                else
+                {
+                    ratingDistrict = RatingDistrictNotMeets;
+                }
+
+				Columns.ForEach(t => AssertRating(row, t.Item1, t.Item2, ratingDistrict, errors));
 			}
 			else
 			{
@@ -46,11 +56,10 @@ namespace cde.district.validation.tests
 
 		Func<double, string> GetSchoolRating(Row row)
 		{
-            var meetsParticipationRate = !row["_1_3_PARTIC_RATING"].Contains("Not");
-			var level = row.Level;
+    		var level = row.Level;
 			var emhCode = row["INCLUDED_EMH_FOR_A"];
 
-            if (meetsParticipationRate)
+            if (MeetsParticipationRate(row))
             {
                 if (level == "H") return RatingHighRubricMeets;
                 if (level == "M" || level == "E") return RatingElementaryMiddleRubricMeets;
@@ -65,6 +74,11 @@ namespace cde.district.validation.tests
                 return RatingElementaryMiddleRubricNotMeets;
             }
 		}
+
+        bool MeetsParticipationRate(Row row)
+        {
+            return !row["_1_3_PARTIC_RATING"].Contains("Not");
+        }
 
 		string RatingDistrictMeets(double value)
 		{
