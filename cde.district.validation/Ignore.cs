@@ -351,8 +351,8 @@ namespace cde.district.validation
 				yield return "1YR_PS_PTS_ELIG_TTL";
 				yield return "1YR_PS_PCT_PTS_EARN_TTL";
 				yield return "1YR_PS_RATING_TTL";
-				yield return "A_TTL_SPF_RATING_CALC";
-				yield return "A_TTL_SPF_RATING_OFFICIAL";
+				//yield return "A_TTL_SPF_RATING_CALC";
+				//yield return "A_TTL_SPF_RATING_OFFICIAL";
 
 				yield return "3YR_ACH_PTS_EARN_READ";
 				yield return "3YR_ACH_PTS_ELIG_READ";
