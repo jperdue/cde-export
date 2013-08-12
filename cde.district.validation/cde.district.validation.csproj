@@ -83,7 +83,6 @@
     <Compile Include="tests\MiddleSchoolGraduationRateData.cs" />
     <Compile Include="tests\OfficialDataMatchesOneOrThreeYearData.cs" />
     <Compile Include="tests\OneThreeYearUsedAsOfficial.cs" />
-    <Compile Include="tests\OverallOfficialRating.cs" />
     <Compile Include="tests\OfficialDistrictRating.cs" />
     <Compile Include="tests\ParticipationOverallMet.cs" />
     <Compile Include="tests\ParticipationRateCalculation.cs" />
