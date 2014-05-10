@@ -9,10 +9,10 @@ namespace cde.district.validation.tests
 	{
 		public override void Test(Row row, Errors errors)
 		{
-			var oneYear = new[] { "1YR_PARTIC_RATING_READ", "1YR_PARTIC_RATING_MATH", "1YR_PARTIC_RATING_WRITE", "1YR_PARTIC_RATING_SCI", "1YR_PARTIC_RATING_ACT" };
+			var oneYear = new[] { "1YR_PARTIC_RATING_READ", "1YR_PARTIC_RATING_MATH", "1YR_PARTIC_RATING_WRITE", "1YR_PARTIC_RATING_SCI", "1YR_PARTIC_RATING_ACT", "1YR_PARTIC_RATING_SOC" };
 			AssertRating(row, "1YR_TEST_PARTIC_DNM_COUNT", oneYear, errors, GetParticipationCount);
 
-			var threeYear = new[] { "3YR_PARTIC_RATING_READ", "3YR_PARTIC_RATING_MATH", "3YR_PARTIC_RATING_WRITE", "3YR_PARTIC_RATING_SCI", "3YR_PARTIC_RATING_ACT" };
+			var threeYear = new[] { "3YR_PARTIC_RATING_READ", "3YR_PARTIC_RATING_MATH", "3YR_PARTIC_RATING_WRITE", "3YR_PARTIC_RATING_SCI", "3YR_PARTIC_RATING_ACT", "3YR_PARTIC_RATING_SOC" };
 			AssertRating(row, "3YR_TEST_PARTIC_DNM_COUNT", threeYear, errors, GetParticipationCount);
 		}
 
