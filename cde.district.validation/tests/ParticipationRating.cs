@@ -16,7 +16,7 @@ namespace cde.district.validation.tests
 				yield return new Tuple<string, string, string>("1YR_PARTIC_RATING_WRITE", "1YR_PARTIC_PCT_TEST_WRITE", "1YR_PARTIC_DN_WRITE");
 				yield return new Tuple<string, string, string>("1YR_PARTIC_RATING_SCI", "1YR_PARTIC_PCT_TEST_SCI", "1YR_PARTIC_DN_SCI");
 				yield return new Tuple<string, string, string>("1YR_PARTIC_RATING_ACT", "1YR_PARTIC_PCT_TEST_ACT", "1YR_PARTIC_DN_ACT");
-                yield return new Tuple<string, string, string("1YR_PARTIC_RATING_SOC", "1YR_PARTIC_PCT_TEST_SOC", "1YR_PARTIC_DN_SOC");
+                yield return new Tuple<string, string, string>("1YR_PARTIC_RATING_SOC", "1YR_PARTIC_PCT_TEST_SOC", "1YR_PARTIC_DN_SOC");
 
 				yield return new Tuple<string, string, string>("3YR_PARTIC_RATING_READ", "3YR_PARTIC_PCT_TEST_READ", "3YR_PARTIC_DN_READ");
 				yield return new Tuple<string, string, string>("3YR_PARTIC_RATING_MATH", "3YR_PARTIC_PCT_TEST_MATH", "3YR_PARTIC_DN_MATH");
