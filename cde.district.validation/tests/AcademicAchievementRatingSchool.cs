@@ -62,7 +62,7 @@ namespace cde.district.validation.tests
 			return new Dictionary<string, double[]>
 			{
 				{ "E", new double[] { 48.73, 70.11, 87.48 } },
-				{ "M", new double[] { 29.69, 51.53, 74.41 } },
+				{ "M", new double[] { 29.69, 51.63, 74.41 } },
 				{ "H", new double[] { 13.49, 30.53, 52.19 } }
 			};
 		}
